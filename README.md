@@ -35,25 +35,25 @@ The application I'm building for this project is, single-palyer reaction time ga
 # [&#8686;](#Top)
 
 ### **Design**
-#### External User's goal's:
+#### **External User's goal's**
 1. Have fun playing game
-#### Site owner's goal's:
+#### **Site owner's goal's**
 1. make a game that you'd enjoy playing yourself.
-#### Functionality Requirements
+#### **Functionality Requirements**
 1. Build a simple single-player reaction time Game.
 1. Increase in complexity over the course of the game.
 1. Provide users with clear explanations on how to play the game.
 1. Provide users with feedback on how they're doing at any stage.
-
-# [&#8686;](#Top)
-   #### **Wireframes**
+#### **Features**
+- 
+-
+-
+-
+#### **Wireframes**
 ![View]()
-# [&#8686;](#Top)# [&#8686;](#Top)
-## ***Features***
 # [&#8686;](#Top)
 ## TESTING
-
-# [&#8686;](#Floral-Fantasy)
+# [&#8686;](#Top)
 ## **Technologies and Frameworks**
 ### **Markup/Scripting/Programming languages**
 - [HTML5](https://en.wikipedia.org/wiki/HTML5) Hypertext Markup Language (HTML)
