@@ -1,59 +1,113 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Top
 
-Welcome USER_NAME,
+## Interactive Test your reaction time Game.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+<!--For assestment - README.md file structure was copied from my first milestone project."-->
+## [View the live project here.](https://raivis80.github.io)
+### Table of contents
 
-## Gitpod Reminders
+1. [Introduction](#Introduction)
+1. [Design](#Design)
+1. [Features](#Features)
+1. [Testing](#Testing)
+1. [Technologies and Frameworks](#Technologies-and-Frameworks)
+   - [Languages Used](#Languages-Used)
+   - [Frameworks, Libraries & Programs Used](#Frameworks,-Libraries-&-Programs-Used)  
+1. [Deployment](#Deployment)
+   - [Deployment on GitHub Pages](#Deploying-on-GitHub-Pages)
+   - [Forking the Repository](#Forking-the-Repository)
+   - [Creating a Clone](#Creating-a-Clone)
+1. [Credits](#Credits)
+   - [Helpfull sites](#Helpfull-sites)
+   - [Images](#Images)
+   - [Acknowledgements](#Acknowledgements)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+# [&#8686;](#Top)
+## ***Introduction***
 
-`python3 -m http.server`
+**JavaScript Test your reaction time Game** 
 
-A blue button should appear to click: _Make Public_,
+This is my second of four Milestone Projects that the developer must complete during Full Stack Web Development Program at The Code Institute. 
 
-Another blue button should appear to click: _Open Browser_.
+The main requirements is to write custom front-end interactive web application, using HTML, CSS and Javascript, JavaScript libraries and/or Application Programming Interfaces (APIs).
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+The application I'm building for this project is, single-palyer reaction time game. Click on objects, that spawn randomly on the screen as quickly as you can. The complexity will increase over the course of the game.
+# [&#8686;](#Top)
 
-A blue button should appear to click: _Make Public_,
+### **Design**
+#### External User's goal's:
+1. Have fun playing game
+#### Site owner's goal's:
+1. make a game that you'd enjoy playing yourself.
+#### Functionality Requirements
+1. Build a simple single-player reaction time Game.
+1. Increase in complexity over the course of the game.
+1. Provide users with clear explanations on how to play the game.
+1. Provide users with feedback on how they're doing at any stage.
 
-Another blue button should appear to click: _Open Browser_.
+# [&#8686;](#Top)
+   #### **Wireframes**
+![View]()
+# [&#8686;](#Top)# [&#8686;](#Top)
+## ***Features***
+# [&#8686;](#Top)
+## TESTING
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+# [&#8686;](#Floral-Fantasy)
+## **Technologies and Frameworks**
+### **Markup/Scripting/Programming languages**
+- [HTML5](https://en.wikipedia.org/wiki/HTML5) Hypertext Markup Language (HTML)
+- [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) Cascading Style Sheets (CSS)
+- [JavaScript](https://www.javascript.com/) Interactive functionality.
 
-To log into the Heroku toolbelt CLI:
+### **Frameworks, Libraries & Programs Used**
+- [Google Fonts:](https://fonts.google.com/) Making the web more beautiful.
+- [Font Awesome:](https://fontawesome.com/) to add icons to the website.
+- [jQuery:](https://jquery.com/) used for interactive functionality.
+- [Git](https://git-scm.com/) Git was used for version control.
+- [GitHub:](https://github.com/) used to store the projects code.
+- [gitpod.io](https://gitpod.io/) gitpod Was used for codding.
+- [VS Code](https://code.visualstudio.com/) gitpod Was used for codding.
+- [Balsamiq:](https://balsamiq.com/) was used to create the wireframes.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+# [&#8686;](#Top)
+## ***Deployment***
+Source: https://docs.github.com/
+### **Deploying on GitHub Pages**
+1. Log into [GitHub](https://github.com/login "Link to GitHub login page") or [create an account](https://github.com/join "Link to GitHub create account page").
+1. Locate the [GitHub Repository](https://github.com/Raivis80/)"Link to GitHub Repo".
+1. In the GitHub repository, navigate to the Settings tab.
+1. From the source section drop-down menu, select the Master Branch.
+1. Upon selection, the page will automatically refresh meaning that the website is now deployed.
+1. Under "GitHub Pages", select the GitHub Pages visibility drop-down menu, then click a visibility.
+1. Now deploy it to GitHub Pages.
+1. To see your published site, under "GitHub Pages", click your site's URL.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidently make it public then you can create a new one with _Regenerate API Key_.
+More Detailed information on GitHub Pages can be found here: [here](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-your-site) "Link to GitHub docs"
+### **Fork A repository**
+A Fork is a coppy of repository allows you to freely experiment with changes without effecting the original project.
+<br>Forking a repository is a simple two-step process.
 
-## Updates Since The Instructional Video
+1. On GitHub, navigate to The [GitHub Repository](https://github.com/Raivis80/)" Link to my Repo".
+1. In the top-right corner of the page, click Fork.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+Detailed Steps for forkig a repository from GitHub can be found here: [here](https://docs.github.com/en/get-started/quickstart/fork-a-repo)
+### **Creating a Clone**
+You can clone reposetory. When you clone repository, you copy repository to your Machine.
+<br>Locate the [GitHub Repository](https://github.com/Raivis80/)"Link to GitHub Repo".
+<br>Steps for cloning a repository from GitHub can be found here: [here](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository) "Link to GitHub docs"
+# [&#8686;](#Top)
+## ***Credits***
+### **Helpfull sites**
+-  [google.com](https://google.com/): Search for anything if stuck.
+-  [stackoverflow.com](https://stackoverflow.com/): Useful website for code tips.
+-  [www.w3schools](https://www.w3schools.com/): Useful website for code tips.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+### **Images** 
+### **Content**
+- The [Font Awesome:](https://fontawesome.com/) icons where used throughout the project.
+### **Acknowledgements**
+- A huge thanks to Owonikoko Oluwaseun, My Mentor for continuous support and inspire me to push myself beyond where I think I can go.
+- Tutor support at Code Institute for their support.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
----
-
-Happy coding!
+# [&#8686;](#Top)
