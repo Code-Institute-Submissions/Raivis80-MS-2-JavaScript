@@ -1,6 +1,6 @@
 # Top
 
-## Interactive Test your reaction time Game.
+## MS-2 JavaScript | Reaction Time Rame.
 
 <!--For assestment - README.md file structure was copied from my first milestone project."-->
 ## [View the live project here.](https://raivis80.github.io)
@@ -25,32 +25,41 @@
 # [&#8686;](#Top)
 ## ***Introduction***
 
-**JavaScript Test your reaction time Game** 
+**Single-player reaction time game** 
 
 This is my second of four Milestone Projects that the developer must complete during Full Stack Web Development Program at The Code Institute. 
 
 The main requirements is to write custom front-end interactive web application, using HTML, CSS and Javascript, JavaScript libraries and/or Application Programming Interfaces (APIs).
 
-The application I'm building for this project is, single-palyer reaction time game. Click on objects, that spawn randomly on the screen as quickly as you can. The complexity will increase over the course of the game.
+The application I'm writing for this project is single-player reaction time game, written mostly in JavaScript. 
+The objective of the game is to click or tap the objects that are spawning randomly on the screen as quickly as you can.
+In order to keep the game challenging, complexity will increase over the course of the game.
 # [&#8686;](#Top)
 
 ### **Design**
 #### **External User's goal's**
-1. Have fun playing game
+1. Have fun playing game.
 #### **Site owner's goal's**
-1. make a game that you'd enjoy playing yourself.
+1. Make a game that is fun to play
 #### **Functionality Requirements**
-1. Build a simple single-player reaction time Game.
+1. Build a simple single-player reaction time game.
 1. Increase in complexity over the course of the game.
-1. Provide users with clear explanations on how to play the game.
-1. Provide users with feedback on how they're doing at any stage.
-#### **Features**
-- 
--
--
--
+1. Object click counter when player clicks on an object and missed object counter. 
+1. Provide player with instructions on how to play the game.
+1. Provide player with feedback on how they're doing at any stage.
+
 #### **Wireframes**
 ![View]()
+#### **Features**
+- Game Navigation
+    -  Player can select difficulty level.  
+- Game Area
+    -  Interactive game area, that is where objects spawn randomly for user to click or tap on. 
+- Game score counter
+    - Enables players to keep track of points when playing a game.
+- Game-level-Up
+    - Gain enough points in the game to enable a player to go up to a higher level.
+
 # [&#8686;](#Top)
 ## TESTING
 # [&#8686;](#Top)
@@ -104,8 +113,6 @@ You can clone reposetory. When you clone repository, you copy repository to your
 -  [www.w3schools](https://www.w3schools.com/): Useful website for code tips.
 
 ### **Images** 
-### **Content**
-- The [Font Awesome:](https://fontawesome.com/) icons where used throughout the project.
 ### **Acknowledgements**
 - A huge thanks to Owonikoko Oluwaseun, My Mentor for continuous support and inspire me to push myself beyond where I think I can go.
 - Tutor support at Code Institute for their support.
