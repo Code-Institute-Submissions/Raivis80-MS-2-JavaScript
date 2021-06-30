@@ -86,20 +86,20 @@ To keep the game challenging, complexity will increase over the course of the ga
     - Create setInterval() function in gameSetup() function.
     - Levels speed variable is passed into the setInterval() function after sellection is made.
 - Lives Remaining
-    - Based on capture and click events, all Unsuccessful clicks and misset on time events will disable one life element (if statement)
+    - Based on capture and click events, all Unsuccessful clicks and missed on time events will disable one life element (if statement)
     - Based on Score counter, every 10 score points will create one life. Enable one life element (if statement).
     or miss click the box on time 
 - Random Number generator
     - Extract Window height and width.
-    - Create random number generator to generate two integers based on screen height and width.
+    - Create random number integer generator
+    - Generate two integers based on screen height and width.
 - In game target objects
-    - I'm targeting HTML div elements in the DOM for game box targets.
+    - Target HTML div elements in the DOM for game box targets.
     - Two random generated integers used for position x and y coardinates to target css position properties for HTML div elements.
 - Click event listeners and capture events.
-    - Create event listeners for game targets that will record on box target successfull
-     on target clicks.
-    - Create event listener for game window to record unsuccessful clicks on box target.
-    - Capture event if user failed clicked target boxes on time.
+    - Create event listeners for game targets that will record successfull clicks.
+    - Create event listener for game window to record unsuccessful clicks.
+    - Capture events on all failed on time click attempts.
 - Game setup
     - Basedd on Level selection. if "EASY", else if "MEDIUM", else if "HARD".
     - Level variable will be passed into setInterval() function within the gameSetup() function and will launch the game.
