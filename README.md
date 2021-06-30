@@ -8,6 +8,11 @@
 
 1. [Introduction](#Introduction)
 1. [Design](#Design)
+    - [External User's goal's](#External-User's-goal's)
+    - [Site owner's goal's](#Site-owner's-goal's)
+    - [Functionality Requirements](#Functionality-Requirements)
+    - [Wireframes](#Wireframes)
+    - [Game design](#Game-design)
 1. [Features](#Features)
 1. [Testing](#Testing)
 1. [Technologies and Frameworks](#Technologies-and-Frameworks)
@@ -33,37 +38,89 @@ The main requirements is to write custom front-end interactive web application, 
 
 In order to manipulate the DOM as much as posible, I'm building a simple JavaScript single-player reaction time game.<br> 
 The objective of the game is to click or tap the objects that are spawning randomly on the screen as quickly as you can.<br>
-In order to keep the game challenging, complexity will increase over the course of the game.
+To keep the game challenging, complexity will increase over the course of the game.
 # [&#8686;](#Top)
 
-### **Design**
-#### **External User's goal's**
+## **Design**
+### **External User's goal's**
 1. Have fun playing game.
-#### **Site owner's goal's**
+### **Site owner's goal's**
 1. Make a game that is fun to play
-#### **Functionality Requirements**
+### **Functionality Requirements**
 1. Build a simple single-player reaction time game.
 1. Increase in complexity over the course of the game.
-1. Object click counter when player clicks on an object and missed object counter. 
+1. Click counter if player clicks or misses the target.
 1. Provide player with instructions on how to play the game.
+1. Integrate feedback form if encountered bugs or glitches.
 1. Provide player with feedback on how they're doing at any stage.
 
-#### **Wireframes**
+### **Game Mechanics**
+1. Game Play
+    - Select dificulty level to start the game.
+    - Click or tap on target objects once they spawn.
+1. Select Level 
+    - Select Dificulty level "Easy", "Medium", "Hard".
+        - "Easy" will select slowest game speed level.
+        - "Medium" will select medium speed level.
+        - "Hard" is the fastest speed level of the three levels. 
+1. Score Counters
+    - Score counter:
+        - Will increase by 1, once player clicks the target.
+    - Missed score counter:
+        - Will increase by 1 if target is not clicked on time or target is missed altogether.
+1. Lives Remaining
+    - The game starts with three lives.
+    - Players will gain life once every 10 score points. 
+    - Maximum three lives can be gained at once.
+    - Player will lose life if target is not clicked on time or target is missed altogether. 
+    - Losing all lives means "game over".
+# [&#8686;](#Top)
+### **Wireframes**
 ![View](project_files/wireframe.jpg)
+# [&#8686;](#Top)
 ![View](project_files/wireframe2.jpg)
-#### **Features**
-- Game Navigation
-    -  Player can select difficulty level. 
-- Game score counter
+# [&#8686;](#Top)
+### **Game design**
+- Select Level
+    - Levels = "Easy" slow speed, "Medium" medium speed or "Hard" fast speed variables created.
+    - Create setInterval() function in gameSetup() function.
+    - Levels speed variable is passed into the setInterval() function after sellection is made.
+- Lives Remaining
+    - Based on capture and click events, all Unsuccessful clicks and misset on time events will disable one life element (if statement)
+    - Based on Score counter, every 10 score points will create one life. Enable one life element (if statement).
+    or miss click the box on time 
+- Random Number generator
+    - Extract Window height and width.
+    - Create random number generator to generate two integers based on screen height and width.
+- In game target objects
+    - I'm targeting HTML div elements in the DOM for game box targets.
+    - Two random generated integers used for position x and y coardinates to target css position properties for HTML div elements.
+- Click event listeners and capture events.
+    - Create event listeners for game targets that will record on box target successfull
+     on target clicks.
+    - Create event listener for game window to record unsuccessful clicks on box target.
+    - Capture event if user failed clicked target boxes on time.
+- Game setup
+    - Basedd on Level selection. if "EASY", else if "MEDIUM", else if "HARD".
+    - Level variable will be passed into setInterval() function within the gameSetup() function and will launch the game.
+
+# [&#8686;](#Top)
+## **Features**
+- Game Window
+    -  Interactive game area, that is where target box objects spawn for user to click or tap on.
+- Select Level
+    - Player can select difficulty level based on speed.
+- Score counter 
     - Enables players to keep track of points when playing a game.
+- Lives Remaining
+    - If you miss box target, you lose one life but once score 10 has been reached, you will gain one life
 - Game-level-Up
     - Gain enough points in the game to enable a player to go up to a higher level.
-- Lives Remaining
-    - If you miss a target you lose one life but once score 10 has been reached, you will gain one life
-- Game Area
-    -  Interactive game area, that is where objects spawn randomly for user to click or tap on. 
+- Contact/Feedback form
+    - For users to be able to send feedback or contact if they incounter any gliches or bugs.
+
 # [&#8686;](#Top)
-## TESTING
+## **TESTING**
 # [&#8686;](#Top)
 ## **Technologies and Frameworks**
 ### **Markup/Scripting/Programming languages**
