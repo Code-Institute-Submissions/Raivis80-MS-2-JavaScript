@@ -50,6 +50,7 @@ In order to keep the game challenging, complexity will increase over the course 
 
 #### **Wireframes**
 ![View](project_files/wireframe.jpg)
+![View](project_files/wireframe2.jpg)
 #### **Features**
 - Game Navigation
     -  Player can select difficulty level.  
