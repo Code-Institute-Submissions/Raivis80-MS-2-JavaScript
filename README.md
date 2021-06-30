@@ -11,8 +11,8 @@
 1. [Features](#Features)
 1. [Testing](#Testing)
 1. [Technologies and Frameworks](#Technologies-and-Frameworks)
-   - [Languages Used](#Languages-Used)
-   - [Frameworks, Libraries & Programs Used](#Frameworks,-Libraries-&-Programs-Used)  
+   - [Markup/Scripting/Programming languages](#Markup/Scripting/Programming-languages)
+   - [Frameworks/Libraries/Programs](#Frameworks/Libraries/Programs)  
 1. [Deployment](#Deployment)
    - [Deployment on GitHub Pages](#Deploying-on-GitHub-Pages)
    - [Forking the Repository](#Forking-the-Repository)
@@ -31,8 +31,8 @@ This is my second of four Milestone Projects that the developer must complete du
 
 The main requirements is to write custom front-end interactive web application, using HTML, CSS and Javascript, JavaScript libraries and/or Application Programming Interfaces (APIs).
 
-The application I'm writing for this project is single-player reaction time game, written mostly in JavaScript. 
-The objective of the game is to click or tap the objects that are spawning randomly on the screen as quickly as you can.
+The application I'm writing for this project is single-player reaction time game, written mostly in JavaScript.<br> 
+The objective of the game is to click or tap the objects that are spawning randomly on the screen as quickly as you can.<br>
 In order to keep the game challenging, complexity will increase over the course of the game.
 # [&#8686;](#Top)
 
@@ -49,7 +49,7 @@ In order to keep the game challenging, complexity will increase over the course 
 1. Provide player with feedback on how they're doing at any stage.
 
 #### **Wireframes**
-![View]()
+![View](project_files/wireframe.jpg)
 #### **Features**
 - Game Navigation
     -  Player can select difficulty level.  
@@ -69,7 +69,7 @@ In order to keep the game challenging, complexity will increase over the course 
 - [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) Cascading Style Sheets (CSS)
 - [JavaScript](https://www.javascript.com/) Interactive functionality.
 
-### **Frameworks, Libraries & Programs Used**
+### **Frameworks/Libraries/Programs**
 - [Google Fonts:](https://fonts.google.com/) Making the web more beautiful.
 - [Font Awesome:](https://fontawesome.com/) to add icons to the website.
 - [jQuery:](https://jquery.com/) used for interactive functionality.
