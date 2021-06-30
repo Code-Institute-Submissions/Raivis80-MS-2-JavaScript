@@ -31,7 +31,7 @@ This is my second of four Milestone Projects that the developer must complete du
 
 The main requirements is to write custom front-end interactive web application, using HTML, CSS and Javascript, JavaScript libraries and/or Application Programming Interfaces (APIs).
 
-The application I'm writing for this project is single-player reaction time game, written mostly in JavaScript.<br> 
+In order to manipulate the DOM as much as posible, I'm building a simple JavaScript single-player reaction time game.<br> 
 The objective of the game is to click or tap the objects that are spawning randomly on the screen as quickly as you can.<br>
 In order to keep the game challenging, complexity will increase over the course of the game.
 # [&#8686;](#Top)
@@ -58,7 +58,7 @@ In order to keep the game challenging, complexity will increase over the course 
     - Enables players to keep track of points when playing a game.
 - Game-level-Up
     - Gain enough points in the game to enable a player to go up to a higher level.
-- Life Remaining
+- Lives Remaining
     - If you miss a target you lose one life but once score 10 has been reached, you will gain one life
 - Game Area
     -  Interactive game area, that is where objects spawn randomly for user to click or tap on. 
