@@ -53,14 +53,15 @@ In order to keep the game challenging, complexity will increase over the course 
 ![View](project_files/wireframe2.jpg)
 #### **Features**
 - Game Navigation
-    -  Player can select difficulty level.  
-- Game Area
-    -  Interactive game area, that is where objects spawn randomly for user to click or tap on. 
+    -  Player can select difficulty level. 
 - Game score counter
     - Enables players to keep track of points when playing a game.
 - Game-level-Up
     - Gain enough points in the game to enable a player to go up to a higher level.
-
+- Life Remaining
+    - If you miss a target you lose one life but once score 10 has been reached, you will gain one life
+- Game Area
+    -  Interactive game area, that is where objects spawn randomly for user to click or tap on. 
 # [&#8686;](#Top)
 ## TESTING
 # [&#8686;](#Top)
