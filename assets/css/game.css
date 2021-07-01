@@ -1,0 +1,20 @@
+.div {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: black;  
+}
+
+.div2 {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: red;  
+}
+
+.div3 {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: indigo;  
+}
