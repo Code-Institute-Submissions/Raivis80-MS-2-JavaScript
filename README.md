@@ -1,6 +1,6 @@
 # Top
 
-## MS-2 JavaScript | Reaction Time Rame.
+## MS-2 JavaScript | Reaction Time Game.
 
 <!--For assestment - README.md file structure was copied from my first milestone project."-->
 ## [View the live project here.](https://raivis80.github.io)
@@ -60,9 +60,9 @@ To keep the game challenging, complexity will increase over the course of the ga
     - Click or tap on target objects once they spawn.
 1. Select Level 
     - Select Dificulty level "Easy", "Medium", "Hard".
-        - "Easy" will select slowest game speed level.
-        - "Medium" will select medium speed level.
-        - "Hard" is the fastest speed level of the three levels. 
+        - "Easy" Start with one target.
+        - "Medium" Start with two targets.
+        - "Hard" Start with three targets. 
 1. Score Counters
     - Score counter:
         - Will increase by 1, once player clicks the target.
@@ -82,9 +82,8 @@ To keep the game challenging, complexity will increase over the course of the ga
 # [&#8686;](#Top)
 ### **Game design**
 - Select Level
-    - Levels = "Easy" slow speed, "Medium" medium speed or "Hard" fast speed variables created.
-    - Create setInterval() function in gameSetup() function.
-    - Levels speed variable is passed into the setInterval() function after sellection is made.
+    - Levels = "Easy" Start with one target, "Medium" start with two targets "Hard" start with three targets.
+    - For level sellection buttons I'm targeting HTML 'p' enements and I have attached click event listener for each game level function.
 - Lives Remaining
     - Based on capture and click events, all Unsuccessful clicks and missed on time events will disable one life element (if statement)
     - Based on Score counter, every 10 score points will create one life. Enable one life element (if statement).
@@ -103,13 +102,16 @@ To keep the game challenging, complexity will increase over the course of the ga
 - Game setup
     - Basedd on Level selection. if "EASY", else if "MEDIUM", else if "HARD".
     - Level variable will be passed into setInterval() function within the gameSetup() function and will launch the game.
+- Game Proggression levels
+    - Speed will increase over course of the game. 
+    - Create setInterval() function pass it into game level sellection once store reached.
 
 # [&#8686;](#Top)
 ## **Features**
 - Game Window
     -  Interactive game area, that is where target box objects spawn for user to click or tap on.
 - Select Level
-    - Player can select difficulty level based on speed.
+    - Player can select difficulty level.
 - Score counter 
     - Enables players to keep track of points when playing a game.
 - Lives Remaining

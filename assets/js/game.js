@@ -12,12 +12,13 @@
 // get div elements 
 let newDiv = document.getElementsByTagName('div');
 
-//---------------------BOX Selector---------------------
-let div1 = newDiv[0];
-let div2 = newDiv[1];
-let div3 = newDiv[2];
+//Game Window-And target-variables
+let gameWindow = newDiv[0];
+let div1 = newDiv[1];
+let div2 = newDiv[2];
+let div3 = newDiv[3];
 
-//---------------------LEVEL Selector---------------------
+// -------------------RANDOM NUMBER GENERATOR------------------
 // getting width and height numbers based on the screen size.
 function getPosition() {
     width = window.innerWidth;
@@ -39,30 +40,27 @@ function getRandom() {
     getPosition();    
     positionYX();
 }
-// create random Object-----------------------------------
+
+// create random Object for individual targets------------
 function randomObject1() {
-    div1.addEventListener('click', randomObject1);
     getRandom()  
     div1.style.left = positionx;
     div1.style.top = positiony;
 }
 
 function randomObject2() {
-    div2.addEventListener('click', randomObject2);
     getRandom()  
     div2.style.left = positionx;
     div2.style.top = positiony;
 }
 
 function randomObject3() {
-    div3.addEventListener('click', randomObject3);
     getRandom()  
     div3.style.left = positionx;
     div3.style.top = positiony;
 }
 
-// Target Objects-----------------------------------------
-
+// Target Objects for each game level
 function gameOne() {
     randomObject1();
 }
@@ -78,20 +76,36 @@ function gameThree() {
     randomObject3();
 }
 
-// Timmer and Timer Reset--------------------------------- 
+// Timmer variables 
 let timer1;
 let timer2;
 let timer3;
 
+//Timer Reset
 function reset() {
     clearInterval(timer1);
     clearInterval(timer2);
     clearInterval(timer3);
 }
 
-// STATR GAME LEVEL sellection------------------------------------------
+// Score counter-------------------------------------------------
 
-let getP = document.getElementsByTagName('p');
+// Target event listermers
+div1.addEventListener('click', randomObject1);
+div2.addEventListener('click', randomObject2);
+div3.addEventListener('click', randomObject3);
+
+// game window event listener
+gameWindow.addEventListener('click', function() {
+    let windowClick = 1;
+    console.log(windowClick);
+});
+
+
+// Game Level sellection------------------------------------------
+
+
+const getP = document.getElementsByTagName('p');
 
 getP[0].addEventListener('click', function() {
     reset();
