@@ -1,7 +1,9 @@
 
 
     
-let gameWindow = document.getElementById('gameWindow');
+const gameWindow = document.getElementById('gameWindow');
+const counterDiv = document.getElementById('score_counter');
+const levelDiv = document.getElementById('select_level');
 
 let width;
 let height;
@@ -13,9 +15,9 @@ let positionx;
 let positiony;
 
 //Game Window-And target-variables
-let target1 = gameWindow.children[0];
-let target2 = gameWindow.children[1];
-let target3 = gameWindow.children[2];
+const target1 = gameWindow.children[0];
+const target2 = gameWindow.children[1];
+const target3 = gameWindow.children[2];
 
 // -------------------RANDOM NUMBER GENERATOR------------------
 // getting width and height numbers based on the screen size.
@@ -89,37 +91,58 @@ function reset() {
 // Score counter-------------------------------------------------
 
 // Target event listermers
-target1.addEventListener('click', randomObject1);
-target2.addEventListener('click', randomObject2);
-target3.addEventListener('click', randomObject3);
+target1.addEventListener('click', function() {
+    score.innerText = 1;
+    console.log('clicked target1');
+});
 
+target2.addEventListener('click', function() {
+    score.innerText = 1;
+    console.log('clicked target2');
+});
+target3.addEventListener('click', function() {
+    score.innerText = 1;
+    console.log('clicked target3');
+});
+
+//Score Counter divs
+let score = counterDiv.children[0];
+let scoreMissed = counterDiv.children[1];
 // game window event listener
-gameWindow.addEventListener('click', function() {
+gameWindow.addEventListener('click', function(e) {
+// prevent click event trigger on child elements solution I found here https://stackoverflow.com/questions/1369035/how-do-i-prevent-a-parents-onclick-event-from-firing-when-a-child-anchor-is-cli
+    e = window.event || e; 
+    if(this === e.target) {
+//-----------user--Sabaz------------------
     let windowClick = 1;
+    scoreMissed.innerText = 1;
     console.log(windowClick);
+    }
 });
 
 
 // Game Setup based on Level sellection-----------------------
 
 
-const getP = document.getElementsByTagName('p');
+const level1 = levelDiv.children[0];
+const level2 = levelDiv.children[1];
+const level3 = levelDiv.children[2];
 
-getP[0].addEventListener('click', function() {
+level1.addEventListener('click', function() {
     reset();
      timer1 = setInterval( function() {
             gameOne();
             console.log('Easy');
         }, 3000);
 });
-getP[1].addEventListener('click', function() {
+level2.addEventListener('click', function() {
     reset();
     timer2 = setInterval( function() {
         setTimeout(gameTwo, 2000);
         console.log('Medium');
     }, 3000);
 });
-getP[2].addEventListener('click', function() {   
+level3.addEventListener('click', function() {   
     reset();
     timer3 = setInterval( function() {
         setTimeout(gameThree, 2000);
