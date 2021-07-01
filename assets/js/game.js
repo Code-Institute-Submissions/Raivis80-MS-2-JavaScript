@@ -46,3 +46,74 @@ function randomObject1() {
     div1.style.left = positionx;
     div1.style.top = positiony;
 }
+
+function randomObject2() {
+    div2.addEventListener('click', randomObject2);
+    getRandom()  
+    div2.style.left = positionx;
+    div2.style.top = positiony;
+}
+
+function randomObject3() {
+    div3.addEventListener('click', randomObject3);
+    getRandom()  
+    div3.style.left = positionx;
+    div3.style.top = positiony;
+}
+
+// Target Objects-----------------------------------------
+
+function gameOne() {
+    randomObject1();
+}
+
+function gameTwo() {
+    randomObject1();
+    randomObject2();
+}
+
+function gameThree() {
+    randomObject1();
+    randomObject2();
+    randomObject3();
+}
+
+// Timmer and Timer Reset--------------------------------- 
+let timer1;
+let timer2;
+let timer3;
+
+function reset() {
+    clearInterval(timer1);
+    clearInterval(timer2);
+    clearInterval(timer3);
+}
+
+// STATR GAME LEVEL sellection------------------------------------------
+
+let getP = document.getElementsByTagName('p');
+
+getP[0].addEventListener('click', function() {
+    reset();
+     timer1 = setInterval( function() {
+            gameOne();
+            console.log('Easy');
+        }, 3000);
+});
+getP[1].addEventListener('click', function() {
+    reset();
+    timer2 = setInterval( function() {
+        setTimeout(gameTwo, 2000);
+        console.log('Medium');
+    }, 3000);
+});
+getP[2].addEventListener('click', function() {   
+    reset();
+    timer3 = setInterval( function() {
+        setTimeout(gameThree, 2000);
+        console.log('Hard');
+    }, 3000);
+});
+
+
+
