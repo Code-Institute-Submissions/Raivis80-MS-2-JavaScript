@@ -9,32 +9,54 @@ html {
     position: absolute;
     width: 95vw;
     height: 85vh;
-   
+    border: #333 1px solid;
     left: 0;
     right: 0;
     margin: auto
 }
 
-.level {
+.nav {
+    margin: auto;
+    width: 95vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* score counter and level selection */
+.score, .level {
     background-color: lavenderblush;
     border-radius: 6px;
     border: #333 1px solid;
     display: inline-block;
     padding: 3px 10px;
 }
-
-.select_level {
-    margin: auto;
-    padding: 10px;
-    background-color: #d8d8d8;
-    width: 95vw;
+/* lives remaining */
+.life {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 6px;
+    border: #333 1px solid;
+    display: inline-block;
 }
 
+#life1 {
+    background-color: indigo;
+}
+
+#life2 {
+    background-color: red;
+}
+
+#life3 {
+    background-color: royalblue;
+}
+/* target divs */
 .div {
     position: absolute;
     width: 50px;
     height: 50px;
-    background-color: #999;  
+    background-color: royalblue;  
 }
 
 .div2 {
