@@ -134,6 +134,7 @@ function theGame() {
     // prevent click event trigger on child elements solution
     //--Stackoverflow---user--Sabaz-----https://stackoverflow.com/questions/1369035/
     //how-do-i-prevent-a-parents-onclick-event-from-firing-when-a-child-anchor-is-cli
+  let detectOutside;  
     function insideGame() {
         gameWindow.addEventListener('mousedown', detectOutside);
 
@@ -148,11 +149,7 @@ function theGame() {
                     life2.remove();
                     console.log(livesDiv.children.length);
                 } else if (livesDiv.children.length === 1) {
-                    life3.remove();
-                    console.log(livesDiv.children.length, 'game over');
-                    gameWindow.removeEventListener('mousedown', detectOutside);
-                    reset();
-                    theGame();
+                    stopTheGame()
                 }
             };
             gameWindow.addEventListener('mouseup', function () {
@@ -162,7 +159,17 @@ function theGame() {
     }
     // Game Setup based on Level sellection-------------------------
 
-    level1.addEventListener('click', function () {
+    level1.addEventListener('click', levelEasy);
+    level2.addEventListener('click', levelMedium);
+    level3.addEventListener('click', levelHard);
+
+console.log(window.location.href)
+
+    function removeLevelListeners(){
+        
+    }
+
+    function levelEasy() {
         targets();
         insideGame()
         reset();
@@ -170,24 +177,41 @@ function theGame() {
             gameOne();
             console.log('Easy');
         }, 3000);
-    });
-    level2.addEventListener('click', function () {
+    }
+
+    function levelMedium() {
         targets();
         insideGame()
         reset();
         timer2 = setInterval(function () {
-            setTimeout(gameTwo, 2000);
+            gameTwo();
             console.log('Medium');
         }, 3000);
-    });
-    level3.addEventListener('click', function () {
+    }
+
+    function levelHard() {
         targets();
         insideGame()
         reset();
         timer3 = setInterval(function () {
-            setTimeout(gameThree, 2000);
+            gameThree();
             console.log('Hard');
         }, 3000);
-    });
+    }
+
+function stopTheGame() {
+    life3.remove();
+    console.log('game over');
+    gameWindow.removeEventListener('mousedown', detectOutside);
+    location.reload();
+    level1.removeEventListener('click', levelEasy);
+    level2.removeEventListener('click', levelMedium);
+    level3.removeEventListener('click', levelHard);
+    reset();
+    theGame();
 }
+
+}
+
+
 theGame();
