@@ -151,11 +151,6 @@ target3.addEventListener('click', function() {
 });
 
 
-
-
-
-
-
 // game window event mouseup/ mousedown listener function------
 gameWindow.addEventListener('mousedown', function(e) {
 // prevent click event trigger on child elements solution
@@ -165,7 +160,7 @@ gameWindow.addEventListener('mousedown', function(e) {
     if(this === e.target) {
 //----------------------------------
     let windowClick = 1;
-    scoreMissed.innerText = 1;
+    scoreMissed.innerText++;
     this.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
     console.log(windowClick);
     }
