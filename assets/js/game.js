@@ -5,19 +5,32 @@ const gameWindow = document.getElementById('gameWindow');
 const counterDiv = document.getElementById('score_counter');
 const levelDiv = document.getElementById('select_level');
 
+// game window hidth/height
 let width;
 let height;
 
+// random number variables
 let numWidth;
 let numHeight;
 
+// x any screen position
 let positionx; 
 let positiony;
+
+// Timmer variables 
+let timer1;
+let timer2;
+let timer3;
+
 
 //Game Window-And target-variables
 const target1 = gameWindow.children[0];
 const target2 = gameWindow.children[1];
 const target3 = gameWindow.children[2];
+
+//Score Counter varialles
+const score = counterDiv.children[0];
+const scoreMissed = counterDiv.children[1];
 
 // -------------------RANDOM NUMBER GENERATOR------------------
 // getting width and height numbers based on the screen size.
@@ -62,24 +75,23 @@ function randomObject3() {
 
 // Game levels
 function gameOne() {
+    targetReset();
     randomObject1();
 }
 
 function gameTwo() {
+    targetReset();
     randomObject1();
     randomObject2();
 }
 
 function gameThree() {
+    targetReset();
     randomObject1();
     randomObject2();
     randomObject3();
 }
 
-// Timmer variables 
-let timer1;
-let timer2;
-let timer3;
 
 //Timer Reset
 function reset() {
@@ -88,26 +100,33 @@ function reset() {
     clearInterval(timer3);
 }
 
+// Target reset display:block
+function targetReset() {
+    target1.style.display = 'block';
+    target2.style.display = 'block';
+    target3.style.display = 'block';
+}
 // Score counter-------------------------------------------------
 
 // Target event listermers
 target1.addEventListener('click', function() {
     score.innerText = 1;
     console.log('clicked target1');
+    this.style.display = 'none';
 });
 
 target2.addEventListener('click', function() {
     score.innerText = 1;
     console.log('clicked target2');
+    this.style.display = 'none';
 });
 target3.addEventListener('click', function() {
     score.innerText = 1;
     console.log('clicked target3');
+    this.style.display = 'none';
 });
 
-//Score Counter divs
-let score = counterDiv.children[0];
-let scoreMissed = counterDiv.children[1];
+
 // game window event listener
 gameWindow.addEventListener('click', function(e) {
 // prevent click event trigger on child elements solution I found here https://stackoverflow.com/questions/1369035/how-do-i-prevent-a-parents-onclick-event-from-firing-when-a-child-anchor-is-cli
@@ -121,9 +140,8 @@ gameWindow.addEventListener('click', function(e) {
 });
 
 
-// Game Setup based on Level sellection-----------------------
-
-
+// Game Setup based on Level sellection-------------------
+// set level variables
 const level1 = levelDiv.children[0];
 const level2 = levelDiv.children[1];
 const level3 = levelDiv.children[2];
@@ -132,6 +150,7 @@ level1.addEventListener('click', function() {
     reset();
      timer1 = setInterval( function() {
             gameOne();
+            
             console.log('Easy');
         }, 3000);
 });

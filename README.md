@@ -171,7 +171,9 @@ You can clone reposetory. When you clone repository, you copy repository to your
 ### **Helpfull sites**
 -  [google.com](https://google.com/): Search for anything if stuck.
 -  [stackoverflow.com](https://stackoverflow.com/): Useful website for code tips.
--  [www.w3schools](https://www.w3schools.com/): Useful website for code tips.
+-  [www.w3schools](https://www.w3schools.com/): Examples of how to use HTML, CSS, JavaScript.
+-  [developer.mozilla.org](https://developer.mozilla.org/): Examples of how to use HTML, CSS, JavaScript.
+-  [css-tricks.com](https://css-tricks.com/): Useful CSS styling tips.
 
 ### **Images** 
 ### **Acknowledgements**
