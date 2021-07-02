@@ -32,6 +32,11 @@ const target3 = gameWindow.children[2];
 const score = counterDiv.children[0];
 const scoreMissed = counterDiv.children[1];
 
+// set level variables
+const level1 = levelDiv.children[0];
+const level2 = levelDiv.children[1];
+const level3 = levelDiv.children[2];
+
 // -------------------RANDOM NUMBER GENERATOR------------------
 // getting width and height numbers based on the screen size.
 
@@ -106,51 +111,79 @@ function targetReset() {
     target2.style.display = 'block';
     target3.style.display = 'block';
 }
-// Score counter-------------------------------------------------
 
-// Target event listermers
+// Target event listermers--------------------------------------
+
+let count1;
+let count2;
+let count3;
+
+
+
 target1.addEventListener('click', function() {
-    score.innerText = 1;
     console.log('clicked target1');
     this.style.display = 'none';
+    count1 = 1;
+    if (count1 === 1) {
+    
+        score.innerText++;
+    }   
 });
 
 target2.addEventListener('click', function() {
-    score.innerText = 1;
     console.log('clicked target2');
     this.style.display = 'none';
+    count2 = 1;
+    if (count2 === 1) {
+    
+        score.innerText++;
+    } 
 });
+
 target3.addEventListener('click', function() {
-    score.innerText = 1;
     console.log('clicked target3');
     this.style.display = 'none';
+    count3 = 1;
+    if (count3 === 1) {
+    
+        score.innerText++;
+    } 
 });
 
 
-// game window event listener
-gameWindow.addEventListener('click', function(e) {
-// prevent click event trigger on child elements solution I found here https://stackoverflow.com/questions/1369035/how-do-i-prevent-a-parents-onclick-event-from-firing-when-a-child-anchor-is-cli
+
+
+
+
+
+// game window event mouseup/ mousedown listener function------
+gameWindow.addEventListener('mousedown', function(e) {
+// prevent click event trigger on child elements solution
+//--Stackoverflow---user--Sabaz-----https://stackoverflow.com/questions/1369035/
+//how-do-i-prevent-a-parents-onclick-event-from-firing-when-a-child-anchor-is-cli
     e = window.event || e; 
     if(this === e.target) {
-//-----------user--Sabaz------------------
+//----------------------------------
     let windowClick = 1;
     scoreMissed.innerText = 1;
+    this.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
     console.log(windowClick);
     }
 });
 
+gameWindow.addEventListener('mouseup', function() {
+        this.style.backgroundColor = 'lavenderblush';
+});
 
-// Game Setup based on Level sellection-------------------
-// set level variables
-const level1 = levelDiv.children[0];
-const level2 = levelDiv.children[1];
-const level3 = levelDiv.children[2];
+// Score counter-------------------------------------------------
+
+
+// Game Setup based on Level sellection-------------------------
 
 level1.addEventListener('click', function() {
     reset();
      timer1 = setInterval( function() {
-            gameOne();
-            
+            gameOne();            
             console.log('Easy');
         }, 3000);
 });
