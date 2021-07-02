@@ -32,12 +32,17 @@ html {
     padding: 3px 10px;
 }
 /* lives remaining */
+#lives_remailing {
+    display: flex;
+}
+
 .life {
+    display: block;
+    margin: 3px;
     height: 2rem;
     width: 2rem;
     border-radius: 6px;
     border: #333 1px solid;
-    display: inline-block;
 }
 
 #life1 {

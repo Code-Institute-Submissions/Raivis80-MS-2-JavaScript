@@ -4,6 +4,7 @@
 const gameWindow = document.getElementById('gameWindow');
 const counterDiv = document.getElementById('score_counter');
 const levelDiv = document.getElementById('select_level');
+const livesDiv = document.getElementById('lives_remailing');
 
 // game window hidth/height
 let width;
@@ -37,6 +38,10 @@ const level1 = levelDiv.children[0];
 const level2 = levelDiv.children[1];
 const level3 = levelDiv.children[2];
 
+let life1 = livesDiv.children[0];
+let life2 = livesDiv.children[1];
+let life3 = livesDiv.children[2];
+
 // -------------------RANDOM NUMBER GENERATOR------------------
 // getting width and height numbers based on the screen size.
 
@@ -51,11 +56,10 @@ function positionYX() {
     
     positionx =  numWidth + 'px';
     positiony = numHeight + 'px';
-    console.log(positionx, positiony)
+    console.log(width, height);
 };
 
-positionYX()
-
+positionYX();
 // Get random number and position in one function.
 
 // create random Object for individual targets------------
@@ -65,13 +69,11 @@ function randomObject1() {
     target1.style.top = positiony;
     
 }
-
 function randomObject2() {
     positionYX() 
     target2.style.left = positionx;
     target2.style.top = positiony;
 }
-
 function randomObject3() {
     positionYX()
     target3.style.left = positionx;
@@ -83,20 +85,17 @@ function gameOne() {
     targetReset();
     randomObject1();
 }
-
 function gameTwo() {
     targetReset();
     randomObject1();
     randomObject2();
 }
-
 function gameThree() {
     targetReset();
     randomObject1();
     randomObject2();
     randomObject3();
 }
-
 
 //Timer Reset
 function reset() {
@@ -112,72 +111,55 @@ function targetReset() {
     target3.style.display = 'block';
 }
 
-// Target event listermers--------------------------------------
-
-let count1;
-let count2;
-let count3;
-
-
+// Target event listermers- target--Score counters-------------------------
 
 target1.addEventListener('click', function() {
-    console.log('clicked target1');
     this.style.display = 'none';
-    count1 = 1;
-    if (count1 === 1) {
-    
-        score.innerText++;
-    }   
+    score.innerText++;
 });
-
 target2.addEventListener('click', function() {
-    console.log('clicked target2');
-    this.style.display = 'none';
-    count2 = 1;
-    if (count2 === 1) {
-    
-        score.innerText++;
-    } 
+    this.style.display = 'none'; 
+    score.innerText++;
 });
-
 target3.addEventListener('click', function() {
-    console.log('clicked target3');
     this.style.display = 'none';
-    count3 = 1;
-    if (count3 === 1) {
-    
-        score.innerText++;
-    } 
+    score.innerText++;
 });
 
-
-// game window event mouseup/ mousedown listener function------
-gameWindow.addEventListener('mousedown', function(e) {
+// game window event mouseup/ mousedown listener and missed score counter------
 // prevent click event trigger on child elements solution
 //--Stackoverflow---user--Sabaz-----https://stackoverflow.com/questions/1369035/
 //how-do-i-prevent-a-parents-onclick-event-from-firing-when-a-child-anchor-is-cli
-    e = window.event || e; 
-    if(this === e.target) {
-//----------------------------------
-    let windowClick = 1;
-    scoreMissed.innerText++;
-    this.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-    console.log(windowClick);
+gameWindow.addEventListener('mousedown', function(event) { 
+    if(this === event.target) {
+        scoreMissed.innerText++;
+        this.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+        if(livesDiv.children.length === 3){
+            life1.remove();
+            console.log(livesDiv.children.length);
+        }else if (livesDiv.children.length === 2) {
+            life2.remove();
+            console.log(livesDiv.children.length);
+        }else if (livesDiv.children.length === 1) {
+            life3.remove();
+            console.log(livesDiv.children.length);
+        }else {
+            console.log('game over')
+        }            
     }
 });
-
 gameWindow.addEventListener('mouseup', function() {
         this.style.backgroundColor = 'lavenderblush';
 });
 
-// Score counter-------------------------------------------------
 
+    
 
 // Game Setup based on Level sellection-------------------------
 
 level1.addEventListener('click', function() {
     reset();
-     timer1 = setInterval( function() {
+    timer1 = setInterval( function() {
             gameOne();            
             console.log('Easy');
         }, 3000);
