@@ -42,9 +42,9 @@ function theGame() {
     let life3 = livesDiv.children[2];
 
     // Lives Colors 
-life1.style.backgroundColor = 'indigo';
-life2.style.backgroundColor = 'red';
-life3.style.backgroundColor = 'royalblue';
+    life1.style.backgroundColor = 'indigo';
+    life2.style.backgroundColor = 'red';
+    life3.style.backgroundColor = 'royalblue';
 
     // -------------------RANDOM NUMBER GENERATOR------------------
     // getting width and height numbers based on the screen size.
@@ -120,21 +120,20 @@ life3.style.backgroundColor = 'royalblue';
     }
     // Target event listermers- target--Score counters-------------------------
 
-let scoreCount = 0;
+    let scoreCount = 0;
+
     function targets() {
         target1.addEventListener('click', function () {
             this.style.display = 'none';
             score.innerText++;
             scoreCount = score.innerText;
             countScore();
-            console.log(score.innerText)
         });
         target2.addEventListener('click', function () {
             this.style.display = 'none';
             score.innerText++;
             scoreCount = score.innerText;
             countScore();
-            console.log(score.innerText)
 
         });
         target3.addEventListener('click', function () {
@@ -142,16 +141,17 @@ let scoreCount = 0;
             score.innerText++;
             scoreCount = score.innerText;
             countScore();
-            console.log(score.innerText)
         });
-                            
+
     }
 
     // game window event mouseup/ mousedown listener and missed score counter------
     // prevent click event trigger on child elements solution
     //--Stackoverflow---user--Sabaz-----https://stackoverflow.com/questions/1369035/
     //how-do-i-prevent-a-parents-onclick-event-from-firing-when-a-child-anchor-is-cli
-let detectWindowEvents; 
+
+    let clicksIs
+    let detectWindowEvents;
 
     function gameSetup() {
         gameWindow.addEventListener('mousedown', detectWindowEvents);
@@ -159,39 +159,66 @@ let detectWindowEvents;
         function detectWindowEvents(event) {
             if (this === event.target) {
                 scoreMissed.innerText++;
+                resetClicks();
+                windowClicks++
+
+                clicksIs = windowClicks;
+
+
                 this.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
                 if (life2.style.backgroundColor === 'red' && life1.style.backgroundColor === 'indigo') {
                     life1.style.backgroundColor = 'white';
 
-                } else if (life2.style.backgroundColor === 'red'  &&  life1.style.backgroundColor === 'white') {
+                } else if (life2.style.backgroundColor === 'red' && life1.style.backgroundColor === 'white') {
                     life2.style.backgroundColor = 'white';
 
                 } else if (life1.style.backgroundColor === 'white' && life2.style.backgroundColor === 'white') {
                     life3.style.backgroundColor = 'white';
                     stopTheGame()
                 }
+                return clicksIs;
             };
-            gameWindow.addEventListener('mouseup', function () {
-                this.style.backgroundColor = 'lavenderblush';
-            });
+        };
+        gameWindow.addEventListener('mouseup', function () {
+            this.style.backgroundColor = 'lavenderblush';
+        });
+    }
+
+    console.log(clicksIs)
+
+    let windowClicks =0;
+    let boxClicks = 0;
+    let difference;
+function resetClicks() {
+    windowClicks =0;
+    boxClicks = 0;
+  }
+
+    function countDifference() {
+        difference = Math.abs(boxClicks - clicksIs);
+        console.log(difference)
+    }
+
+    function countScore() {
+        countDifference()
+        boxClicks++;
+        if (difference == 5 && life1.style.backgroundColor !== 'indigo') {
+            if (life1.style.backgroundColor === 'white' && life2.style.backgroundColor === 'red') {
+                life1.style.backgroundColor = 'indigo';
+                resetClicks();                
+            } else if (life3.style.backgroundColor === 'royalblue' && life2.style.backgroundColor === 'white') {
+                life2.style.backgroundColor = 'red';
+                resetClicks();
+            } else {
+                countScore();
+                console.log(life1.style.backgroundColor);
+            };
         };
     }
-function countScore() {    
-    if (scoreCount == 5) { 
-        if(life3.style.backgroundColor === 'royalblue' || life2.style.backgroundColor === 'white') {
-            life2.style.backgroundColor = 'red';
-        } if (life1.style.backgroundColor === 'white' && life2.style.backgroundColor === 'red') {
-            life1.style.backgroundColor = 'indigo';
-        } else {
-            countScore();
-            console.log(life1.style.backgroundColor);
-        };
-    };
-} 
 
 
 
-    
+
 
     // Game Setup based on Level sellection-------------------------
 
@@ -230,14 +257,14 @@ function countScore() {
         reset();
         timer3 = setInterval(function () {
             gameThree();
-            
+
             console.log('Hard');
         }, 3000);
     }
 
     function stopTheGame() {
         console.log('game over');
-        gameWindow.removeEventListener('mousedown',   detectWindowEvents);
+        gameWindow.removeEventListener('mousedown', detectWindowEvents);
         location.reload();
         reset();
         theGame();
