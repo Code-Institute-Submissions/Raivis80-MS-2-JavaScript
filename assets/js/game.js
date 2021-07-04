@@ -123,6 +123,12 @@ function theGame() {
         target3.style.display = 'block';
     }
 
+    function targetsDisplayNone() {
+        target1.style.display = 'none';
+        target2.style.display = 'none';
+        target3.style.display = 'none';
+    }
+
     //---------- Target event listermers- target--Score counters------------------
     function targets() {
         target1.addEventListener('click', function () {
@@ -417,12 +423,22 @@ function theGame() {
     function stopTheGame() {
         console.log('game over', livesClick);
         gameWindow.removeEventListener('mousedown', detectWindowEvents);
-        location.reload();
+        // location.reload();
+        targetsDisplayNone();
+        gameOver.style.display = 'flex';
         reset();
-        theGame();
     }
 
 }
+//------------------------------- Game Over---------------
+
+const gameOver = document.getElementById('game-over');
+document.getElementById('new_game_btn').addEventListener('click', gameOverRestart);
+
+function gameOverRestart() {
+    location.reload();
+}
+
 
 
 theGame();
