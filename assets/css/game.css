@@ -5,6 +5,7 @@ html {
     padding: 0;
     margin: 0;
 }
+
 .gameWindow {
     background-color: lavenderblush;
     position: absolute;
@@ -25,13 +26,22 @@ html {
 }
 
 /* score counter and level selection */
-.score, .level {
+.score,
+.level {
     background-color: lavenderblush;
     border-radius: 6px;
     border: #333 1px solid;
     display: inline-block;
     padding: 3px 10px;
 }
+
+/* Select Level */
+
+#select_level {
+    display: flex;
+    justify-content: space-around;
+}
+
 /* lives remaining */
 #lives_remailing {
     display: flex;
@@ -54,14 +64,8 @@ html {
     height: 50px;
 }
 
-#target1 {
-    display: none;
-}
-
-#target2 {
-    display: none;
-}
-
+#target1,
+#target2,
 #target3 {
     display: none;
 }
@@ -78,24 +82,34 @@ html {
 #add_life {
     height: 6px;
     width: 100%;
-    background: linear-gradient(to right, indigo 20%, red,  royalblue 80%); 
+    background: linear-gradient(to right, indigo 20%, red, royalblue 80%);
+}
+
+/*---------------- Start The game----------------- */
+.start_game {
+    display: flex;
+    background-color: royalblue;
 }
 
 /*---------------- game over----------------- */
 
 .game-over {
     display: none;
+    background-color: maroon;
+}
+
+.start_stop_window {
     justify-content: center;
     align-items: center;
     width: inherit;
     height: inherit;
-    background-color: maroon;
 }
 
-.game_over_title {
+.game_over_title,
+.start_heading {
     font-size: max(6vw, 3rem, 2rem);
     color: mintcream;
-    margin: auto ;
+    margin: auto;
     text-align: center;
 }
 

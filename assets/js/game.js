@@ -147,7 +147,7 @@ function theGame() {
             scoreCount = score.innerText;
             countScore();
             livesClick++;
-            countDifference(); 
+            countDifference();
             addLifeDisplay()
             console.log(boxClicks, clicksIs)
         });
@@ -157,7 +157,7 @@ function theGame() {
             scoreCount = score.innerText;
             countScore();
             livesClick++;
-            countDifference(); 
+            countDifference();
             addLifeDisplay()
             console.log(boxClicks, clicksIs)
         });
@@ -225,7 +225,7 @@ function theGame() {
     // get diffference detween succesful and unsuccessful clicks
     function countDifference(clicksIs, clicksIs) {
         if (boxClicks > clicksIs) {
-             difference = Math.abs(clicksIs - boxClicks);
+            difference = Math.abs(clicksIs - boxClicks);
         } else {
             difference = Math.abs(boxClicks, clicksIs);
         };
@@ -234,19 +234,19 @@ function theGame() {
     // add life counter display
 
     function addLifeDisplay() {
-        
+
         if (life1.style.backgroundColor == 'white') {
             if (difference == 0) {
                 addLife.style.width = '0';
-            }else if( difference === 1) {
+            } else if (difference === 1) {
                 addLife.style.width = '10%';
-            } else if(difference === 3) {
+            } else if (difference === 3) {
                 addLife.style.width = '25%';
-            } else if(difference === 6) {
+            } else if (difference === 6) {
                 addLife.style.width = '50%';
-            } else if(difference == 8) {
+            } else if (difference == 8) {
                 addLife.style.width = '75%';
-            } else if(difference == 10) {
+            } else if (difference == 10) {
                 addLife.style.width = '100%';
             };
         } else {
@@ -364,7 +364,12 @@ function theGame() {
             livesClick = 0;
         };
     }
+    
+const startNewGame = document.getElementById('start_game');
 
+function startTheGame() {
+    startNewGame.style.display = 'none';
+}
     // Game Level sellection-----------------------
     // Level sellection listeners
     level1.addEventListener('click', levelEasy);
@@ -374,6 +379,7 @@ function theGame() {
 
     // Easy level 
     function levelEasy() {
+        startTheGame();
         addLife.style.width = '100%';
         console.log('Easy');
         levelDiv.style.display = 'none';
@@ -389,6 +395,7 @@ function theGame() {
     }
     // Medium Level 
     function levelMedium() {
+        startTheGame();
         addLife.style.width = '100%';
         console.log('Medium');
         levelDiv.style.display = 'none';
@@ -404,6 +411,7 @@ function theGame() {
     }
     // Level Hard
     function levelHard() {
+        startTheGame();
         addLife.style.width = '100%';
         console.log('Hard');
         levelDiv.style.display = 'none';
@@ -429,16 +437,16 @@ function theGame() {
         reset();
     }
 
+    //Game Over reload screen
+    const gameOver = document.getElementById('game-over');
+    document.getElementById('new_game_btn').addEventListener('click', gameOverRestart);
+
+    function gameOverRestart() {
+        location.reload();
+    }
+    
+
 }
-//------------------------------- Game Over---------------
-
-const gameOver = document.getElementById('game-over');
-document.getElementById('new_game_btn').addEventListener('click', gameOverRestart);
-
-function gameOverRestart() {
-    location.reload();
-}
-
 
 
 theGame();
