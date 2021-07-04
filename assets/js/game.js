@@ -4,7 +4,7 @@ function theGame() {
     const counterDiv = document.getElementById('score_counter');
     const levelDiv = document.getElementById('select_level');
     const livesDiv = document.getElementById('lives_remailing');
-
+    const addLife = document.getElementById('add_life');
     // game window hidth/height
     let width;
     let height;
@@ -131,6 +131,9 @@ function theGame() {
             scoreCount = score.innerText;
             countScore();
             livesClick++;
+            countDifference();
+            addLifeDisplay()
+            console.log(boxClicks, clicksIs)
         });
         target2.addEventListener('click', function () {
             this.style.display = 'none';
@@ -138,6 +141,9 @@ function theGame() {
             scoreCount = score.innerText;
             countScore();
             livesClick++;
+            countDifference(); 
+            addLifeDisplay()
+            console.log(boxClicks, clicksIs)
         });
         target3.addEventListener('click', function () {
             this.style.display = 'none';
@@ -145,6 +151,9 @@ function theGame() {
             scoreCount = score.innerText;
             countScore();
             livesClick++;
+            countDifference(); 
+            addLifeDisplay()
+            console.log(boxClicks, clicksIs)
         });
 
     }
@@ -170,7 +179,8 @@ function theGame() {
                 scoreMissed.innerText++;
                 resetClicks();
                 windowClicks++
-                clicksIs = windowClicks;
+                clicks = 0;
+                clicksIs++;
                 this.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
                 // Check  if lives remeining.
                 // Deduct one live if available, 
@@ -185,7 +195,7 @@ function theGame() {
                     life3.style.backgroundColor = 'white';
                     stopTheGame()
                 }
-                return clicksIs;
+                // return clicksIs;
             };
         };
         // Game window mouseup listener
@@ -204,15 +214,42 @@ function theGame() {
         windowClicks = 0;
         boxClicks = 0;
     }
-
+    // -User--Salil---https://stackoverflow.com/questions/3156765/
+    // javascript-function-to-get-the-difference-between-two-numbers/3156794
     // get diffference detween succesful and unsuccessful clicks
-    function countDifference() {
-        difference = Math.abs(boxClicks - clicksIs);
+    function countDifference(clicksIs, clicksIs) {
+        if (boxClicks > clicksIs) {
+             difference = Math.abs(clicksIs - boxClicks);
+        } else {
+            difference = Math.abs(boxClicks, clicksIs);
+        };
+    }
+
+    // add life counter display
+
+    function addLifeDisplay() {
+        
+        if (life1.style.backgroundColor == 'white') {
+            if (difference == 0) {
+                addLife.style.width = '0';
+            }else if( difference === 1) {
+                addLife.style.width = '10%';
+            } else if(difference === 3) {
+                addLife.style.width = '25%';
+            } else if(difference === 6) {
+                addLife.style.width = '50%';
+            } else if(difference == 8) {
+                addLife.style.width = '75%';
+            } else if(difference == 10) {
+                addLife.style.width = '100%';
+            };
+        } else {
+            addLife.style.width = '100%';
+        };
     }
     console.log(boxClicks, clicksIs)
     // Lives remaining logic, add one life if difference is reached + click counter 
     function countScore() {
-        countDifference()
         boxClicks++;
         if (difference == 10 && life1.style.backgroundColor !== 'indigo') {
             if (life1.style.backgroundColor === 'white' && life2.style.backgroundColor === 'red') {
@@ -229,9 +266,6 @@ function theGame() {
     }
 
     let livesClick;
-
-    // If not clicked end the game
-
 
     // If click on target check the count 
     function chekRemainingTargets() {}
@@ -255,7 +289,6 @@ function theGame() {
     }
 
     function compareEasy() {
-
         if (livesClick === 1) {
             livesClick = 0;
             console.log('reset the counter');
@@ -335,6 +368,7 @@ function theGame() {
 
     // Easy level 
     function levelEasy() {
+        addLife.style.width = '100%';
         console.log('Easy');
         levelDiv.style.display = 'none';
         targets();
@@ -342,13 +376,14 @@ function theGame() {
         reset();
         timer1 = setInterval(function () {
             gameOne();
-            chekRemainingTargets()
-            compareEasy()
+            chekRemainingTargets();
+            compareEasy();
             setTimeout(didNotClickE, 2900);
         }, 3000);
     }
     // Medium Level 
     function levelMedium() {
+        addLife.style.width = '100%';
         console.log('Medium');
         levelDiv.style.display = 'none';
         targets();
@@ -356,13 +391,14 @@ function theGame() {
         reset();
         timer2 = setInterval(function () {
             gameTwo();
-            chekRemainingTargets()
-            compareMedium()
+            chekRemainingTargets();
+            compareMedium();
             setTimeout(didNotClickM, 2900);
         }, 3000);
     }
     // Level Hard
     function levelHard() {
+        addLife.style.width = '100%';
         console.log('Hard');
         levelDiv.style.display = 'none';
         targets();
@@ -371,8 +407,8 @@ function theGame() {
 
         timer3 = setInterval(function () {
             gameThree();
-            chekRemainingTargets()
-            compareHard()
+            chekRemainingTargets();
+            compareHard();
             setTimeout(didNotClickH, 2900);
         }, 3000);
     }

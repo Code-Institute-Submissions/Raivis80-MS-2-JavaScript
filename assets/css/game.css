@@ -54,13 +54,28 @@ html {
 }
 
 #target1 {
-    display: block;
+    display: none;
 }
 
 #target2 {
-    display: block;
+    display: none;
 }
 
 #target3 {
-    display: block;
+    display: none;
+}
+
+.add_life_div {
+    margin: auto;
+    height: 6px;
+    width: 95%;
+    background-color: lavenderblush;
+    border-radius: 2px;
+    border: #333 1px solid;
+}
+
+#add_life {
+    height: 6px;
+    width: 100%;
+    background: linear-gradient(to right, indigo 20%, red,  royalblue 80%); 
 }
