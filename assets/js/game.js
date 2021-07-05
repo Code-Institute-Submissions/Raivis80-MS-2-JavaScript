@@ -129,6 +129,12 @@ function theGame() {
         target3.style.display = 'none';
     }
 
+    function livesDisplayWhite() {
+        life1.style.backgroundColor = 'white';
+        life2.style.backgroundColor = 'white';
+        life3.style.backgroundColor = 'white';
+    }
+
     //---------- Target event listermers- target--Score counters------------------
     function targets() {
         target1.addEventListener('click', function () {
@@ -201,7 +207,6 @@ function theGame() {
                     life3.style.backgroundColor = 'white';
                     stopTheGame()
                 }
-                // return clicksIs;
             };
         };
         // Game window mouseup listener
@@ -214,7 +219,6 @@ function theGame() {
     let windowClicks = 0;
     let boxClicks = 0;
     let difference = 0;
-    console.log(difference)
     // reset window and target click event count
     function resetClicks() {
         windowClicks = 0;
@@ -234,30 +238,62 @@ function theGame() {
     // add life counter display
 
     function addLifeDisplay() {
-
-        if (life1.style.backgroundColor == 'white') {
+        
+        if (life1.style.backgroundColor == 'white' && life2.style.backgroundColor == 'red') {
             if (difference == 0) {
                 addLife.style.width = '0';
+                addLife.style.backgroundColor = 'indigo';
             } else if (difference === 1) {
                 addLife.style.width = '10%';
-            } else if (difference === 3) {
-                addLife.style.width = '25%';
+                addLife.style.backgroundColor = 'indigo';
+            } else if (difference === 2) {
+                addLife.style.width = '20%';
+                addLife.style.backgroundColor = 'indigo';
+            } else if (difference === 4) {
+                addLife.style.width = '40%';
+                addLife.style.backgroundColor = 'indigo';
             } else if (difference === 6) {
-                addLife.style.width = '50%';
+                addLife.style.width = '60%';
+                addLife.style.backgroundColor = 'indigo';
             } else if (difference == 8) {
-                addLife.style.width = '75%';
-            } else if (difference == 10) {
+                addLife.style.width = '80%';
+                addLife.style.backgroundColor = 'indigo';
+            } else if (difference == 9) {
                 addLife.style.width = '100%';
-            };
+            }
+        } if (life2.style.backgroundColor == 'white') {
+                if (difference == 0) {
+                    addLife.style.width = '0';
+                    addLife.style.backgroundColor = 'red';
+                } else if (difference === 1) {
+                    addLife.style.width = '10';
+                    addLife.style.backgroundColor = 'red';
+                } else if (difference === 2) {
+                    addLife.style.width = '20%';
+                    addLife.style.backgroundColor = 'red';
+                }else if (difference === 4) {
+                    addLife.style.width = '40%';
+                    addLife.style.backgroundColor = 'red';
+                } else if (difference === 6) {
+                    addLife.style.width = '60%';
+                    addLife.style.backgroundColor = 'red';
+                } else if (difference == 8) {
+                    addLife.style.width = '80%';
+                    addLife.style.backgroundColor = 'red';
+                } else if (difference == 9) {
+                    addLife.style.width = '100%';
+                };
         } else {
-            addLife.style.width = '100%';
+            // addLife.style.width = '100%';
+            // addLife.style.backgroundColor = 'indigo';
         };
     }
     console.log(boxClicks, clicksIs)
-    // Lives remaining logic, add one life if difference is reached + click counter 
+    //Add one life if traget & game window 
+    //point difference is reached + click counter 
     function countScore() {
         boxClicks++;
-        if (difference == 10 && life1.style.backgroundColor !== 'indigo') {
+        if (difference == 9 && life1.style.backgroundColor !== 'indigo') {
             if (life1.style.backgroundColor === 'white' && life2.style.backgroundColor === 'red') {
                 life1.style.backgroundColor = 'indigo';
                 resetClicks();
@@ -364,12 +400,12 @@ function theGame() {
             livesClick = 0;
         };
     }
-    
-const startNewGame = document.getElementById('start_game');
 
-function startTheGame() {
-    startNewGame.style.display = 'none';
-}
+    const startNewGame = document.getElementById('start_game');
+
+    function startTheGame() {
+        startNewGame.style.display = 'none';
+    }
     // Game Level sellection-----------------------
     // Level sellection listeners
     level1.addEventListener('click', levelEasy);
@@ -431,8 +467,8 @@ function startTheGame() {
     function stopTheGame() {
         console.log('game over', livesClick);
         gameWindow.removeEventListener('mousedown', detectWindowEvents);
-        // location.reload();
         targetsDisplayNone();
+        livesDisplayWhite();
         gameOver.style.display = 'flex';
         reset();
     }
@@ -440,11 +476,9 @@ function startTheGame() {
     //Game Over reload screen
     const gameOver = document.getElementById('game-over');
     document.getElementById('new_game_btn').addEventListener('click', gameOverRestart);
-
     function gameOverRestart() {
         location.reload();
     }
-    
 
 }
 

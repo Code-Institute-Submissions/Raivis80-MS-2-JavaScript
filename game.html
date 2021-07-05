@@ -10,43 +10,48 @@
 <body>
     <div class="nav" id ="nav">
         <div id="score_counter">
-            <p class="score">0</p>
-            <p class="score">0</p>
+            <p class="score border">0</p>
+            <p class="score border">0</p>
             
         </div>
-        <!-- <div id="select_level">
-            <p class="level">Level 1</p>
-            <p class="level">Level 2</p>
-            <p class="level">Level 3</p>
-        </div> -->
         <div class="lives_div">
             <div id="lives_remailing">           
-                <div id="life1" class="life"></div>
-                <div id="life2" class="life"></div>
-                <div id="life3" class="life"></div>
+                <div id="life1" class="life border"></div>
+                <div id="life2" class="life border"></div>
+                <div id="life3" class="life border"></div>
             </div>
             <div class="add_life_div"><div id="add_life"></div></div>
         </div>
     </div>
 
-    <div class="gameWindow" id="gameWindow">  
+    <div class="gameWindow border" id="gameWindow">  
         <div id="target1" class="target"></div>
         <div id="target2" class="target"></div>
         <div id="target3" class="target"></div>
         <div id ="start_game" class="start_game start_stop_window">
             <div>
                 <h1 class="start_heading">Start New Game</h1>
+                <p class="sellectP">Sellect Level</p>
                 <div id="select_level">
-                    <div class="level">Level 1</div>
-                    <div class="level">Level 2</div>
-                    <div class="level">Level 3</div>
+                    <div class="level">
+                        <div class="l1"></div>      
+                    </div>
+                    <div class="level ">
+                        <div class="l1"></div>
+                        <div class="l2"></div>
+                    </div>
+                    <div class="level">
+                        <div class="l1"></div>
+                        <div class="l2"></div>
+                        <div class="l3"></div>
+                    </div>
                 </div>
             </div>
         </div> 
         <div id ="game-over" class="game-over start_stop_window">
             <div>
                 <h1 class="game_over_title">Game Over</h1>
-                <h3 id="new_game_btn">Start New Game</h3>
+                <h3 class="border buttons" id="new_game_btn">Start New Game</h3>
             </div>
         </div>       
     </div>
