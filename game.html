@@ -1,40 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tourney:wght@800&family=Teko:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/game.css">
-    <title>Document</title>
+    <title>Get That Square</title>
 </head>
+
 <body>
-    <div class="nav" id ="nav">
+    <div class="nav" id="nav">
         <div id="score_counter">
             <p class="score border">0</p>
-            <p class="score border">0</p>
-            
+            <p class="score score2 border">0</p>
+
         </div>
         <div class="lives_div">
-            <div id="lives_remailing">           
+            <div id="lives_remailing">
                 <div id="life1" class="life border"></div>
                 <div id="life2" class="life border"></div>
                 <div id="life3" class="life border"></div>
             </div>
-            <div class="add_life_div"><div id="add_life"></div></div>
+            <div class="add_life_div">
+                <div id="add_life"></div>
+            </div>
         </div>
     </div>
 
-    <div class="gameWindow border" id="gameWindow">  
+    <div class="gameWindow border" id="game_window">
         <div id="target1" class="target"></div>
         <div id="target2" class="target"></div>
         <div id="target3" class="target"></div>
-        <div id ="start_game" class="start_game start_stop_window">
+        <div id="start_game" class="start_game start_stop_window">
             <div>
-                <h1 class="start_heading">Start New Game</h1>
-                <p class="sellectP">Sellect Level</p>
+                <h1 class="start_heading">New</h1>
+                <p class="selectP">Please Select Level</p>
                 <div id="select_level">
                     <div class="level">
-                        <div class="l1"></div>      
+                        <div class="l1"></div>
                     </div>
                     <div class="level ">
                         <div class="l1"></div>
@@ -47,14 +54,15 @@
                     </div>
                 </div>
             </div>
-        </div> 
-        <div id ="game-over" class="game-over start_stop_window">
+        </div>
+        <div id="game-over" class="game-over start_stop_window">
             <div>
                 <h1 class="game_over_title">Game Over</h1>
-                <h3 class="border buttons" id="new_game_btn">Start New Game</h3>
+                <h3 class="buttons" id="new_game_btn">Start New Game</h3>
             </div>
-        </div>       
+        </div>
     </div>
     <script src="assets/js/game.js"></script>
 </body>
+
 </html>
