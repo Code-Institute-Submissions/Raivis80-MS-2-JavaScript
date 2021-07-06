@@ -30,17 +30,10 @@ html {
     justify-content: space-between;
 }
 
-.border {
-    
+.border {   
     border-radius: 6px;
 }
 
-.buttons {
-    padding: 6px;
-    background-color: oldlace;
-    box-shadow: 0px 0px 6px rgb(0, 0, 0, .4);
-    transition: 100ms;
-}
 
 .buttons:hover {
     cursor: pointer;
@@ -71,31 +64,32 @@ html {
     justify-content: space-around;
 }
 
-.selectP {
-    
+.selectP {   
     font-family: 'Press Start 2P', cursive;
     font-size: max(1rem, 3vh, .6rem);
     text-align: center;
     font-weight: bold;
     color: black;
-    letter-spacing: 1px;
+
 }
 
-.level {
-    background-color: antiquewhite;
-    height: 90px;
+.level {    
+    height: 80px;
     width: 90px;
-    border-radius: 50%;
     display: flex;
-    box-shadow: 0 0 15px rgb(0, 0, 0, .3);
     justify-content: center;
-    align-items: center;
-
-    transition: scale, 100ms;
+    align-items: center;   
 }
 
-.level:hover {
-    box-shadow: 0 0 25spx rgb(0, 0, 0, .3);
+.buttons { 
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 150ms; 
+    box-shadow: 0 0 15px rgb(0, 0, 0, .3);   
+    border-radius: 12px;
+    background-color: antiquewhite;
+}
+
+.buttons:hover {
+    box-shadow: 0 0 20spx rgb(0, 0, 0, .3);
     cursor: pointer;  
     transform: scale(1.1);
 }
@@ -201,9 +195,12 @@ html {
 
 .game-over {
     display: none;
+    flex-direction: column;
+    
     background-color: oldlace;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+
+
     width: inherit;
     height: inherit;
     border-radius: inherit;
@@ -213,33 +210,37 @@ html {
 .game_over_title {
     text-transform: uppercase;
     font-family: 'Press Start 2P', cursive;
-    font-size: max(4vw, 3rem, 1rem);
+    font-size: max(1vw, 3rem, .8rem);
     color: maroon;
     margin: auto;
     text-align: center;
 }
 
-#new_game_btn {
-    padding: 3px 9px;
-    text-transform: uppercase;
-    color: maroon;
-    background-color: oldlace;
-    width: fit-content;
-    margin: auto;
-    border-radius: 3px;
-
+.game_over_block {
+    margin-top: 8%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
 }
+.game_over_btn2 {
+    height: 100px;
+    align-self: center;
+}
+.game_over_btn1 {
+    margin: auto;
+}
+
 
 /* ------------Contact form------------- */
 .contact_window {
     width: inherit;
     height: inherit;
-    display: none;    
-    align-items: center;
-    justify-content: center;
+    display: none;
+    flex-direction: column; 
 }
 
 .form {
+    margin:  auto;
     background-color: antiquewhite;
     box-sizing: border-box;
     padding: 6px;
@@ -275,6 +276,14 @@ html {
     letter-spacing: 1px;
     text-transform: uppercase;
     color: green;
+    text-align: center;
+}
+
+.contact_button {
+    align-self: center;
+    padding: 6px 10px;
+    width: 270px;
+
     text-align: center;
 }
 

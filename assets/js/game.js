@@ -7,6 +7,7 @@ function theGame() {
     const livesElement = document.getElementById('lives_remailing');
     const livesDivElement = document.getElementById('add_life');
     const gameOverElement = document.getElementById('game-over');
+    const contactWindow = document.getElementById('contact_window');
     // game window hidth/height
     let width;
     let height;
@@ -556,8 +557,11 @@ function theGame() {
     function gameOverRestart() {
         location.reload();
     }
-const contactWindow = document.getElementById('contact_window');
+
+document.getElementById('new_game_btn').addEventListener('click', gameOverRestart);
+document.getElementById('button2').addEventListener('click', gameOverRestart);
 document.getElementById('contact_button').addEventListener('click', contactFormm);
+document.getElementById('contact_button2').addEventListener('click', contactFormm);
  
 
 function contactFormm() {
