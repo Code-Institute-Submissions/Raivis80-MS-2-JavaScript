@@ -567,6 +567,7 @@ document.getElementById('contact_button2').addEventListener('click', contactForm
 function contactFormm() {
     contactWindow.style.display = 'flex';
     startGameElement.style.display = 'none';
+    gameOverElement.style.display = 'none';
  }
     // clicksIs = 0;
     // windowClicks = 0;
