@@ -331,6 +331,9 @@ function theGame() {
                 life2.style.backgroundColor = 'white';
             } else if (life3.style.backgroundColor === 'royalblue' && life2.style.backgroundColor === 'white') {
                 stopTheGame();
+            } else if (life3.style.backgroundColor === 'white') {
+                stopTheGame();
+                
             }
         };
     }
@@ -345,12 +348,14 @@ function theGame() {
     
     // check if Did not click on any target for level2
     function didNotClickM() {
-        if (livesClick === 0 && livesClick !== undefined) {
+        if (livesClick === 0 || livesClick !== undefined) {
             if (life1.style.backgroundColor === 'indigo' && life2.style.backgroundColor === 'red') {
                 life1.style.backgroundColor = 'white';
                 life2.style.backgroundColor = 'white';
                 livesClick = 0;
             } else if (life3.style.backgroundColor === 'royalblue' && life2.style.backgroundColor === 'white') {
+                stopTheGame();
+            }else if (life3.style.backgroundColor === 'royalblue' && life2.style.backgroundColor === 'red') {
                 stopTheGame();
             };
         };
@@ -419,19 +424,19 @@ function theGame() {
     let timerCompareReset;
     function GameProgress() {      
         progressSpeed = 3000;
-        timerCompareReset = progressSpeed - 50;
+        timerCompareReset = progressSpeed - 100;
          if(score.innerText >= 10 && score.innerText <= 100) {
             progressSpeed = 2500;
-            timerCompareReset = progressSpeed - 50;
+            timerCompareReset = progressSpeed - 100;
         } else if(score.innerText >= 100 && score.innerText <= 150) {
             progressSpeed = 2000;
-            timerCompareReset = progressSpeed - 50;
+            timerCompareReset = progressSpeed - 100;
         }else if(score.innerText >= 150 && score.innerText <= 200) {
             progressSpeed = 1500;
-            timerCompareReset = progressSpeed - 50;
+            timerCompareReset = progressSpeed - 120;
         }else if(score.innerText >= 200 && score.innerText <= 250) {
             progressSpeed = 1000;
-            timerCompareReset = progressSpeed - 50;
+            timerCompareReset = progressSpeed - 120;
         } else if(score.innerText >= 250) {
             progressSpeed = 800;
         };
@@ -458,7 +463,6 @@ function theGame() {
         livesDivElement.style.width = '100%';
         levelsElement.style.display = 'none';
         gameWindow();
-        reset();
     }
 
     // Easy level 
@@ -470,14 +474,18 @@ function theGame() {
         function levelE() {
             gameOne();
             checkRemainingTargets();
-            compareHard();
-            timeOut1 = setTimeout(didNotClickH, timerCompareReset);
+            compareEasy();
+            timeOut1 = setTimeout(didNotClickE, timerCompareReset);
+            console.log(livesClick, 'still going', timerCompareReset); 
             
             clearInterval(timer1);
-            progressSpeed = progressSpeed*1;
             timer1 = setInterval(levelE, progressSpeed);
-        }
-            timer1 = setInterval(levelE, progressSpeed);
+        };
+        if (life3.style.backgroundColor === 'white') {
+            clearInterval(timer1);
+        } else{
+           timer1 = setInterval(levelE, progressSpeed);
+        };
     }
     // Medium Level 
     function levelMedium() {
@@ -488,14 +496,19 @@ function theGame() {
         function levelM() {
             gameTwo();
             checkRemainingTargets();
-            compareHard();
-            timeOut2 = setTimeout(didNotClickH, timerCompareReset);
-            
+            compareMedium();
+            timeOut2 = setTimeout(didNotClickM, timerCompareReset);
+            console.log(timerCompareReset, progressSpeed)
+            console.log(livesClick, 'still going', timerCompareReset);    
+               
             clearInterval(timer2);
-            progressSpeed = progressSpeed*1;
             timer2 = setInterval(levelM, progressSpeed);
         }
-        timer2 = setInterval(levelM, progressSpeed);
+        if (life3.style.backgroundColor === 'white') {
+            clearInterval(timer2);            
+         } else {        
+            timer2 = setInterval(levelM, progressSpeed);
+         };
     }
     // Level Hard
     function levelHard() {
@@ -507,14 +520,17 @@ function theGame() {
             gameThree();
             checkRemainingTargets();
             compareHard();
-        
+            console.log('still running')
             timeOut3 = setTimeout(didNotClickH, timerCompareReset);
             
             clearInterval(timer3);
-            progressSpeed = progressSpeed*1;
             timer3 = setInterval(levelH, progressSpeed);
-        }
-            timer3 = setInterval(levelH, progressSpeed);
+        };
+        if (life3.style.backgroundColor === 'white') {
+            clearInterval(timer3);
+        } else{
+           timer3 = setInterval(levelH, progressSpeed);
+        };
     }
 
 
@@ -525,7 +541,6 @@ function theGame() {
         document.getElementById('new_game_btn').addEventListener('click', gameOverRestart);
         targetsDisplayNone();
         livesDisplayWhite();
-        livesDivElement.style.width = '0';
         gameOverElement.style.display = 'flex';
         reset();
     }
