@@ -192,13 +192,19 @@ html {
     border-radius: inherit;
     box-shadow: inherit;
 
-    padding: 8% 0px 2% 0px;
+    padding: 3% 0px 2% 0px;
+}
+
+.start_heading1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: max(2rem, 4.5vw);
+    color: red;
 }
 
 .start_heading {
     font-family: 'Press Start 2P', cursive;
     text-transform: uppercase;
-    font-size: max(1.5rem, 4vw);
+    font-size: max(2rem, 4vw);
     color: red;
     margin: auto;
     text-align: center;
