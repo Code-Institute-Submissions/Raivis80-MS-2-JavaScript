@@ -8,6 +8,7 @@ function theGame() {
     const livesDivElement = document.getElementById('add_life');
     const gameOverElement = document.getElementById('game-over');
     const contactWindow = document.getElementById('contact_window');
+    const speedElement = document.getElementById('speed');
     // game window hidth/height
     let width;
     let height;
@@ -32,7 +33,8 @@ function theGame() {
 
     //Score Counter varialles
     const score = counterElement.children[0];
-    const scoreMissed = counterElement.children[1];
+    const scoreStreak = counterElement.children[1];
+    const scoreMissed = counterElement.children[2];
 
     // set level variables
     const level1 = levelsElement.children[0];
@@ -206,6 +208,8 @@ function theGame() {
                 scoreMissed.innerText++;
                 resetClicks();
                 windowClicks++
+                streak2 = 0;
+                streak1 = 0;
                 clicks = 0;
                 clicksIs++;
                 livesDivElement.style.width = '0';
@@ -236,7 +240,8 @@ function theGame() {
     //https://stackoverflow.com/questions/3156765/javascript-function-to-get-the-difference-between-two-numbers/3156794
     let counetdDifference;
 
-    function countDifference(clicksIs, clicksIs) {
+
+    function countDifference(clicksIs) {
         if (boxClicks > clicksIs) {
             difference = Math.abs(clicksIs - boxClicks);
             counetdDifference = difference;
@@ -245,6 +250,21 @@ function theGame() {
             counetdDifference = difference;
         };
         return counetdDifference;
+    }
+let streak2 = 0;
+let streak1 = 0;
+let highScore = 0;    
+    function countHighScore(highScoreClick, higScoreMiss) {
+            highScoreClick = streak1;
+            higScoreMiss = streak2;
+        if (highScoreClick > higScoreMiss ) {
+            highScore = Math.abs(highScoreClick - higScoreMiss);
+            scoreStreak.innerText = highScore;
+            console.log('counting nothing');
+        } else {
+            highScore = Math.abs(higScoreMiss - highScoreClick);
+            scoreStreak.innerText = highScore;
+        };
     }
 
     //----------------- add life counter progress bar ----------------------|
@@ -299,8 +319,11 @@ function theGame() {
     //---------------------------- Add lives Logic---------------------------| 
     //Add one life if traget & game window point difference is reached + click counter 
     function countScore() {
+        speedElement.children[0].innerText = `${progressSpeed  / 1000}s`;
+        countHighScore();
         console.log(`Score is: ${score.innerText} Missed target: ${clicksIs} Scorestreak is: ${counetdDifference}`)
         boxClicks++;
+        streak1++;
         if (difference == 9 && life1.style.backgroundColor !== 'green') {
             if (life1.style.backgroundColor === 'oldlace' && life2.style.backgroundColor === 'red') {
                 life1.style.backgroundColor = 'green';
@@ -438,20 +461,20 @@ function theGame() {
     function GameProgress() {
         progressSpeed = 3000;
         timerCompareReset = progressSpeed - 100;
-        if (score.innerText >= 100 && score.innerText <= 100) {
-            progressSpeed = 2600;
+        if (score.innerText >= 50 && score.innerText <= 100) {
+            progressSpeed = 2500;
             timerCompareReset = progressSpeed - 100;
-        } else if (score.innerText >= 200 && score.innerText <= 150) {
-            progressSpeed = 2200;
+        } else if (score.innerText >= 100 && score.innerText <= 150) {
+            progressSpeed = 2000;
             timerCompareReset = progressSpeed - 100;
-        } else if (score.innerText >= 300 && score.innerText <= 200) {
+        } else if (score.innerText >= 250 && score.innerText <= 200) {
             progressSpeed = 1800;
             timerCompareReset = progressSpeed - 120;
-        } else if (score.innerText >= 350 && score.innerText <= 250) {
-            progressSpeed = 1400;
+        } else if (score.innerText >= 300 && score.innerText <= 250) {
+            progressSpeed = 1600;
             timerCompareReset = progressSpeed - 120;
-        } else if (score.innerText >= 400) {
-            progressSpeed = 1000;
+        } else if (score.innerText >= 450) {
+            progressSpeed = 1200;
         };
     }
     GameProgress()
@@ -558,17 +581,17 @@ function theGame() {
         location.reload();
     }
 
-document.getElementById('new_game_btn').addEventListener('click', gameOverRestart);
-document.getElementById('button2').addEventListener('click', gameOverRestart);
-document.getElementById('contact_button').addEventListener('click', contactFormm);
-document.getElementById('contact_button2').addEventListener('click', contactFormm);
- 
+    document.getElementById('new_game_btn').addEventListener('click', gameOverRestart);
+    document.getElementById('button2').addEventListener('click', gameOverRestart);
+    document.getElementById('contact_button').addEventListener('click', contactFormm);
+    document.getElementById('contact_button2').addEventListener('click', contactFormm);
 
-function contactFormm() {
-    contactWindow.style.display = 'flex';
-    startGameElement.style.display = 'none';
-    gameOverElement.style.display = 'none';
- }
+
+    function contactFormm() {
+        contactWindow.style.display = 'flex';
+        startGameElement.style.display = 'none';
+        gameOverElement.style.display = 'none';
+    }
     // clicksIs = 0;
     // windowClicks = 0;
     // boxClicks = 0;
@@ -583,6 +606,7 @@ theGame();
 // Some of emailjs API code is reused of Code Institute Resume project 
 // I have added alert message to display after success and clear form after email has been sent successful.
 let formAlet = document.getElementById('form_alert');
+
 function sendMail(contactForm) {
     emailjs.send("gmail", "game", {
             "from_name": contactForm.name.value,
@@ -594,7 +618,7 @@ function sendMail(contactForm) {
                 console.log("SUCCESS", response);
                 // Added alert mesaage after successfull delivery
                 document.getElementById('submit_alert').setAttribute("class", "submit_alert border");
-                document.getElementById('submit_alert').innerHTML= `<p>Your message has been sent successfully. Thank You!</p>`;
+                document.getElementById('submit_alert').innerHTML = `<p>Your message has been sent successfully. Thank You!</p>`;
                 // Reset alert message after 6 seconds
                 setTimeout(alertOff, 6000);
                 document.getElementById('form').reset();
@@ -603,12 +627,12 @@ function sendMail(contactForm) {
                 alert('Your Failed to sent. Please check your details. Thank you...')
                 console.log("FAILED", error);
             }
-        ); 
+        );
     return false; // To block from loading a new page
-    }
+}
 
-    // Alert reset function
+// Alert reset function
 function alertOff() {
     document.getElementById('submit_alert').setAttribute("class", "");
-    document.getElementById('submit_alert').innerHTML= '';
+    document.getElementById('submit_alert').innerHTML = '';
 }

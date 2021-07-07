@@ -54,6 +54,10 @@ html {
 }
 
 .score2 {
+    color: green;
+}
+
+.score3 {
     color: red;
 }
 
