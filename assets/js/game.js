@@ -573,33 +573,38 @@ function contactFormm() {
     // windowClicks = 0;
     // boxClicks = 0;
     // difference = 0;
-
     console.log(`Screen size:  ${width}px ${height}px`);
 
 }
 
-
 theGame();
-
-
-
-
 
 //-------------------CONTACT FORM--API--emailjs.com--------------------------
 // this code is reused of Code Institute Resume project 
+// added alert message and clear form after email is sent.
+let formAlet = document.getElementById('form_alert');
 function sendMail(contactForm) {
     emailjs.send("gmail", "game", {
             "from_name": contactForm.name.value,
             "from_email": contactForm.emailaddress.value,
-            "project_request": contactForm.projectsummary.value
+            "Game_bug_report": contactForm.gameBugReport.value
         })
         .then(
             function (response) {
                 console.log("SUCCESS", response);
+                document.getElementById('submit_alert').setAttribute("class", "submit_alert border");
+                document.getElementById('submit_alert').innerHTML= `<p>Your message has been sent successfully. Thank You!</p>`;
+                setTimeout(alertOff, 6000);
+                document.getElementById('form').reset();
             },
             function (error) {
+                alert('Your Failed to sent. Please check your details. Thank you...')
                 console.log("FAILED", error);
             }
-        );
+        ); 
     return false; // To block from loading a new page
+    }
+function alertOff() {
+    document.getElementById('submit_alert').setAttribute("class", "");
+    document.getElementById('submit_alert').innerHTML= '';
 }

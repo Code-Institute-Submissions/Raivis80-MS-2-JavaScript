@@ -79,22 +79,21 @@
                 </div>
             </div>
             <div>
-                <h3 id="contact_button" class="contact_button buttons">Contact</h3>
+                <h3 id="contact_button" class="contact_button buttons">Contact | Report a bug:</h3>
             </div>
         </div>
 
         <div id="contact_window" class="contact_window ">
-            <div class="spacer"></div>
-            <div class="form">
-                <h1 class="contact_title">Contact</h1>
+            <div id="submit_alert" class='spacer submit_alert border'>Your message has been sent successfully. Thank You!</div>
+            <div class="form border">
+                <h1 class="contact_title">Report a bug</h1>
                 <div class="center-form">
-                    <form onsubmit="return sendMail(this);">
-                        <input type="text" name="name" class="form-control" id="fullname" placeholder="Name" required />
+                    <form id="form" onsubmit="return sendMail(this);">
+                        <input type="text" name="name" class="form-control" id="fullname" placeholder="Name:" required />
                         <input type="text" name="emailaddress" class="form-control" id="emailaddress"
-                            placeholder="Email" required />
-                        <textarea rows="5" name="projectsummary" class="form-control" id="projectsummary"
-                            placeholder="Description" required></textarea>
-                        <button type="submit" class="btn btn-secondary center-block">Submit</button>
+                            placeholder="Email:" required />
+                        <textarea rows="5" name="gameBugReport" class="form-control" id="gameBugReport" placeholder="Report a bug:" required></textarea>
+                        <button type="submit">Submit</button>
                     </form>
                 </div>
             </div>
@@ -112,7 +111,7 @@
                 </div>
             </div>
             <div class="game_over_btn2">
-                <h3 class="contact_button2  contact_button buttons" id="contact_button2">Contact</h3>
+                <h3 class="contact_button2  contact_button buttons" id="contact_button2">Contact | Report a bug:</h3>
             </div>
         </div>
 

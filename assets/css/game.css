@@ -30,7 +30,8 @@ html {
     justify-content: space-between;
 }
 
-.border {   
+.border {  
+    box-shadow: 0 0 15px rgb(0, 0, 0, .3); 
     border-radius: 6px;
 }
 
@@ -89,9 +90,9 @@ html {
 }
 
 .buttons:hover {
-    box-shadow: 0 0 20spx rgb(0, 0, 0, .3);
+    box-shadow: 0 0 20px rgb(0, 0, 0, .3);
     cursor: pointer;  
-    transform: scale(1.1);
+    transform: scale(1.03);
 }
 
 .l1 {
@@ -238,21 +239,31 @@ html {
     height: inherit;
     display: none;
     flex-direction: column; 
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
+
 }
 
 .form { 
-   
-    align-self: center;
+
     background-color: antiquewhite;
     box-sizing: border-box;
-    padding: 6px;
-    border-radius: 6px;    
+    padding: 6px; 
     max-width: 300px;
     border-radius: 6px;
-    box-shadow: 0 0 15px rgb(0, 0, 0, .3);
 }
-.spacer {
+
+.submit_alert {
+    box-sizing: border-box;
+    text-align: center;
+    color: green;
+    font-weight: bold;
+    padding: 26px 12px;
+    background-color: antiquewhite;
+}
+
+.spacer{
+    width: 300px;
     height: 100px;
 }
 
@@ -273,11 +284,20 @@ html {
 }
 
 .contact_window button {
+    box-shadow: 0 0 6px rgb(0, 0, 0, .6);
     color: l;
     color: oldlace;
     background-color: green;
+    transition-duration: 0.1s;
 }
+
+.contact_window button:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 10px rgb(0, 0, 0, .6);
+}
+
 .contact_title {
+    font-size: 1.2rem;
     font-family: 'Press Start 2P', cursive;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -286,7 +306,7 @@ html {
 }
 
 .contact_button {
-    align-self: center;
+
     padding: 6px 10px;
     width: 270px;
     text-align: center;
