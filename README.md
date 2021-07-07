@@ -3,7 +3,7 @@
 ## MS-2 JavaScript | Reaction Time Game.
 
 <!--For assestment - README.md file structure was copied from my first milestone project."-->
-## [View the live project here.](https://raivis80.github.io)
+## [View the live project here.](https://raivis80.github.io/MS-2-JavaScript/game.html)
 ### Table of contents
 
 1. [Introduction](#Introduction)
