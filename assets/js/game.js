@@ -79,18 +79,21 @@ function theGame() {
         positionYX()
         target1.style.left = positionx;
         target1.style.top = positiony;
+        target1.style.display = 'block';
     }
 
     function randomObject2() {
         positionYX()
         target2.style.left = positionx;
         target2.style.top = positiony;
+        target2.style.display = 'block';
     }
 
     function randomObject3() {
         positionYX()
         target3.style.left = positionx;
         target3.style.top = positiony;
+        target3.style.display = 'block';
     }
 
     let timeOut1;
@@ -120,27 +123,23 @@ function theGame() {
         life3.style.backgroundColor = 'oldlace';
     }
 
+ 
     // Game level targets 
     function gameOne() {
-        target1.style.display = 'block';
         randomObject1();
     }
 
     function gameTwo() {
-        target1.style.display = 'block';
-        target2.style.display = 'block';
         randomObject1();
         randomObject2();
     }
 
     function gameThree() {
-        target1.style.display = 'block';
-        target2.style.display = 'block';
-        target3.style.display = 'block';;
         randomObject1();
         randomObject2();
         randomObject3();
     }
+
 
     //------------------- Target event listermers--------------|
     // Level 1 event listeners
@@ -148,7 +147,7 @@ function theGame() {
         target1.addEventListener('click', function () {
             this.style.display = 'none';
             scoreCount = score.innerText;
-            countScore();
+            livesLogic();
         });
     }
     // Level 2 event listerers
@@ -156,12 +155,12 @@ function theGame() {
         target1.addEventListener('click', function () {
             this.style.display = 'none';
             scoreCount = score.innerText;
-            countScore();
+            livesLogic();
         });
         target2.addEventListener('click', function () {
             this.style.display = 'none';
             scoreCount = score.innerText;
-            countScore();
+            livesLogic();
         });
     }
     // Level 3 eveent listeners
@@ -169,37 +168,27 @@ function theGame() {
         target1.addEventListener('click', function () {
             this.style.display = 'none';
             scoreCount = score.innerText;
-            countScore();
+            livesLogic();
         });
         target2.addEventListener('click', function () {
             this.style.display = 'none';
             scoreCount = score.innerText;
-            countScore();
+            livesLogic();
         });
         target3.addEventListener('click', function () {
             this.style.display = 'none';
             scoreCount = score.innerText;
-            countScore();
+            livesLogic();
         });
     }
 
-    // reset window and target click event count
-    function resetClicks() {
-        windowClicks = 0;
-        boxClicks = 0;
-    }
- 
-    // click counter variables
-    let clicksIs = 0;
-    let windowClicks = 0;
-    let boxClicks = 0;
-    let difference = 0;
 
     //----------------------------Game Window---------------------------|
     let detectWindowEvents;
+
     function gameWindow() {
         // Game window mousedown listener
-        gameWindowElement.addEventListener('mousedown', detectWindowEvents); 
+        gameWindowElement.addEventListener('mousedown', detectWindowEvents);
         // window click detection function    
         function detectWindowEvents(event) {
             // prevent click event trigger on child elements helped me to solve this
@@ -207,11 +196,10 @@ function theGame() {
             //https://stackoverflow.com/questions/1369035/how-do-i-prevent-a-parents-onclick-event-from-firing-when-a-child-anchor-is-cli                      
             if (this === event.target) {
                 scoreMissed.innerText++;
-                resetClicks();
-                windowClicks++
+                boxClicks = 0;
                 streak2 = 0;
                 streak1 = 0;
-                clicks = 0;
+                clicksIs = 0;
                 clicksIs++;
                 livesDivElement.style.width = '0';
                 this.style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
@@ -237,18 +225,7 @@ function theGame() {
     //----get diffference detween succesful and unsuccessful clicks-------|
     // User Salil helped men with solution to prevent counting negative numbers 
     //https://stackoverflow.com/questions/3156765/javascript-function-to-get-the-difference-between-two-numbers/3156794
-    let counetdDifference;
 
-    function countDifference(clicksIs) {
-        if (boxClicks > clicksIs) {
-            difference = Math.abs(clicksIs - boxClicks);
-            counetdDifference = difference;
-        } else {
-            difference = Math.abs(boxClicks, clicksIs);
-            counetdDifference = difference;
-        };
-        return counetdDifference;
-    }
 
     //-----------------------Score--Streak counter--------------------------|
     let streak2 = 0;
@@ -267,96 +244,72 @@ function theGame() {
         };
     }
 
-    //----------------- add life counter progress bar ----------------------|
-    function livesDivElementDisplay() {
-        if (life1.style.backgroundColor == 'oldlace' && life2.style.backgroundColor == 'red') {
-            if (difference == 0) {
-                livesDivElement.style.width = '0';
-                livesDivElement.style.backgroundColor = 'green';
-            } else if (difference === 1) {
-                livesDivElement.style.width = '10%';
-                livesDivElement.style.backgroundColor = 'green';
-            } else if (difference === 2) {
-                livesDivElement.style.width = '20%';
-                livesDivElement.style.backgroundColor = 'green';
-            } else if (difference === 4) {
-                livesDivElement.style.width = '40%';
-                livesDivElement.style.backgroundColor = 'green';
-            } else if (difference === 6) {
-                livesDivElement.style.width = '60%';
-                livesDivElement.style.backgroundColor = 'green';
-            } else if (difference == 8) {
-                livesDivElement.style.width = '80%';
-                livesDivElement.style.backgroundColor = 'green';
-            } else if (difference == 9) {
-                livesDivElement.style.width = '100%';
-            }
-        } else if (life2.style.backgroundColor == 'oldlace') {
-            if (difference == 0) {
-                livesDivElement.style.width = '0';
-                livesDivElement.style.backgroundColor = 'red';
-            } else if (difference === 1) {
-                livesDivElement.style.width = '10';
-                livesDivElement.style.backgroundColor = 'red';
-            } else if (difference === 2) {
-                livesDivElement.style.width = '20%';
-                livesDivElement.style.backgroundColor = 'red';
-            } else if (difference === 4) {
-                livesDivElement.style.width = '40%';
-                livesDivElement.style.backgroundColor = 'red';
-            } else if (difference === 6) {
-                livesDivElement.style.width = '60%';
-                livesDivElement.style.backgroundColor = 'red';
-            } else if (difference == 8) {
-                livesDivElement.style.width = '80%';
-                livesDivElement.style.backgroundColor = 'red';
-            } else if (difference == 9) {
-                livesDivElement.style.width = '100%';
-            };
+    //---------------------------- Add lives Logic---------------------------| 
+
+    // reset window and target click event count
+    // click counter variables
+    let clicksIs = 0;
+    let boxClicks = 0;
+    let difference = 0;
+
+    function countDifference(clicksIs) {
+        if (boxClicks > clicksIs) {
+            difference = Math.abs(clicksIs - boxClicks);
+        } else {
+            difference = Math.abs(boxClicks, clicksIs);
         };
     }
 
-    //---------------------------- Add lives Logic---------------------------| 
-    //Add one life if traget & game window point difference is reached + click counter 
-    function countScore() {
+    function livesLogic() {
         speedElement.children[0].innerText = `${progressSpeed  / 1000}s`;
         score.innerText++;
-        livesClick++;
+        targetClick++;
         boxClicks++;
         streak1++;
         countHighScore();
         countDifference();
-        livesDivElementDisplay();
         GameProgress();
-        if (difference == 9 && life1.style.backgroundColor !== 'green') {
+        console.log(difference * 10 + '%')
+
+        //Add one life
+        if (life1.style.backgroundColor == 'oldlace' && life2.style.backgroundColor === 'red') {
+            livesDivElement.style.width = difference * 10 + '%';
+            livesDivElement.style.backgroundColor = 'green';
+        } else if (life2.style.backgroundColor == 'oldlace') {
+            livesDivElement.style.width = difference * 10 + '%';;
+            livesDivElement.style.backgroundColor = 'red';
+        };
+        //life counter progress bar
+        if (difference == 10 && life1.style.backgroundColor !== 'green') {
             if (life1.style.backgroundColor === 'oldlace' && life2.style.backgroundColor === 'red') {
                 life1.style.backgroundColor = 'green';
-                resetClicks();
+                boxClicks = 0;
             } else if (life3.style.backgroundColor === 'royalblue' && life2.style.backgroundColor === 'oldlace') {
                 life2.style.backgroundColor = 'red';
-                resetClicks();
+                boxClicks = 0;
             } else {
-                countScore();
+                livesLogic();
             };
         };
     }
 
+    //----------------------missed--targets logic--------------------|
     // If click on target check the count level1
-    let livesClick;
+    let targetClick;
 
     function checkRemainingTargets() {}
-    if (livesClick === undefined) {
-        livesClick = 0;
-    } else if (livesClick < 4) {
-        livesClick++;
+    if (targetClick === undefined) {
+        targetClick = 0;
+    } else if (targetClick < 4) {
+        targetClick++;
     }
 
     // If missed click on target deduct one life or game over for level1
     function didNotClickE() {
-        if (livesClick === 0 && livesClick !== undefined) {
+        if (targetClick === 0 && targetClick !== undefined) {
             if (life1.style.backgroundColor === 'green' && life2.style.backgroundColor === 'red') {
                 life1.style.backgroundColor = 'oldlace';
-                livesClick = 0;
+                targetClick = 0;
             } else if (life1.style.backgroundColor === 'oldlace' && life2.style.backgroundColor === 'red') {
                 life2.style.backgroundColor = 'oldlace';
             } else if (life3.style.backgroundColor === 'royalblue' && life2.style.backgroundColor === 'oldlace') {
@@ -372,19 +325,18 @@ function theGame() {
 
     // If clicked clear counter level 1
     function compareEasy() {
-        if (livesClick === 1) {
-            livesClick = 0;
-            console.log('reset the counter');
+        if (targetClick === 1) {
+            targetClick = 0;
         };
     }
 
     // check if Did not click on any target for level2
     function didNotClickM() {
-        if (livesClick === 0 && livesClick !== undefined) {
+        if (targetClick === 0 && targetClick !== undefined) {
             if (life1.style.backgroundColor === 'green' && life2.style.backgroundColor === 'red') {
                 life1.style.backgroundColor = 'oldlace';
                 life2.style.backgroundColor = 'oldlace';
-                livesClick = 0;
+                targetClick = 0;
             } else if (life3.style.backgroundColor === 'royalblue' && life2.style.backgroundColor === 'oldlace') {
                 stopTheGame();
                 reset();
@@ -397,26 +349,26 @@ function theGame() {
 
     // If missed click on target/s deduct one life or game over for level2
     function compareMedium() {
-        if (livesClick === 1) {
+        if (targetClick === 1) {
             if (life1.style.backgroundColor === 'green' && life2.style.backgroundColor === 'red') {
                 life1.style.backgroundColor = 'oldlace';
-                livesClick = 0;
+                targetClick = 0;
             } else if (life2.style.backgroundColor === 'red' && life1.style.backgroundColor === 'oldlace') {
                 life2.style.backgroundColor = 'oldlace';
-                livesClick = 0;
+                targetClick = 0;
             } else if (life2.style.backgroundColor === 'oldlace' && life3.style.backgroundColor === 'royalblue') {
                 stopTheGame();
                 reset();
             };
-        } else if (livesClick = 2); {
+        } else if (targetClick = 2); {
             console.log('reset the counter');
-            livesClick = 0;
+            targetClick = 0;
         }
     }
 
     // check if Did not click on any target for level3
     function didNotClickH() {
-        if (livesClick === 0 && livesClick !== undefined) {
+        if (targetClick === 0 && targetClick !== undefined) {
             stopTheGame();
             reset();
         };
@@ -424,12 +376,12 @@ function theGame() {
 
     // If missed click on target/s deduct one life or game over for level3
     function compareHard() {
-        if (livesClick === 1) {
+        if (targetClick === 1) {
             if (life1.style.backgroundColor === 'green' && life2.style.backgroundColor === 'red') {
                 life1.style.backgroundColor = 'oldlace';
                 life2.style.backgroundColor = 'oldlace';
-                resetClicks();
-                livesClick = 0;
+                boxClicks = 0;
+                targetClick = 0;
             } else if (life2.style.backgroundColor === 'red' && life1.style.backgroundColor === 'oldlace') {
                 stopTheGame();
                 reset();
@@ -437,21 +389,21 @@ function theGame() {
                 stopTheGame();
                 reset();
             };
-        } else if (livesClick === 2) {
+        } else if (targetClick === 2) {
             if (life1.style.backgroundColor === 'green' && life2.style.backgroundColor === 'red') {
                 life1.style.backgroundColor = 'oldlace';
-                resetClicks();
-                livesClick = 0;
+                boxClicks = 0;
+                targetClick = 0;
             } else if (life2.style.backgroundColor === 'red' && life1.style.backgroundColor === 'oldlace') {
                 life2.style.backgroundColor = 'oldlace';
-                resetClicks();
-                livesClick = 0;
+                boxClicks = 0;
+                targetClick = 0;
             } else if (life2.style.backgroundColor === 'oldlace' && life3.style.backgroundColor === 'royalblue') {
                 stopTheGame()
                 reset();
             };
-        } else if (livesClick === 3) {
-            livesClick = 0;
+        } else if (targetClick === 3) {
+            targetClick = 0;
         };
     }
     livesDivElement.style.width = '100%';
@@ -468,21 +420,20 @@ function theGame() {
         if (score.innerText >= 50 && score.innerText <= 100) {
             progressSpeed = 2500;
             timerCompareReset = progressSpeed - 100;
-        } else if (score.innerText >= 100 && score.innerText <= 150) {
+        } else if (score.innerText >= 100 && score.innerText <= 200) {
             progressSpeed = 2000;
             timerCompareReset = progressSpeed - 100;
-        } else if (score.innerText >= 250 && score.innerText <= 200) {
+        } else if (score.innerText >= 200 && score.innerText <= 300) {
             progressSpeed = 1800;
-            timerCompareReset = progressSpeed - 120;
-        } else if (score.innerText >= 300 && score.innerText <= 250) {
+            timerCompareReset = progressSpeed - 100;
+        } else if (score.innerText >= 300 && score.innerText <= 400) {
             progressSpeed = 1600;
-            timerCompareReset = progressSpeed - 120;
-        } else if (score.innerText >= 450) {
+            timerCompareReset = progressSpeed - 100;
+        } else if (score.innerText >= 500) {
             progressSpeed = 1200;
         };
     }
     GameProgress()
-
 
     //---------------------Game Level sellection-----------------------|
     // Level sellection listeners
@@ -498,6 +449,7 @@ function theGame() {
 
     // Game setup and start
     function gameSetup() {
+        targetTimer = progressSpeed / 2;
         startGameElement.style.display = 'none';
         removeLevelListeners();
         livesDivElement.style.width = '100%';
@@ -571,7 +523,7 @@ function theGame() {
 
     //------------------------- Stop The Game function------------------| 
     function stopTheGame() {
-        console.log('game over', livesClick);
+        console.log('game over', targetClick);
         gameWindowElement.removeEventListener('mousedown', detectWindowEvents);
         document.getElementById('new_game_btn').addEventListener('click', gameOverRestart);
         targetsDisplayNone();
