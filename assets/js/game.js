@@ -9,17 +9,6 @@ function theGame() {
     const gameOverElement = document.getElementById('game-over');
     const contactWindow = document.getElementById('contact_window');
     const speedElement = document.getElementById('speed');
-    // game window hidth/height
-    let width;
-    let height;
-
-    // random number variables
-    let numWidth;
-    let numHeight;
-
-    // x any screen position
-    let positionx;
-    let positiony;
 
     // Timmer variables 
     let timer1;
@@ -45,12 +34,6 @@ function theGame() {
     let life2 = livesElement.children[1];
     let life3 = livesElement.children[2];
 
-    // click counter variables
-    let clicksIs = 0;
-    let windowClicks = 0;
-    let boxClicks = 0;
-    let difference = 0;
-
     // Lives Colors 
     life1.style.backgroundColor = 'green';
     life2.style.backgroundColor = 'red';
@@ -62,10 +45,21 @@ function theGame() {
     target3.style.backgroundColor = 'royalblue';
 
 
-    // -------------------RANDOM NUMBER GENERATOR-------------------
+    // -------------------RANDOM NUMBER GENERATOR-------------------|
     // getting width and height numbers based on the screen size.
     // Passing width and height numbers into a random number generator to
     // get random x and y coardinates for the game objects.
+
+    // game window hidth/height
+    let width;
+    let height;
+    // random number variables
+    let numWidth;
+    let numHeight;
+    // x any screen position
+    let positionx;
+    let positiony;
+
     function positionYX() {
         width = gameWindowElement.offsetWidth;
         height = gameWindowElement.offsetHeight;
@@ -99,28 +93,6 @@ function theGame() {
         target3.style.top = positiony;
     }
 
-    // Game level targets 
-    function gameOne() {
-        target1.style.display = 'block';
-        randomObject1();
-    }
-
-    function gameTwo() {
-        target1.style.display = 'block';
-        target2.style.display = 'block';
-        randomObject1();
-        randomObject2();
-    }
-
-    function gameThree() {
-        target1.style.display = 'block';
-        target2.style.display = 'block';
-        target3.style.display = 'block';;
-        randomObject1();
-        randomObject2();
-        randomObject3();
-    }
-
     let timeOut1;
     let timeOut2;
     let timeOut3;
@@ -148,41 +120,66 @@ function theGame() {
         life3.style.backgroundColor = 'oldlace';
     }
 
-    //---------- Target event listermers- target--Score counters--------|
-    function targetClickFunction() {
+    // Game level targets 
+    function gameOne() {
+        target1.style.display = 'block';
+        randomObject1();
+    }
+
+    function gameTwo() {
+        target1.style.display = 'block';
+        target2.style.display = 'block';
+        randomObject1();
+        randomObject2();
+    }
+
+    function gameThree() {
+        target1.style.display = 'block';
+        target2.style.display = 'block';
+        target3.style.display = 'block';;
+        randomObject1();
+        randomObject2();
+        randomObject3();
+    }
+
+    //------------------- Target event listermers--------------|
+    // Level 1 event listeners
+    function targetClickEventsEasy() {
         target1.addEventListener('click', function () {
             this.style.display = 'none';
-            score.innerText++;
-            GameProgress();
-            console.log(progressSpeed, timerCompareReset);
             scoreCount = score.innerText;
             countScore();
-            livesClick++;
-            countDifference();
-            livesDivElementDisplay();
-
+        });
+    }
+    // Level 2 event listerers
+    function targetClickEventsMedium() {
+        target1.addEventListener('click', function () {
+            this.style.display = 'none';
+            scoreCount = score.innerText;
+            countScore();
         });
         target2.addEventListener('click', function () {
             this.style.display = 'none';
-            score.innerText++;
-            GameProgress();
-            console.log(progressSpeed, timerCompareReset);
             scoreCount = score.innerText;
             countScore();
-            livesClick++;
-            countDifference();
-            livesDivElementDisplay();
+        });
+    }
+    // Level 3 eveent listeners
+    function targetClickEventsHard() {
+        target1.addEventListener('click', function () {
+            this.style.display = 'none';
+            scoreCount = score.innerText;
+            countScore();
+        });
+        target2.addEventListener('click', function () {
+            this.style.display = 'none';
+            scoreCount = score.innerText;
+            countScore();
         });
         target3.addEventListener('click', function () {
             this.style.display = 'none';
-            score.innerText++;
-            GameProgress();
-            console.log(progressSpeed, timerCompareReset);
             scoreCount = score.innerText;
             countScore();
-            livesClick++;
-            countDifference();
-            livesDivElementDisplay();
         });
     }
 
@@ -191,15 +188,19 @@ function theGame() {
         windowClicks = 0;
         boxClicks = 0;
     }
-
-    let detectWindowEvents;
+ 
+    // click counter variables
+    let clicksIs = 0;
+    let windowClicks = 0;
+    let boxClicks = 0;
+    let difference = 0;
 
     //----------------------------Game Window---------------------------|
+    let detectWindowEvents;
     function gameWindow() {
         // Game window mousedown listener
-        gameWindowElement.addEventListener('mousedown', detectWindowEvents);
-        // window click detection function
-
+        gameWindowElement.addEventListener('mousedown', detectWindowEvents); 
+        // window click detection function    
         function detectWindowEvents(event) {
             // prevent click event trigger on child elements helped me to solve this
             //Stackoverflow user abaz                    
@@ -233,13 +234,10 @@ function theGame() {
             this.style.backgroundColor = 'oldlace';
         });
     }
-
-
     //----get diffference detween succesful and unsuccessful clicks-------|
     // User Salil helped men with solution to prevent counting negative numbers 
     //https://stackoverflow.com/questions/3156765/javascript-function-to-get-the-difference-between-two-numbers/3156794
     let counetdDifference;
-
 
     function countDifference(clicksIs) {
         if (boxClicks > clicksIs) {
@@ -251,16 +249,18 @@ function theGame() {
         };
         return counetdDifference;
     }
-let streak2 = 0;
-let streak1 = 0;
-let highScore = 0;    
+
+    //-----------------------Score--Streak counter--------------------------|
+    let streak2 = 0;
+    let streak1 = 0;
+    let highScore = 0;
+
     function countHighScore(highScoreClick, higScoreMiss) {
-            highScoreClick = streak1;
-            higScoreMiss = streak2;
-        if (highScoreClick > higScoreMiss ) {
+        highScoreClick = streak1;
+        higScoreMiss = streak2;
+        if (highScoreClick > higScoreMiss) {
             highScore = Math.abs(highScoreClick - higScoreMiss);
             scoreStreak.innerText = highScore;
-            console.log('counting nothing');
         } else {
             highScore = Math.abs(higScoreMiss - highScoreClick);
             scoreStreak.innerText = highScore;
@@ -320,10 +320,14 @@ let highScore = 0;
     //Add one life if traget & game window point difference is reached + click counter 
     function countScore() {
         speedElement.children[0].innerText = `${progressSpeed  / 1000}s`;
-        countHighScore();
-        console.log(`Score is: ${score.innerText} Missed target: ${clicksIs} Scorestreak is: ${counetdDifference}`)
+        score.innerText++;
+        livesClick++;
         boxClicks++;
         streak1++;
+        countHighScore();
+        countDifference();
+        livesDivElementDisplay();
+        GameProgress();
         if (difference == 9 && life1.style.backgroundColor !== 'green') {
             if (life1.style.backgroundColor === 'oldlace' && life2.style.backgroundColor === 'red') {
                 life1.style.backgroundColor = 'green';
@@ -503,9 +507,9 @@ let highScore = 0;
 
     // Easy level 
     function levelEasy() {
+        targetClickEventsEasy();
         gameSetup();
         console.log('Easy');
-        targetClickFunction();
 
         function levelE() {
             clearInterval(timer1);
@@ -523,9 +527,9 @@ let highScore = 0;
     }
     // Medium Level 
     function levelMedium() {
+        targetClickEventsMedium();
         gameSetup();
         console.log('Medium');
-        targetClickFunction();
 
         function levelM() {
             clearInterval(timer2);
@@ -541,11 +545,12 @@ let highScore = 0;
             timer2 = setInterval(levelM, progressSpeed);
         };
     }
+
     // Level Hard
     function levelHard() {
+        targetClickEventsHard();
         gameSetup();
         console.log('Hard');
-        targetClickFunction();
 
         function levelH() {
             clearInterval(timer3);

@@ -61,6 +61,10 @@ html {
     color: red;
 }
 
+.speed {
+    color: red;
+}
+
 /*--------- Select Level -------*/
 
 #select_level {
@@ -71,11 +75,20 @@ html {
 
 .selectP {
     font-family: 'Press Start 2P', cursive;
-    font-size: max(1rem, 3vh, .6rem);
+    font-size: max(1rem, 2vh);
     text-align: center;
     font-weight: bold;
-    color: black;
+    color: green;
+}
+.selectP::before {
+    content: 'Please ';
+    color: royalblue;
+}
+.selectP::after {
 
+    content: ' Level';
+    color: red;
+    transform: scale(.8);
 }
 
 .level {
@@ -185,20 +198,24 @@ html {
 .start_heading {
     font-family: 'Press Start 2P', cursive;
     text-transform: uppercase;
-    font-size: max(4vw, 3rem, 2rem);
+    font-size: max(1.5rem, 4vw);
     color: red;
     margin: auto;
     text-align: center;
 }
 
 .start_heading::after {
+    position: absolute;
     content: ' Game';
     color: royalblue;
+    transform: scale(.6);
 }
 
 .start_heading::before {
+    position: absolute;
     content: 'Start ';
     color: green;
+    transform: scale(.6)  translate(-150%);
 }
 
 /*---------------- game over----------------- */
@@ -209,9 +226,6 @@ html {
 
     background-color: oldlace;
     justify-content: space-around;
-    ;
-
-
     width: inherit;
     height: inherit;
     border-radius: inherit;
@@ -221,14 +235,14 @@ html {
 .game_over_title {
     text-transform: uppercase;
     font-family: 'Press Start 2P', cursive;
-    font-size: max(1vw, 3rem, .8rem);
+    font-size: max(2rem, 4vw);
     color: maroon;
     margin: auto;
     text-align: center;
 }
 
 .game_over_block {
-    margin-top: 8%;
+    margin-top: 2%;
     display: flex;
     flex-direction: column;
     align-self: center;
@@ -240,7 +254,7 @@ html {
 }
 
 .game_over_btn1 {
-    margin: auto;
+    margin: 50px auto;
 }
 
 
@@ -325,4 +339,14 @@ html {
 .contact_play_new {
     height: 100px;
     align-self: center;
+}
+
+
+@media only screen and (max-width: 400px) {
+    .speed, .score1, .score2, .score3{
+        font-size: .8rem;
+    }
+    .score3 {
+        display: none;
+    }
 }
