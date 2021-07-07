@@ -172,11 +172,10 @@ html {
     border-radius: inherit;
     box-shadow: inherit; 
 
-    padding: 8% 0px;
+    padding: 8% 0px 0px 0px;
 }
 
-.start_heading {
-    
+.start_heading {  
     font-family: 'Press Start 2P', cursive;
     text-transform: uppercase;
     font-size: max(4vw, 3rem, 2rem);
@@ -199,7 +198,7 @@ html {
     flex-direction: column;
     
     background-color: oldlace;
-    justify-content: space-between;
+    justify-content: space-around;;
 
 
     width: inherit;
@@ -245,7 +244,6 @@ html {
 }
 
 .form { 
-
     background-color: antiquewhite;
     box-sizing: border-box;
     padding: 6px; 
@@ -254,7 +252,6 @@ html {
 }
 
 .submit_alert {
-
     box-sizing: border-box;
     text-align: center;
     color: green;
@@ -264,8 +261,7 @@ html {
     background-color: antiquewhite;
 }
 
-.spacer{
-    
+.spacer{    
     height: 100px;
 }
 
