@@ -580,8 +580,8 @@ function contactFormm() {
 theGame();
 
 //-------------------CONTACT FORM--API--emailjs.com--------------------------
-// this code is reused of Code Institute Resume project 
-// added alert message and clear form after email is sent.
+// Some of emailjs API code is reused of Code Institute Resume project 
+// I have added alert message to display after success and clear form after email has been sent successful.
 let formAlet = document.getElementById('form_alert');
 function sendMail(contactForm) {
     emailjs.send("gmail", "game", {
@@ -592,8 +592,10 @@ function sendMail(contactForm) {
         .then(
             function (response) {
                 console.log("SUCCESS", response);
+                // Added alert mesaage after successfull delivery
                 document.getElementById('submit_alert').setAttribute("class", "submit_alert border");
                 document.getElementById('submit_alert').innerHTML= `<p>Your message has been sent successfully. Thank You!</p>`;
+                // Reset alert message after 6 seconds
                 setTimeout(alertOff, 6000);
                 document.getElementById('form').reset();
             },
@@ -604,6 +606,8 @@ function sendMail(contactForm) {
         ); 
     return false; // To block from loading a new page
     }
+
+    // Alert reset function
 function alertOff() {
     document.getElementById('submit_alert').setAttribute("class", "");
     document.getElementById('submit_alert').innerHTML= '';

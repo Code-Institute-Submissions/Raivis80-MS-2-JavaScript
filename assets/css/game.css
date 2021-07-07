@@ -254,16 +254,18 @@ html {
 }
 
 .submit_alert {
+
     box-sizing: border-box;
     text-align: center;
     color: green;
     font-weight: bold;
+    width: 300px;
     padding: 26px 12px;
     background-color: antiquewhite;
 }
 
 .spacer{
-    width: 300px;
+    
     height: 100px;
 }
 
