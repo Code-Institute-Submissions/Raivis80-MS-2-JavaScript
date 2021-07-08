@@ -373,30 +373,30 @@ html {
 .help {  
     display: flex;
     align-items: center;
-    justify-content: center;
+    
     width: 130px;
     height: max-content;
     background-color: rgba(250, 235, 215, .9);
-    margin-top: -280px; 
+    margin-top: -280px;
+    padding: 0; 
 }
 
 .help p {
+    padding: 0;
     box-sizing: border-box;
     margin: auto; 
-    padding: 3px;
     display: inline-block;
-    height: 70px;
+    height: inherit;
     vertical-align: middle;
     border-left: 1px solid rgb(218, 206, 182);
 }
 
-.help:nth-child(3) p {
-    padding-top: 23px
+.help h2 {
+    width: 1rem;
+    padding: 0;
+    margin: 0;
 }
 
-.help:nth-child(2) p {
-    padding-top: 10px
-}
 
 .game_help {
     width: 250px;
@@ -433,14 +433,15 @@ ol, p {
 }
 
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 500px) {
     .speed, .score1, .score2, .score3{
         font-size: .8rem;
     }
     .score3 {
         display: none;
     }
-    .game_help {
-
+    .help_div p{
+       font-size: .7rem;
+       line-height: .8rem;
     }
 }
