@@ -377,17 +377,28 @@ html {
     width: 130px;
     height: max-content;
     background-color: rgba(250, 235, 215, .9);
-    margin-top: -280px;   
+    margin-top: -280px; 
 }
 
 .help p {
+    box-sizing: border-box;
     margin: auto; 
     padding: 3px;
     display: inline-block;
+    height: 70px;
+    vertical-align: middle;
+    border-left: 1px solid rgb(218, 206, 182);
+}
+
+.help:nth-child(3) p {
+    padding-top: 23px
+}
+
+.help:nth-child(2) p {
+    padding-top: 10px
 }
 
 .game_help {
-    height: 200px;
     width: 250px;
     position: absolute;
     bottom: -100%;
@@ -401,12 +412,13 @@ html {
 
 ol, p {
     /* list-style-type: none; */
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1.5rem;
     padding-left: 15px;
   }
 
 .game_help h3 {
+    border-bottom: 1px solid rgb(218, 206, 182);
     color: green;
 }
 
