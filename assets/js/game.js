@@ -317,11 +317,15 @@ function theGame() {
     function didNotClickE() {
         if (targetClick === 0 && targetClick !== undefined) {
             if (life1.style.backgroundColor === 'green' && life2.style.backgroundColor === 'red') {
+                scoreMissed.innerText++;
                 life1.style.backgroundColor = 'oldlace';
                 targetClick = 0;
             } else if (life1.style.backgroundColor === 'oldlace' && life2.style.backgroundColor === 'red') {
                 life2.style.backgroundColor = 'oldlace';
+                scoreMissed.innerText++;
+                targetClick = 0;
             } else if (life3.style.backgroundColor === 'royalblue' && life2.style.backgroundColor === 'oldlace') {
+                scoreMissed.innerText++;
                 stopTheGame();
                 reset();
             } else if (life3.style.backgroundColor === 'oldlace') {
@@ -344,12 +348,18 @@ function theGame() {
         if (targetClick === 0 && targetClick !== undefined) {
             if (life1.style.backgroundColor === 'green' && life2.style.backgroundColor === 'red') {
                 life1.style.backgroundColor = 'oldlace';
+                scoreMissed.innerText++;
                 life2.style.backgroundColor = 'oldlace';
+                scoreMissed.innerText++;
                 targetClick = 0;
             } else if (life3.style.backgroundColor === 'royalblue' && life2.style.backgroundColor === 'oldlace') {
+                scoreMissed.innerText++;
+                scoreMissed.innerText++;
                 stopTheGame();
                 reset();
             } else if (life3.style.backgroundColor === 'royalblue' && life2.style.backgroundColor === 'red') {
+                scoreMissed.innerText++;
+                scoreMissed.innerText++;
                 stopTheGame();
                 reset();
             };
@@ -361,11 +371,14 @@ function theGame() {
         if (targetClick === 1) {
             if (life1.style.backgroundColor === 'green' && life2.style.backgroundColor === 'red') {
                 life1.style.backgroundColor = 'oldlace';
+                scoreMissed.innerText++;
                 targetClick = 0;
             } else if (life2.style.backgroundColor === 'red' && life1.style.backgroundColor === 'oldlace') {
                 life2.style.backgroundColor = 'oldlace';
+                scoreMissed.innerText++;
                 targetClick = 0;
             } else if (life2.style.backgroundColor === 'oldlace' && life3.style.backgroundColor === 'royalblue') {
+                scoreMissed.innerText++;
                 stopTheGame();
                 reset();
             };
@@ -378,6 +391,9 @@ function theGame() {
     // check if Did not click on any target for level3
     function didNotClickH() {
         if (targetClick === 0 && targetClick !== undefined) {
+            scoreMissed.innerText++;
+            scoreMissed.innerText++;
+            scoreMissed.innerText++;
             stopTheGame();
             reset();
         };
@@ -388,26 +404,35 @@ function theGame() {
         if (targetClick === 1) {
             if (life1.style.backgroundColor === 'green' && life2.style.backgroundColor === 'red') {
                 life1.style.backgroundColor = 'oldlace';
+                scoreMissed.innerText++;
                 life2.style.backgroundColor = 'oldlace';
+                scoreMissed.innerText++;
                 boxClicks = 0;
                 targetClick = 0;
             } else if (life2.style.backgroundColor === 'red' && life1.style.backgroundColor === 'oldlace') {
+                scoreMissed.innerText++;
+                scoreMissed.innerText++;
                 stopTheGame();
                 reset();
             } else if (life2.style.backgroundColor === 'oldlace' && life3.style.backgroundColor === 'royalblue') {
+                scoreMissed.innerText++;
+                scoreMissed.innerText++;
                 stopTheGame();
                 reset();
             };
         } else if (targetClick === 2) {
             if (life1.style.backgroundColor === 'green' && life2.style.backgroundColor === 'red') {
                 life1.style.backgroundColor = 'oldlace';
+                scoreMissed.innerText++;
                 boxClicks = 0;
                 targetClick = 0;
             } else if (life2.style.backgroundColor === 'red' && life1.style.backgroundColor === 'oldlace') {
                 life2.style.backgroundColor = 'oldlace';
+                scoreMissed.innerText++;
                 boxClicks = 0;
                 targetClick = 0;
             } else if (life2.style.backgroundColor === 'oldlace' && life3.style.backgroundColor === 'royalblue') {
+                scoreMissed.innerText++;
                 stopTheGame()
                 reset();
             };
@@ -532,7 +557,7 @@ function theGame() {
 
     //------------------------- Stop The Game function------------------| 
 
-const gameOverChild2 = document.getElementById('game-over').children[1];
+    const gameOverChild2 = document.getElementById('game-over').children[1];
 
     function stopTheGame() {
         gameWindowElement.removeEventListener('mousedown', detectWindowEvents);
@@ -543,13 +568,12 @@ const gameOverChild2 = document.getElementById('game-over').children[1];
         progressSpeed = progressSpeed * 1000;
         livesDivElement.style.width = 0;
         gameOverElement.style.display = 'flex';
-        
-        setTimeout(gameOverTimer, 100);
-        function gameOverTimer() {
-           gameOverChild2.style.margin = '0'; 
-        }
-        
 
+        setTimeout(gameOverTimer, 100);
+
+        function gameOverTimer() {
+            gameOverChild2.style.margin = '0';
+        };
     }
 
     //Game Over reload screen 
@@ -582,21 +606,22 @@ const gameOverChild2 = document.getElementById('game-over').children[1];
     //Contact Efect
     const formChild2 = document.getElementById('contact_window').children[1];
     const formChild3 = document.getElementById('contact_window').children[2];
-     
+
     contactWindow.style.display = 'none';
+
     function contactFormm() {
         contactWindow.style.display = 'flex';
         setTimeout(setTimeout1, 100);
-        function setTimeout1(){
-        formChild2.style.margin = '0%';
-        formChild3.style.margin = '0%';  
-        startGameElement.style.display = 'none';
-        gameOverElement.style.display = 'none';
-        };       
+
+        function setTimeout1() {
+            formChild2.style.margin = '0%';
+            formChild3.style.margin = '0%';
+            startGameElement.style.display = 'none';
+            gameOverElement.style.display = 'none';
+        };
     }
 
     console.log(`Screen size:  ${width}px ${height}px`);
-
 }
 
 theGame();
