@@ -7,6 +7,7 @@ html {
     padding: 0;
     margin: 0;
     font-family: 'Roboto', sans-serif;
+    overflow: hidden;
 }
 
 .gameWindow {
@@ -68,12 +69,14 @@ html {
 /*--------- Select Level -------*/
 
 #select_level {
+    margin-left: -580%;
     min-width: 300px;
     display: flex;
     justify-content: space-around;
 }
 
 .selectP {
+    white-space: nowrap;
     font-family: 'Press Start 2P', cursive;
     font-size: max(1rem, 2vh);
     text-align: center;
@@ -179,23 +182,35 @@ html {
 /*---------------- Start The game----------------- */
 .start_game {
     box-sizing: border-box;
-    height: 98vh;
+    width: inherit;
+    height: inherit;
+    
     display: flex;
     justify-content: space-around;
     align-items: center;
-
-    width: inherit;
     flex-direction: column;
 
     background-color: oldlace;
-    height: inherit;
     border-radius: inherit;
     box-shadow: inherit;
-
     padding: 3% 0px 2% 0px;
 }
 
-.start_heading1 {
+.slide_up{  
+    margin-top: 150%;
+    transition: margin-top 1s cubic-bezier(.36,1.27,1,.49);
+}
+
+.slide_right{
+    transition: margin-left 1s cubic-bezier(.36,1.27,1,.49);
+    margin-left: -150%;
+}
+.slide_left{
+    transition: margin-left 1s cubic-bezier(.36,1.27,1,.49);
+    margin-left: 150%;
+}
+
+.start_heading1 { 
     font-family: 'Press Start 2P', cursive;
     font-size: max(2rem, 4.5vw);
     color: red;
@@ -205,8 +220,7 @@ html {
     font-family: 'Press Start 2P', cursive;
     text-transform: uppercase;
     font-size: max(2rem, 4vw);
-    color: red;
-    margin: auto;
+    color: red;    
     text-align: center;
 }
 
@@ -229,7 +243,6 @@ html {
 .game-over {
     display: none;
     flex-direction: column;
-
     background-color: oldlace;
     justify-content: space-around;
     width: inherit;
@@ -248,7 +261,6 @@ html {
 }
 
 .game_over_block {
-    margin-top: 2%;
     display: flex;
     flex-direction: column;
     align-self: center;
@@ -269,11 +281,9 @@ html {
     box-sizing: border-box;
     width: inherit;
     height: inherit;
-    display: none;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-
 }
 
 .form {

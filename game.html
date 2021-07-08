@@ -60,18 +60,18 @@
 
 
         <div id="start_game" class="start_game">
-            <div>
+            <div class="slide_left">
                 <h1 class="start_heading1">TO</h1>
             </div>
-            <div>
+            <div class="slide_right">
                 <h1 class="start_heading">New</h1>
             </div>
 
-            <div class="selectP_div">
+            <div class="selectP_div slide_left">
                 <p class="selectP">Select</p>
             </div>
 
-            <div id="select_level">
+            <div id="select_level" class="slide_right">
                 <div class="level buttons">
                     <div class="l1"></div>
                 </div>
@@ -85,14 +85,14 @@
                     <div class="l3"></div>
                 </div>
             </div>
-            <div>
+            <div class="slide_left">
                 <h3 id="contact_button" class="contact_button buttons">Contact | Report a bug:</h3>
             </div>
         </div>
 
-        <div id="contact_window" class="contact_window ">
+        <div id="contact_window" class="contact_window">
             <div id="submit_alert" class='spacer'></div>
-            <div class="form border">
+            <div class="form border slide_up">
                 <h1 class="contact_title">Report a bug</h1>
                 <div class="center-form">
                     <form id="form" onsubmit="return sendMail(this);">
@@ -104,14 +104,12 @@
                     </form>
                 </div>
             </div>
-            <div class="contact_play_new "><h3 id="button2" class="contact_button buttons">Play New Game</h3></div>
+            <div class="contact_play_new "><h3 id="button2" class="contact_button buttons slideUp">Play New Game</h3></div>
             
         </div>
-
-
         <div id="game-over" class="game-over">
             <div class="spacer"></div>
-            <div class="game_over_block">
+            <div class="game_over_block slide_up">
                 <h1 class="game_over_title">Game Over</h1>
                 <div class="game_over_btn1">
                     <h3 class="buttons contact_button" id="new_game_btn">Start New Game</h3>

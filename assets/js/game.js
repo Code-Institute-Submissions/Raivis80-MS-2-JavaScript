@@ -15,6 +15,9 @@ function theGame() {
     let timer2;
     let timer3;
 
+
+
+
     //Game Window-And target-variables
     const target1 = gameWindowElement.children[0];
     const target2 = gameWindowElement.children[1];
@@ -123,7 +126,12 @@ function theGame() {
         life3.style.backgroundColor = 'oldlace';
     }
 
- 
+    life1.style.transition = ".8s";
+    life2.style.transition = ".8s";
+    life3.style.transition = ".8s";
+    livesDivElement.style.transition = ".8s";
+
+
     // Game level targets 
     function gameOne() {
         randomObject1();
@@ -272,6 +280,7 @@ function theGame() {
         console.log(difference * 10 + '%')
 
         //Add one life
+
         if (life1.style.backgroundColor == 'oldlace' && life2.style.backgroundColor === 'red') {
             livesDivElement.style.width = difference * 10 + '%';
             livesDivElement.style.backgroundColor = 'green';
@@ -522,15 +531,25 @@ function theGame() {
 
 
     //------------------------- Stop The Game function------------------| 
+
+const gameOverChild2 = document.getElementById('game-over').children[1];
+
     function stopTheGame() {
-        console.log('game over', targetClick);
         gameWindowElement.removeEventListener('mousedown', detectWindowEvents);
         document.getElementById('new_game_btn').addEventListener('click', gameOverRestart);
         targetsDisplayNone();
         livesDisplaySeashell();
+        contactWindow.style.display = 'none';
         progressSpeed = progressSpeed * 1000;
         livesDivElement.style.width = 0;
         gameOverElement.style.display = 'flex';
+        
+        setTimeout(gameOverTimer, 100);
+        function gameOverTimer() {
+           gameOverChild2.style.margin = '0'; 
+        }
+        
+
     }
 
     //Game Over reload screen 
@@ -543,16 +562,39 @@ function theGame() {
     document.getElementById('contact_button').addEventListener('click', contactFormm);
     document.getElementById('contact_button2').addEventListener('click', contactFormm);
 
+    const startChild1 = document.getElementById('start_game').children[0];
+    const startChild2 = document.getElementById('start_game').children[1];
+    const startChild3 = document.getElementById('start_game').children[2];
+    const startChild4 = document.getElementById('start_game').children[3];
+    const startChild5 = document.getElementById('start_game').children[4];
 
+
+    function startEffect() {
+        startChild1.style.margin = '0%';
+        startChild2.style.margin = '0%';
+        startChild3.style.margin = '0%';
+        startChild4.style.margin = '0%';
+        startChild5.style.margin = '0%';
+    }
+
+    startEffect();
+
+    //Contact Efect
+    const formChild2 = document.getElementById('contact_window').children[1];
+    const formChild3 = document.getElementById('contact_window').children[2];
+     
+    contactWindow.style.display = 'none';
     function contactFormm() {
         contactWindow.style.display = 'flex';
+        setTimeout(setTimeout1, 100);
+        function setTimeout1(){
+        formChild2.style.margin = '0%';
+        formChild3.style.margin = '0%';  
         startGameElement.style.display = 'none';
         gameOverElement.style.display = 'none';
+        };       
     }
-    // clicksIs = 0;
-    // windowClicks = 0;
-    // boxClicks = 0;
-    // difference = 0;
+
     console.log(`Screen size:  ${width}px ${height}px`);
 
 }
