@@ -171,7 +171,7 @@ html {
     width: 95%;
     background-color: oldlace;
     border-radius: 2px;
-    border: #999 1px solid;
+    box-shadow: inset 0 0 3px rgb(0, 0, 0, .4);
 }
 
 #add_life {
@@ -358,11 +358,77 @@ html {
 }
 
 
+
+/* ----Help Menu---- */
+
+.help_div {
+    width: inherit;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    top: 0px;
+    z-index: 1;
+}
+
+.help {  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    height: max-content;
+    background-color: rgba(250, 235, 215, .9);
+    margin-top: -280px;   
+}
+
+.help p {
+    margin: auto; 
+    padding: 3px;
+    display: inline-block;
+}
+
+.game_help {
+    height: 200px;
+    width: 250px;
+    position: absolute;
+    bottom: -100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    background-color: rgba(250, 235, 215, .9);
+    padding: 12px;
+    
+}
+
+ol, p {
+    /* list-style-type: none; */
+    font-weight: 500;
+    line-height: 1.5rem;
+    padding-left: 15px;
+  }
+
+.game_help h3 {
+    color: green;
+}
+
+.game_help h4 {
+    font-stretch: ultra-condensed;
+    font-size: .6rem;
+}
+.game_help h3, .game_help h4 {
+    color: green;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+}
+
+
 @media only screen and (max-width: 400px) {
     .speed, .score1, .score2, .score3{
         font-size: .8rem;
     }
     .score3 {
         display: none;
+    }
+    .game_help {
+
     }
 }

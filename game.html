@@ -38,7 +38,7 @@
         </div>
 
         <div id="speed">
-            <p class="speed score border">0s</p>          
+            <p class="speed score border">0s</p>
         </div>
 
         <div class="lives_div">
@@ -57,9 +57,25 @@
         <div id="target1" class="target"></div>
         <div id="target2" class="target"></div>
         <div id="target3" class="target"></div>
-
+       
+        <div id="help" class="help_div">
+            <div class="border help">
+                <p>Blue =  Score<br>
+                   Green = Streak<br>
+                  Red = Missed</p><br>
+            </div>
+            <div class="border help"><p>current speed in seconds</p></div> 
+            <div class="border help">                
+                <p>Start with 3 lives.<br>
+                    Missed target will<br> 
+                   deduct one life.<br>
+                   Streak of 30<br>
+                   Will add one life.<br></p>
+            </div>
+        </div>
 
         <div id="start_game" class="start_game">
+            
             <div class="slide_left">
                 <h1 class="start_heading1">TO</h1>
             </div>
@@ -96,16 +112,20 @@
                 <h1 class="contact_title">Report a bug</h1>
                 <div class="center-form">
                     <form id="form" onsubmit="return sendMail(this);">
-                        <input type="text" name="name" class="form-control" id="fullname" placeholder="Name:" required />
+                        <input type="text" name="name" class="form-control" id="fullname" placeholder="Name:"
+                            required />
                         <input type="text" name="emailaddress" class="form-control" id="emailaddress"
                             placeholder="Email:" required />
-                        <textarea rows="5" name="gameBugReport" class="form-control" id="gameBugReport" placeholder="Report a bug:" required></textarea>
+                        <textarea rows="5" name="gameBugReport" class="form-control" id="gameBugReport"
+                            placeholder="Report a bug:" required></textarea>
                         <button type="submit">Submit</button>
                     </form>
                 </div>
             </div>
-            <div class="contact_play_new "><h3 id="button2" class="contact_button buttons slideUp">Play New Game</h3></div>
-            
+            <div class="contact_play_new ">
+                <h3 id="button2" class="contact_button buttons slideUp">Play New Game</h3>
+            </div>
+
         </div>
         <div id="game-over" class="game-over">
             <div class="spacer"></div>
@@ -120,6 +140,19 @@
             </div>
         </div>
 
+        <div id="game_help" class="border game_help">
+            <h3>Game rules</h3>
+            <ol>
+                <li>Click on squares as fast you can</li>
+                <li>One clicked Square = +1 point</li>
+                <li>Missed square = -1 point & -1 life</li>
+                <li>Score as many points as you can</li>
+            </ol>
+            <h4>Have fun playing the game.</h4>
+            
+            
+        </div>
+ 
     </div>
     <script src="assets/js/game.js"></script>
 </body>

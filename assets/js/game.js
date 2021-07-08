@@ -9,6 +9,9 @@ function theGame() {
     const gameOverElement = document.getElementById('game-over');
     const contactWindow = document.getElementById('contact_window');
     const speedElement = document.getElementById('speed');
+    const helpElement = document.getElementById('help');
+    const navElement = document.getElementById('nav');
+    const gameHelp = document.getElementById('game_help');
 
     // Timmer variables 
     let timer1;
@@ -126,10 +129,10 @@ function theGame() {
         life3.style.backgroundColor = 'oldlace';
     }
 
-    life1.style.transition = ".8s";
-    life2.style.transition = ".8s";
-    life3.style.transition = ".8s";
-    livesDivElement.style.transition = ".8s";
+    life1.style.transition = ".6s";
+    life2.style.transition = ".6s";
+    life3.style.transition = ".6s";
+    livesDivElement.style.transition = ".6s";
 
 
     // Game level targets 
@@ -214,10 +217,8 @@ function theGame() {
                 // Check  if lives remeining.Deduct one live if available, Else go to the game over function.
                 if (life2.style.backgroundColor === 'red' && life1.style.backgroundColor === 'green') {
                     life1.style.backgroundColor = 'oldlace';
-
                 } else if (life2.style.backgroundColor === 'red' && life1.style.backgroundColor === 'oldlace') {
                     life2.style.backgroundColor = 'oldlace';
-
                 } else if (life1.style.backgroundColor === 'oldlace' && life2.style.backgroundColor === 'oldlace') {
                     life3.style.backgroundColor = 'oldlace';
                     stopTheGame()
@@ -331,7 +332,6 @@ function theGame() {
             } else if (life3.style.backgroundColor === 'oldlace') {
                 stopTheGame();
                 reset();
-
             }
         };
     }
@@ -581,11 +581,26 @@ function theGame() {
         location.reload();
     }
 
+    navElement.addEventListener('mouseenter', e => {
+        helpElement.style.transition = 'margin-top 1s cubic-bezier(.36,1.27,1,.49)';
+        helpElement.style.marginTop = '290px';
+        gameHelp.style.transition = 'bottom 1s cubic-bezier(.36,1.27,1,.49)';
+        gameHelp.style.bottom = '8%';
+
+    });
+
+    navElement.addEventListener('mouseleave', e => {
+        helpElement.style.marginTop = '0px';
+        gameHelp.style.bottom = '-100%';
+    });
+
+
     document.getElementById('new_game_btn').addEventListener('click', gameOverRestart);
     document.getElementById('button2').addEventListener('click', gameOverRestart);
     document.getElementById('contact_button').addEventListener('click', contactFormm);
     document.getElementById('contact_button2').addEventListener('click', contactFormm);
-
+    
+    // Start screen Effect
     const startChild1 = document.getElementById('start_game').children[0];
     const startChild2 = document.getElementById('start_game').children[1];
     const startChild3 = document.getElementById('start_game').children[2];
