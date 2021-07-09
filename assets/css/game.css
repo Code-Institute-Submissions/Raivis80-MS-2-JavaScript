@@ -66,6 +66,22 @@ html {
     color: red;
 }
 
+#speed {
+    display: flex;
+}
+.info {
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgb(0, 0, 0, .4);
+    color: green;   
+    font-size: 2rem;
+    transition:  .2s;
+}
+
+.info:hover {
+    box-shadow: 0 0 10px rgb(0, 0, 0, .4);  
+    transform: scale(1.1);
+}
+
 /*--------- Select Level -------*/
 
 #select_level {
@@ -362,17 +378,19 @@ html {
 .help_div {
     width: inherit;
     position: absolute;
-    display: flex;
+    display: none;
     justify-content: space-between;
     top: 0px;
     z-index: 1;
+    
 }
 
 .help {  
-    display: flex;
+    display: none;
     align-items: center;
-    
-    width: 130px;
+    display: flex;
+    flex-direction: column;
+    width: 100px;
     height: max-content;
     background-color: rgba(250, 235, 215, .9);
     margin-top: -280px;
@@ -383,13 +401,11 @@ html {
     padding: 0;
     box-sizing: border-box;
     margin: auto; 
-    display: inline-block;
-    height: inherit;
-    vertical-align: middle;
-    border-left: 1px solid rgb(218, 206, 182);
+    display: block;
 }
 
 .help h2 {
+    display: block;
     width: 1rem;
     padding: 0;
     margin: 0;
@@ -409,7 +425,6 @@ html {
 }
 
 ol, p {
-    /* list-style-type: none; */
     font-weight: 600;
     line-height: 1.5rem;
     padding-left: 15px;
@@ -430,17 +445,12 @@ ol, p {
     font-family: 'Press Start 2P', cursive;
 }
 
-
 @media only screen and (max-width: 500px) {
     .speed, .score1, .score2, .score3{
         font-size: .8rem;
     }
     .score3 {
         display: none;
-    }
-    .help_div p{
-       font-size: .7rem;
-       line-height: .8rem;
     }
     .hide {
         display: none;

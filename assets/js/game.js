@@ -240,7 +240,7 @@ function theGame() {
 
     // reset window and target click event count
     // click counter variables
-    
+
     let boxClicks = 0;
     let difference = 0;
 
@@ -285,7 +285,7 @@ function theGame() {
         };
     }
 
-    //----------------------missed--targets logic--------------------|
+    //-----------------------------missed--targets logic--------------------|
     // If click on target check the count level1
     let targetClick;
 
@@ -491,6 +491,7 @@ function theGame() {
 
     function levelE(speed) {
         timer1 = setInterval(timerEasy, speed);
+
         function timerEasy() {
             randomObject1();
             checkRemainingTargets();
@@ -509,6 +510,7 @@ function theGame() {
 
     function levelM(speed) {
         timer2 = setInterval(timerMedium, speed);
+
         function timerMedium() {
             randomObject1();
             randomObject2();
@@ -547,8 +549,10 @@ function theGame() {
     const gameOverChild2 = document.getElementById('game-over').children[1];
 
     function stopTheGame() {
-        gameWindowElement.removeEventListener('mousedown', detectWindowEvents);
         document.getElementById('new_game_btn').addEventListener('click', gameOverRestart);
+        document.getElementById('contact_button2').addEventListener('click', contactFormm);
+        document.getElementById('new_game_btn').addEventListener('click', gameOverRestart);
+        gameWindowElement.removeEventListener('mousedown', detectWindowEvents);
         targetsDisplayNone();
         livesDisplaySeashell();
         contactWindow.style.display = 'none';
@@ -567,25 +571,33 @@ function theGame() {
     function gameOverRestart() {
         location.reload();
     }
+    //---------------------------Gaame Help--Info Popout--------------------|
+    document.getElementById('info').addEventListener('click', infoPopout);
+    helpElement.style.display = 'none'
 
-    navElement.addEventListener('mouseenter', e => {
-        helpElement.style.transition = 'margin-top 1s cubic-bezier(.36,1.27,1,.49)';
-        helpElement.style.marginTop = '290px';
-        gameHelp.style.transition = 'bottom 1s cubic-bezier(.36,1.27,1,.49)';
-        gameHelp.style.bottom = '8%';
+    function infoPopout() {
+        if (helpElement.style.display === 'none') {
+            helpElement.style.display = 'flex';
+            gameHelp.style.display = 'block';
+            setTimeout(function () {
+                helpElement.style.transition = 'margin-top 1s cubic-bezier(.36,1.27,1,.49)';
+                helpElement.style.marginTop = '290px';
+                gameHelp.style.transition = 'bottom 1s cubic-bezier(.36,1.27,1,.49)';
+                gameHelp.style.bottom = '8%';
+            }, 100);
+        } else {
+            helpElement.style.marginTop = '0px';
+            gameHelp.style.bottom = '-100%';
 
-    });
-
-    navElement.addEventListener('mouseleave', e => {
-        helpElement.style.marginTop = '0px';
-        gameHelp.style.bottom = '-100%';
-    });
-
-
-    document.getElementById('new_game_btn').addEventListener('click', gameOverRestart);
-    document.getElementById('button2').addEventListener('click', gameOverRestart);
+            setTimeout(function () {
+                helpElement.style.display = 'none';
+                gameHelp.style.display = 'none';
+            }, 500);
+        }
+    }
+    
     document.getElementById('contact_button').addEventListener('click', contactFormm);
-    document.getElementById('contact_button2').addEventListener('click', contactFormm);
+    
 
     // Start screen Effect
     const startChild2 = document.getElementById('start_game').children[1];
@@ -610,6 +622,7 @@ function theGame() {
     contactWindow.style.display = 'none';
 
     function contactFormm() {
+        document.getElementById('button2').addEventListener('click', gameOverRestart);
         contactWindow.style.display = 'flex';
         setTimeout(setTimeout1, 100);
 
