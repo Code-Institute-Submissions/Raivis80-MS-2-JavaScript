@@ -76,6 +76,7 @@ html {
 }
 
 .selectP {
+    text-transform: uppercase;
     white-space: nowrap;
     font-family: 'Press Start 2P', cursive;
     font-size: max(1rem, 2vh);
@@ -83,10 +84,7 @@ html {
     font-weight: bold;
     color: green;
 }
-.selectP::before {
-    content: 'Please ';
-    color: royalblue;
-}
+
 .selectP::after {
 
     content: ' Level';
@@ -443,5 +441,8 @@ ol, p {
     .help_div p{
        font-size: .7rem;
        line-height: .8rem;
+    }
+    .hide {
+        display: none;
     }
 }
