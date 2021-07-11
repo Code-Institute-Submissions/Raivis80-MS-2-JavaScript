@@ -69,16 +69,17 @@ html {
 #speed {
     display: flex;
 }
+
 .info {
     border-radius: 50%;
     box-shadow: 0 0 6px rgb(0, 0, 0, .4);
-    color: green;   
+    color: green;
     font-size: 2rem;
-    transition:  .2s;
+    transition: .2s;
 }
 
 .info:hover {
-    box-shadow: 0 0 10px rgb(0, 0, 0, .4);  
+    box-shadow: 0 0 10px rgb(0, 0, 0, .4);
     transform: scale(1.1);
 }
 
@@ -198,7 +199,7 @@ html {
     box-sizing: border-box;
     width: inherit;
     height: inherit;
-    
+
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -210,21 +211,22 @@ html {
     padding: 3% 0px 2% 0px;
 }
 
-.slide_up{  
+.slide_up {
     margin-top: 150%;
-    transition: margin-top 1s cubic-bezier(.36,1.27,1,.49);
+    transition: margin-top 1s cubic-bezier(.36, 1.27, 1, .49);
 }
 
-.slide_right{
-    transition: margin-left 1s cubic-bezier(.36,1.27,1,.49);
+.slide_right {
+    transition: margin-left 1s cubic-bezier(.36, 1.27, 1, .49);
     margin-left: -150%;
 }
-.slide_left{
-    transition: margin-left 1s cubic-bezier(.36,1.27,1,.49);
+
+.slide_left {
+    transition: margin-left 1s cubic-bezier(.36, 1.27, 1, .49);
     margin-left: 150%;
 }
 
-.start_heading1 { 
+.start_heading1 {
     font-family: 'Press Start 2P', cursive;
     font-size: max(2rem, 4.5vw);
     color: red;
@@ -234,7 +236,7 @@ html {
     font-family: 'Press Start 2P', cursive;
     text-transform: uppercase;
     font-size: max(2rem, 4vw);
-    color: red;    
+    color: red;
     text-align: center;
 }
 
@@ -249,7 +251,7 @@ html {
     position: absolute;
     content: 'Start ';
     color: green;
-    transform: scale(.6)  translate(-150%);
+    transform: scale(.6) translate(-150%);
 }
 
 /*---------------- game over----------------- */
@@ -382,10 +384,10 @@ html {
     justify-content: space-between;
     top: 0px;
     z-index: 1;
-    
+
 }
 
-.help {  
+.help {
     display: none;
     align-items: center;
     display: flex;
@@ -394,13 +396,13 @@ html {
     height: max-content;
     background-color: rgba(250, 235, 215, .9);
     margin-top: -280px;
-    padding: 0; 
+    padding: 0;
 }
 
 .help p {
     padding: 0;
     box-sizing: border-box;
-    margin: auto; 
+    margin: auto;
     display: block;
 }
 
@@ -421,14 +423,15 @@ html {
     z-index: 3;
     background-color: rgba(250, 235, 215, .9);
     padding: 12px;
-    
+
 }
 
-ol, p {
+ol,
+p {
     font-weight: 600;
     line-height: 1.5rem;
     padding-left: 15px;
-  }
+}
 
 .game_help h3 {
     border-bottom: 1px solid rgb(218, 206, 182);
@@ -439,19 +442,27 @@ ol, p {
     font-stretch: ultra-condensed;
     font-size: .6rem;
 }
-.game_help h3, .game_help h4 {
+
+.game_help h3,
+.game_help h4 {
     color: green;
     text-align: center;
     font-family: 'Press Start 2P', cursive;
 }
 
 @media only screen and (max-width: 500px) {
-    .speed, .score1, .score2, .score3{
+
+    .speed,
+    .score1,
+    .score2,
+    .score3 {
         font-size: .8rem;
     }
+
     .score3 {
         display: none;
     }
+
     .hide {
         display: none;
     }
