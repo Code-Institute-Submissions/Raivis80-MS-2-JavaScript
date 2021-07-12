@@ -109,9 +109,34 @@ To keep the game challenging, complexity will increase over the course of the ga
 
 # [&#8686;](#Top)
 ## **Features**
-- The game is responsive
-    -  The game works on most devices(deskpop, mobile)
-    -  The game can be resized and it will recalculate the game area on the fly.
+### **Home Page**
+![View](project_files/features/desktop-home.PNG)
+![View](project_files/features/tablet-home.PNG)
+![View](project_files/features/mobile-home.PNG)
+
+### **In Game**
+![View](project_files/features/desktop-ingame.PNG)
+![View](project_files/features/tablet-ingame.PNG)
+![View](project_files/features/mobile-ingame.PNG)
+
+### **Game Information Popout**
+![View](project_files/features/desktop-info.PNG)
+![View](project_files/features/tablet-info.PNG)
+![View](project_files/features/mobile-info.PNG)
+
+### **Game Over**
+![View](project_files/features/desktop-game-over.PNG)
+![View](project_files/features/tablet-game-over.PNG)
+![View](project_files/features/mobile-game-over.PNG)
+
+### **Game Over**
+![View](project_files/features/contact-form.PNG)
+
+
+
+- The game 
+    -  Is responsive works on most devices(deskpop, mobile)
+    -  It can be resized and it will recalculate the game area on the fly.
 - Game Window
     -  Interactive game area, that is where target box objects spawn for user to click or tap on.
 - Select Level
