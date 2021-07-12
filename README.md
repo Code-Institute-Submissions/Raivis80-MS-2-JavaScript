@@ -3,6 +3,7 @@
 ## MS-2 JavaScript | Reaction Time Game.
 
 <!--For assestment - README.md file structure was copied from my first milestone project."-->
+![View](project_files/site.PNG)
 ## [View the live project here.](https://raivis80.github.io/MS-2-JavaScript/game.html)
 ### Table of contents
 
@@ -109,30 +110,6 @@ To keep the game challenging, complexity will increase over the course of the ga
 
 # [&#8686;](#Top)
 ## **Features**
-### **Home Page**
-![View](project_files/features/desktop-home.PNG)
-![View](project_files/features/tablet-home.PNG)
-![View](project_files/features/mobile-home.PNG)
-
-### **In Game**
-![View](project_files/features/desktop-ingame.PNG)
-![View](project_files/features/tablet-ingame.PNG)
-![View](project_files/features/mobile-ingame.PNG)
-
-### **Game Information Popout**
-![View](project_files/features/desktop-info.PNG)
-![View](project_files/features/tablet-info.PNG)
-![View](project_files/features/mobile-info.PNG)
-
-### **Game Over**
-![View](project_files/features/desktop-game-over.PNG)
-![View](project_files/features/tablet-game-over.PNG)
-![View](project_files/features/mobile-game-over.PNG)
-
-### **Game Over**
-![View](project_files/features/contact-form.PNG)
-
-
 
 - The game 
     -  Is responsive works on most devices(deskpop, mobile)
@@ -154,6 +131,34 @@ To keep the game challenging, complexity will increase over the course of the ga
     - For users to be able to send feedback or contact if they incounter any gliches or bugs.
 - Game Help/instruction Popout
     - Enables Player to to looak at game instructions on how to play the game.
+
+
+![View](project_files/features/desktop-ingame.PNG)
+### **Home Page**
+
+![View](project_files/features/desktop-home.PNG)
+![View](project_files/features/tablet-home.PNG)
+![View](project_files/features/mobile-home.PNG)
+
+### **In Game**
+
+![View](project_files/features/tablet-ingame.PNG)
+![View](project_files/features/mobile-ingame.PNG)
+
+### **Game Information Popout**
+
+![View](project_files/features/desktop-info.PNG)
+![View](project_files/features/tablet-info.PNG)
+![View](project_files/features/mobile-info.PNG)
+
+### **Game Over**
+![View](project_files/features/desktop-game-over.PNG)
+![View](project_files/features/tablet-game-over.PNG)
+![View](project_files/features/mobile-game-over.PNG)
+
+### **Contact | Bug report**
+
+![View](project_files/features/contact-form.PNG)
 
 # [&#8686;](#Top)
 ## **TESTING**
