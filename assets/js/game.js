@@ -12,17 +12,24 @@ const levelsElement = document.getElementById('select_level');
 const level1 = levelsElement.children[0];
 const level2 = levelsElement.children[1];
 const level3 = levelsElement.children[2];
-
-//____________GAME CONTROLS__________________
+//___________________________________________
+//____________GAME CONTROLS__________________|
 //Control how many points per life-----------|
 //This number must divide evenly with 100----| 
-pointsForLife = 25;
+pointsForLife = 50;
 //___________________________________________
-//Adjust starting speed----------------------|
-let speed = 2800;
-//Every time progressPoints is reached ------|
+//__________Adjust starting speed____________|
+// detect touchscreen devices https://hacks.mozilla.org/2013/04/detecting-touch-its-the-why-not-the-how/
+let speed;
+if ('ontouchstart' in window) {
+    speed = 2800;
+} else {
+    speed = 3000;
+}
+//___________________________________________
+//____Every time progressPoints is reached___|
 //Speed will increase and will add one target|
-let progressPoints = 20;
+let progressPoints = 200;
 
 
 // Game event listeners
@@ -32,20 +39,32 @@ document.addEventListener('DOMContentLoaded', function () {
     // Start game level 1
     level1.addEventListener('click', function () {
         //Starting Target count
-
-        objectCount = 1;
+        if ('ontouchstart' in window) {
+            objectCount = 1;
+        } else {
+            objectCount = 2;
+        }
         startTheGame();
     });
     // Start game level 2
     level2.addEventListener('click', function () {
         //Starting Target count
-        objectCount = 2;
+        if ('ontouchstart' in window) {
+            objectCount = 3;
+        } else {
+            objectCount = 2;
+        }
         startTheGame();
     });
     // Start game level 3
     level3.addEventListener('click', function () {
         //Starting Target count
-        objectCount = 3;
+        if ('ontouchstart' in window) {
+            objectCount = 4;
+        } else {
+            objectCount = 3;
+        }
+
         startTheGame();
     });
 });
@@ -254,9 +273,7 @@ function livesLogic() {
     addLife();
     countHighScore();
     countDifference();
-    gameSpeed();
-    addTarget()
-
+    gameProgress();
 }
 //----------------------------GAME WINDOW-----------------------------------------|
 const gameWindowElement = document.getElementById('game_window');
@@ -393,30 +410,20 @@ let speedScore = progressPoints;
 
 //Speed progression multiplier
 // adds an object on progression
-function gameSpeed() {
+function gameProgress() {
     if (progressPoints == score.innerText && objectCount <= 12) {
         progressPoints = progressPoints + speedScore;
         speed = speed - 200;
         timing = speed - 100;
         objectCount++;
-        console.log(objectCount);
         let listen = objectCount - 1;
         setTimeout(() => {
             targets[listen].addEventListener('click', addClickEvent = () => {
                 targets[listen].style.display = 'none';
                 scoreCount = score.innerText;
                 livesLogic();
-                console.log('from inside', objectCount, listen);
             });
         }, 20);
-    }
-}
-
-// adds an object on progression
-function addTarget() {
-    if (score.innerText == 10) {
-
-        console.log(objectCount, listen);
     }
 }
 

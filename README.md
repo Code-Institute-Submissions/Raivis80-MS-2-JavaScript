@@ -162,6 +162,9 @@ To keep the game challenging, complexity will increase over the course of the ga
 
 # [&#8686;](#Top)
 ## **TESTING**
+The Game was tested on Chrome, Opera, Microsoft edge and Firefox desktop version browsers and on huawei p30 Pro chrome and android browser.
+Chrome DevTools was used to Test variety of devices such as Desktop, Laptop, iPhone7, iPhone 8 & iPhoneX for responsive design.
+
 # [&#8686;](#Top)
 ## **Technologies and Frameworks**
 ### **Markup/Scripting/Programming languages**
