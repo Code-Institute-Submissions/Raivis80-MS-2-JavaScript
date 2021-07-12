@@ -57,25 +57,28 @@ helpElement.style.display = 'none'
 function infoPopout() {
 
     const gameHelp = document.getElementById('game_help');
-    if (helpElement.style.display === 'none') {
-        helpElement.style.display = 'flex';
-        gameHelp.style.display = 'block';
-        setTimeout(function () {
-            helpElement.style.transition = 'margin-top 1s cubic-bezier(.36,1.27,1,.49)';
-            helpElement.style.marginTop = '290px';
-            gameHelp.style.transition = 'bottom 1s cubic-bezier(.36,1.27,1,.49)';
-            gameHelp.style.bottom = '8%';
-        }, 100);
-    } else {
+
+    helpElement.style.display = 'flex';
+    gameHelp.style.display = 'block';
+    setTimeout(function () {
+        helpElement.style.transition = 'margin-top 1s cubic-bezier(.36,1.27,1,.49)';
+        helpElement.style.marginTop = '290px';
+        gameHelp.style.transition = 'bottom 1s cubic-bezier(.36,1.27,1,.49)';
+        gameHelp.style.bottom = '8%';
+    }, 100);
+    document.getElementById('close_i').addEventListener('click', removeI = () => {
         helpElement.style.marginTop = '0px';
         gameHelp.style.bottom = '-100%';
 
         setTimeout(function () {
             helpElement.style.display = 'none';
             gameHelp.style.display = 'none';
+            document.getElementById('close_i').removeEventListener('click', removeI)
         }, 500);
-    }
+    });
+
 }
+
 
 //-------------------------------CONTACT PAGE-------------------------------------|
 const contactWindow = document.getElementById('contact_window');

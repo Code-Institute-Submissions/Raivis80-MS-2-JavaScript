@@ -70,7 +70,7 @@ To keep the game challenging, complexity will increase over the course of the ga
         - Will increase by 1 if target is not clicked on time or target is missed altogether.
 1. Lives Remaining
     - The game starts with three lives.
-    - Players will gain life once every 10 score points. 
+    - Players will gain life once every {??} score points. 
     - Maximum three lives can be gained at once.
     - Player will lose life if target is not clicked on time or target is missed altogether. 
     - Losing all lives means "game over".
@@ -104,22 +104,31 @@ To keep the game challenging, complexity will increase over the course of the ga
     - Level variable will be passed into setInterval() function within the gameSetup() function and will launch the game.
 - Game Proggression levels
     - Speed will increase over course of the game. 
+    - Target count will increase  over course of the game
     - Create setInterval() function pass it into game level sellection once store reached.
 
 # [&#8686;](#Top)
 ## **Features**
+- The game is responsive
+    -  The game works on most devices(deskpop, mobile)
+    -  The game can be resized and it will recalculate the game area on the fly.
 - Game Window
     -  Interactive game area, that is where target box objects spawn for user to click or tap on.
 - Select Level
     - Player can select difficulty level.
 - Score counter 
     - Enables players to keep track of points when playing a game.
+- Speed display
+    -  Enables players see current game speed in secounds.
 - Lives Remaining
-    - If you miss box target, you lose one life but once score 10 has been reached, you will gain one life
+    - If you miss box target, you lose one life but once score 10 has been reached, you will gain one life.
 - Game-level-Up
     - Gain enough points in the game to enable a player to go up to a higher level.
-- Contact/Feedback form
+    - Speed and target count is increasing over course of the game.
+- Contact/Bug report form
     - For users to be able to send feedback or contact if they incounter any gliches or bugs.
+- Game Help/instruction Popout
+    - Enables Player to to looak at game instructions on how to play the game.
 
 # [&#8686;](#Top)
 ## **TESTING**

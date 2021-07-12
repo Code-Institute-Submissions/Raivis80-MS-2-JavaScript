@@ -419,10 +419,10 @@ html {
     position: absolute;
     bottom: -100%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -15%);
     z-index: 3;
     background-color: rgba(250, 235, 215, .9);
-    padding: 12px;
+    padding: 0 12px;
 
 }
 
@@ -434,6 +434,7 @@ p {
 }
 
 .game_help h3 {
+    margin: 0;
     border-bottom: 1px solid rgb(218, 206, 182);
     color: green;
 }
@@ -448,6 +449,13 @@ p {
     color: green;
     text-align: center;
     font-family: 'Press Start 2P', cursive;
+}
+
+#close_i {
+    font-size: 1.5rem;
+    width: 100%;
+    text-align: right;
+    color: green;
 }
 
 @media only screen and (max-width: 500px) {
