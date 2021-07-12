@@ -133,7 +133,7 @@ To keep the game challenging, complexity will increase over the course of the ga
     - Enables Player to to looak at game instructions on how to play the game.
 
 
-![View](project_files/features/desktop-ingame.PNG)
+
 ### **Home Page**
 
 ![View](project_files/features/desktop-home.PNG)
@@ -141,7 +141,7 @@ To keep the game challenging, complexity will increase over the course of the ga
 ![View](project_files/features/mobile-home.PNG)
 
 ### **In Game**
-
+![View](project_files/features/desktop-ingame.PNG)
 ![View](project_files/features/tablet-ingame.PNG)
 ![View](project_files/features/mobile-ingame.PNG)
 
