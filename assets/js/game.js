@@ -1,6 +1,6 @@
 //------------------------------START SCREEN-------------------------------------|
 const startGameElement = document.getElementById('start_game');
-
+const speedElement = document.getElementById('speed');
 // Start screen Effect
 const startChild2 = document.getElementById('start_game').children[1].style.margin = '0%';
 const startChild3 = document.getElementById('start_game').children[2].style.margin = '0%';
@@ -13,15 +13,16 @@ const level1 = levelsElement.children[0];
 const level2 = levelsElement.children[1];
 const level3 = levelsElement.children[2];
 
-//____________GAME CONTROLS________________
-//Control how many points per life---------|
-//This number must divide evenly with 100--| 
+//____________GAME CONTROLS__________________
+//Control how many points per life-----------|
+//This number must divide evenly with 100----| 
 pointsForLife = 25;
-//_________________________________________
-//Adjust starting speed--------------------|
+//___________________________________________
+//Adjust starting speed----------------------|
 let speed = 2800;
-//Adjust score needed to increase speed ---| 
-let speedUp = 100;
+//Every time progressPoints is reached ------|
+//Speed will increase and will add one target|
+let progressPoints = 20;
 
 
 // Game event listeners
@@ -30,20 +31,20 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('info').addEventListener('click', infoPopout);
     // Start game level 1
     level1.addEventListener('click', function () {
-        // Target count that will spaw
+        //Starting Target count
 
-        objectCount = 4;
+        objectCount = 1;
         startTheGame();
     });
     // Start game level 2
     level2.addEventListener('click', function () {
-        // Target count that will spawn
+        //Starting Target count
         objectCount = 2;
         startTheGame();
     });
     // Start game level 3
     level3.addEventListener('click', function () {
-        // Target count that will spawn
+        //Starting Target count
         objectCount = 3;
         startTheGame();
     });
@@ -171,13 +172,28 @@ function objects() {
 function targetSetup() {
     for (let i = 0; i < objectCount; i++) {
         livesDivElement.style.transition = ".6s";
-        targets[i].addEventListener('click', () => {
+        targets[i].addEventListener('click', clickEvent = () => {
             targets[i].style.display = 'none';
             scoreCount = score.innerText;
             livesLogic();
         })
     }
 }
+
+// reemove target event listeners
+
+function addTargetListeners() {
+    for (let i = 0; i < objectCount; i++) {
+        targets[i].addEventListener('click', clickEvent = () => {});
+    }
+}
+
+function removeTargetListeners() {
+    for (let i = 0; i < objectCount; i++) {
+        targets[i].removeEventListener('click', clickEvent);
+    }
+}
+
 
 // Target reset display:none
 function targetsDisplayNone() {
@@ -233,10 +249,10 @@ function livesLogic() {
     streak1++;
     notClick++;
     addLife();
-
     countHighScore();
     countDifference();
     gameSpeed();
+    addTarget()
 
 }
 //----------------------------GAME WINDOW-----------------------------------------|
@@ -341,7 +357,6 @@ function deductLife() {
         lives[1].style.backgroundColor = 'oldlace';
         lives[2].style.backgroundColor = 'oldlace';
         stopTheGame();
-        console.log('lives count', livesCount);
     }
 }
 
@@ -357,35 +372,50 @@ function timigFunction() {
         if (targets[i].style.display === 'block') {
             notClick++;
         }
-    console.log(notClick)
-
     if (notClick >= 3 && objectCount >= 3) {
         stopTheGame();
-    } else if (notClick == 2 || notClick == 1 ) {
+    } else if (notClick == 2 || notClick == 1) {
         livesCount = livesCount - notClick;
         deductLife()
-        
     }
     notClick = 0;
 }
 
 //----------------------GAME PROGRESS SPEED INCREASE------------------------------| 
 // As score increase Speed will increase as well 
-const speedElement = document.getElementById('speed');
+
 let timing = speed - 100;
 //multiples score
-let speedScore = speedUp;
+let speedScore = progressPoints;
 
-//Speed multiplier depends on initial speed setting
+//Speed progression multiplier
+// adds an object on progression
 function gameSpeed() {
-    if (speedUp == score.innerText) {
-        speedUp = speedUp + speedScore;
+    if (progressPoints == score.innerText && objectCount <= 12) {
+        progressPoints = progressPoints + speedScore;
         speed = speed - 200;
         timing = speed - 100;
-        console.log(speed, timing, speedUp, speedScore)
+        objectCount++;
+        console.log(objectCount);
+        let listen = objectCount - 1;
+        setTimeout(() => {
+            targets[listen].addEventListener('click', addClickEvent = () => {
+                targets[listen].style.display = 'none';
+                scoreCount = score.innerText;
+                livesLogic();
+                console.log('from inside', objectCount, listen);
+            });
+        }, 20);
     }
 }
-console.log(livesCount)
+
+// adds an object on progression
+function addTarget() {
+    if (score.innerText == 10) {
+
+        console.log(objectCount, listen);
+    }
+}
 
 //------------------------------GAME SELLECT--------------------------------------|
 // Timmer variables 
