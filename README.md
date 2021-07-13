@@ -12,15 +12,20 @@
     - [Player goal's](#Player-goal's)
     - [Owner's goal's](#Owner's-goal's)
     - [Developer's goal's](#Developer's-goal's)
-1. [Scope](#Scope)
     - [Functionality Requirements](#Functionality-Requirements)
-1. [Wireframe](#Wireframe)
+1. [Design](#Design)
+    - [Wireframe](#Wireframe) - [Developer's goal's](#Developer's-goal's)
 1. [Game Mechanics](#Game-Mechanics)
 1. [Game Logic](#Game-Logic)
-1. [Design](#Design)
 1. [Features](#Features)
-    - [Key features](#Key-features)
+    - [The Game](#The-Game)
+    - [In Game](#In-Game)
+    - [Game Information Popout](#Game-Information-Popout)
+    - [Contact | Bug report](#Contact-|-Bug-report)
+    - [Game Over](#Game-Over)
 1. [Testing](#Testing)
+    - [W3C Validation](#W3C-Validation)
+    - [Future Testing](#FutureTesting)
 1. [Technologies and Frameworks](#Technologies-and-Frameworks)
    - [Markup/Scripting/Programming languages](#Markup/Scripting/Programming-languages)
    - [Frameworks/Libraries/Programs](#Frameworks/Libraries/Programs)  
@@ -64,13 +69,12 @@ To keep the game challenging, complexity will increase over the course of the ga
 1. Game rules available in-game on how to use the game.
 1. Bug report is important, include contact form.
 ### **Developer's goal's**
-1. Developer Learn code in JanvScript as JavaScript is part of full stack software development course.
+1. Developer Learn code in JanvScript.
 1. Connect at least one API.
 1. Developer will manipulate the DOM as much as posible.
 1. Developer will take up the challenge and learn new skills.
 1. Include a JavaScrip project to build a portfolio.
-# [&#8686;](#Top)
-## **Scope**
+
 ### **Functionality Requirements**
 1. Build a simple single-player reaction time game.
 1. Three level sellection. Easy, medium and hard depending on device.
@@ -80,7 +84,16 @@ To keep the game challenging, complexity will increase over the course of the ga
 1. Feedback form if encountered bugs or glitches.
 1. Provide player with feedback on how they're doing at any stage.
 # [&#8686;](#Top)
-## **Wireframe**
+## **Design**
+
+- Color Sheme
+    - Body background color antiquewhite.
+    - Game Window background color oldlace.
+    - Font and element background color red, royelBlue and green.
+- Typography
+    - Primary font-family: Press Start 2P with cursive as a fallback font
+    - Secondary font-family: Roboto witn sans-serif as a fallback
+### **Wireframe**
 ![View](project_files/wireframe.jpg)
 # [&#8686;](#Top)
 ## **Game Mechanics**
@@ -116,8 +129,7 @@ To keep the game challenging, complexity will increase over the course of the ga
     or miss click the box on time 
 - Random Number generator
     - Extract Window height and width.
-    - Create random number integer generator
-    - Generate two integers based on screen height and width.
+    - Create random number integer of a current window width and height.
 - In game target objects
     - Target HTML div elements in the DOM for game box targets.
     - Two random generated integers used for position x and y coardinates to target css position properties for HTML div elements.
@@ -130,43 +142,19 @@ To keep the game challenging, complexity will increase over the course of the ga
     - Level variable will be passed into setInterval() function and will launch the game.
 - Game Proggression levels
     - Speed will increase over course of the game. 
-    - Target count will increase over course of the game
+    - Target count will increase over course of the game.
     - Create setInterval() function pass it into game level sellection once desired score is reached.
 # [&#8686;](#Top)
-## **Design**
-
-- Color Sheme
-    - Body background color antiquewhite.
-    - Game Window background color oldlace.
-    - Font and element background color red, royelBlue and green.
-- Typography
-    - Primary font-family: Press Start 2P with cursive as a fallback font
-    - Secondary font-family: Roboto witn sans-serif as a fallback
-# [&#8686;](#Top)
 ## **Features**
-### **Home Page**
-![View](project_files/features/desktop-home.PNG)
-### **In Game**
-![View](project_files/features/desktop-ingame.PNG)
-### **Game Information Popout**
-
-![View](project_files/features/desktop-info.PNG)
-### **Game Over**
-![View](project_files/features/desktop-game-over.PNG)
-### **Contact | Bug report**
-
-![View](project_files/features/contact-form.PNG)
-![View](project_files/features/form-after-submit.PNG)
-### **Key features**
+### **The Game** [Image here](project_files/features/desktop-home.PNG)
 - The game 
     -  The Game Detects touch devices and sets difficulty accordingly
     -  Responsive works on most devices(deskpop, mobile)
     -  It can be resized and it will recalculate the game area on the fly.
-- Game Window
-    -  Interactive game area, that is where target box objects spawn for user to click or tap on.
 - Select Level
     - Player can select difficulty level.
-    - Touch devices difficulty differ from pointing enabled devices
+    - Mobile devices starting speed is faster than pointing and target count
+### **In Game** [Image here](project_files/features/desktop-ingame.PNG)
 - Score counter 
     - Enables players to keep track of points when playing a game.
 - Speed display
@@ -176,23 +164,28 @@ To keep the game challenging, complexity will increase over the course of the ga
 - Game-level-Up
     - Gain enough points in the game to enable a player to go up to a higher level.
     - Speed and target count is increasing over course of the game.
-- Contact/Bug report form
-    - For users to be able to send feedback or contact if they incounter any gliches or bugs.
+### **Game Information Popout** [Image here](project_files/features/desktop-info.PNG)
 - Game Help/instruction Pop-up
     - Enables Player to to looak at game instructions on how to play the game.
+### **Contact | Bug report** [Image here](project_files/features/contact-form.PNG) | [and submitted here](project_files/features/form-after-submit.PNG)
+- Contact/Bug report form
+    - Bug report/feedback form for user to be able to contact if the incounter any gliches or bugs.
+### **Game Over** [Image here](project_files/features/desktop-game-over.PNG)
+- Links back to landing page and bug report page.
+
 # [&#8686;](#Top)
 ## **TESTING**
+### **W3C Validation**
+  The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
+
+- [W3C Markup Validator](project_files/validation/Html-Checker.PNG)
+- [W3C CSS Validator](project_files/validation/W3C-CSS.PNG)
+### **Future Testing**
 The Game was tested on Chrome, Opera, Microsoft edge and Firefox desktop version browsers and on huawei p30 Pro chrome and android browser.
 
 Chrome DevTools was used to Test variety of devices such as Desktop, Laptop, iPhone7, iPhone 8 & iPhoneX for responsive design.
 
 Friends and family members helped point out any bugs or issues.
-# [&#8686;](#Testing)
-## **W3C Validation**
-  The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
-
-- [W3C Markup Validator](project_files/validation/Html-Checker.PNG)
-- [W3C CSS Validator](project_files/validation/W3C-CSS.PNG)
 # [&#8686;](#Top)
 ## **Technologies and Frameworks**
 ### **Markup/Scripting/Programming languages**
