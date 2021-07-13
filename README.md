@@ -8,12 +8,16 @@
 ### Table of contents
 
 1. [Introduction](#Introduction)
-1. [Design](#Design)
-    - [External User's goal's](#External-User's-goal's)
-    - [Site owner's goal's](#Site-owner's-goal's)
+1. [UX](#UX)
+    - [Player goal's](#Player-goal's)
+    - [Owner's goal's](#Owner's-goal's)
+    - [Developer's goal's](#Developer's-goal's)
+1. [Scope](#Scope)
     - [Functionality Requirements](#Functionality-Requirements)
-    - [Wireframes](#Wireframes)
-    - [Game design](#Game-design)
+1. [Wireframes](#Wireframes)
+1. [Game Mechanics](#Game-Mechanics)
+1. [Game Logic](#Game-Logic)
+1. [Design](#Design)
 1. [Features](#Features)
 1. [Testing](#Testing)
 1. [Technologies and Frameworks](#Technologies-and-Frameworks)
@@ -41,20 +45,42 @@ The objective of the game is to click or tap the objects that are spawning rando
 To keep the game challenging, complexity will increase over the course of the game.
 # [&#8686;](#Top)
 
-## **Design**
-### **External User's goal's**
+## **UX**
+### **Player goal's**
 1. Have fun playing game.
-### **Site owner's goal's**
-1. Make a game that is fun to play
+1. Age appropriateness and child-friendly.
+1. User friendly controls.
+1. Improve reaction times
+1. Information on how to use game.
+1. If mobile verssion available.
+1. Is desktop version available.
+### **Owner's goal's**
+1. Make a game that is fun to play.
+1. The game is suitable for players of all ages.
+1. The game Is child friendly.
+1. The game works on most devices.
+1. Game rules available in-game on how to use the game.
+1. Bug report is important, include contact form.
+### **Developer's goal's**
+1. Developer Learn code in JanvScript as JavaScript is part of full stack software development course.
+1. Connect at least one API.
+1. Developer will manipulate the DOM as much as posible.
+1. Developer will take up the challenge and learn new skills.
+1. Include a JavaScrip project to build a portfolio.
+# [&#8686;](#Top)
+## **Scope**
 ### **Functionality Requirements**
 1. Build a simple single-player reaction time game.
+1. Three level sellection. Easy, medium and hard depending on device.
 1. Increase in complexity over the course of the game.
 1. Click counter if player clicks or misses the target.
 1. Provide player with instructions on how to play the game.
-1. Integrate feedback form if encountered bugs or glitches.
+1. Feedback form if encountered bugs or glitches.
 1. Provide player with feedback on how they're doing at any stage.
-
-### **Game Mechanics**
+## **Wireframe**
+![View](project_files/wireframe.jpg)
+# [&#8686;](#Top)
+## **Game Mechanics**
 1. Game Play
     - Select dificulty level to start the game.
     - Click or tap on target objects once they spawn.
@@ -74,12 +100,9 @@ To keep the game challenging, complexity will increase over the course of the ga
     - Player will lose life if target is not clicked on time or target is missed altogether. 
     - Losing all lives means "game over".
 # [&#8686;](#Top)
-### **Wireframes**
-![View](project_files/wireframe.jpg)
-# [&#8686;](#Top)
+## **Game Logic**  
 ![View](project_files/wireframe2.jpg)
-# [&#8686;](#Top)
-### **Game design**
+
 - Select Level
     - Added touchscreen detection, for mobile devices starting speed is faster than pointing enabled devices.
     - Levels for mobile devices  = "Easy" Start with one target, "Medium" start with two targets "Hard" start with three targets.
@@ -107,21 +130,25 @@ To keep the game challenging, complexity will increase over the course of the ga
     - Target count will increase over course of the game
     - Create setInterval() function pass it into game level sellection once desired score is reached.
 # [&#8686;](#Top)
-## **Features**
+## **Design**
 
+# [&#8686;](#Top)
+## **Features**
 - The game 
-    -  Is responsive works on most devices(deskpop, mobile)
+    -  The Game Detects touch devices and sets difficulty accordingly
+    -  Responsive works on most devices(deskpop, mobile)
     -  It can be resized and it will recalculate the game area on the fly.
 - Game Window
     -  Interactive game area, that is where target box objects spawn for user to click or tap on.
 - Select Level
     - Player can select difficulty level.
+    - Touch devices difficulty differ from pointing enabled devices
 - Score counter 
     - Enables players to keep track of points when playing a game.
 - Speed display
     -  Enables players see current game speed in secounds.
 - Lives Remaining
-    - If you miss box target, you lose one life but once score {??} has been reached, palyer will gain one life.
+    - If player miss box target, you lose one life but once score {??} has been reached, palyer will gain one life.
 - Game-level-Up
     - Gain enough points in the game to enable a player to go up to a higher level.
     - Speed and target count is increasing over course of the game.
