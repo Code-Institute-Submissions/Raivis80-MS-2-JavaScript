@@ -1,6 +1,5 @@
 html {
     box-sizing: border-box;
-    position: reletive;
     background-color: antiquewhite;
     height: 100vh;
     padding: 0 10px 10px 0px;
@@ -69,6 +68,11 @@ html {
 
 #speed {
     display: flex;
+}
+
+.pointer {
+    font-size: 1.4rem;
+    color: green;
 }
 
 .info {
@@ -348,7 +352,6 @@ html {
 
 .contact_window button {
     box-shadow: 0 0 6px rgb(0, 0, 0, .6);
-    color: l;
     color: oldlace;
     background-color: green;
     transition-duration: 0.1s;
