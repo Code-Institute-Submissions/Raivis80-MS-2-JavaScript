@@ -14,7 +14,7 @@
     - [Developer's goal's](#Developer's-goal's)
 1. [Scope](#Scope)
     - [Functionality Requirements](#Functionality-Requirements)
-1. [Wireframes](#Wireframes)
+1. [Wireframe](#Wireframe)
 1. [Game Mechanics](#Game-Mechanics)
 1. [Game Logic](#Game-Logic)
 1. [Design](#Design)
@@ -132,8 +132,29 @@ To keep the game challenging, complexity will increase over the course of the ga
 # [&#8686;](#Top)
 ## **Design**
 
+- Color Sheme
+    - Body background color antiquewhite.
+    - Game Window background color oldlace.
+    - Font and element background color red, royelBlue and green.
+- Typography
+    - Primary font-family: Press Start 2P with cursive as a fallback font
+    - Secondary font-family: Roboto witn sans-serif as a fallback
 # [&#8686;](#Top)
 ## **Features**
+### **Home Page**
+![View](project_files/features/desktop-home.PNG)
+### **In Game**
+![View](project_files/features/desktop-ingame.PNG)
+### **Game Information Popout**
+
+![View](project_files/features/desktop-info.PNG)
+### **Game Over**
+![View](project_files/features/desktop-game-over.PNG)
+### **Contact | Bug report**
+
+![View](project_files/features/contact-form.PNG)
+![View](project_files/features/form-after-submit.PNG)
+
 - The game 
     -  The Game Detects touch devices and sets difficulty accordingly
     -  Responsive works on most devices(deskpop, mobile)
@@ -156,33 +177,13 @@ To keep the game challenging, complexity will increase over the course of the ga
     - For users to be able to send feedback or contact if they incounter any gliches or bugs.
 - Game Help/instruction Pop-up
     - Enables Player to to looak at game instructions on how to play the game.
-
-### **Home Page**
-
-![View](project_files/features/desktop-home.PNG)
-
-
-### **In Game**
-![View](project_files/features/desktop-ingame.PNG)
-
-
-### **Game Information Popout**
-
-![View](project_files/features/desktop-info.PNG)
-
-
-### **Game Over**
-![View](project_files/features/desktop-game-over.PNG)
-
-
-### **Contact | Bug report**
-
-![View](project_files/features/contact-form.PNG)
-![View](project_files/features/form-after-Submit.PNG)
 # [&#8686;](#Top)
 ## **TESTING**
 The Game was tested on Chrome, Opera, Microsoft edge and Firefox desktop version browsers and on huawei p30 Pro chrome and android browser.
+
 Chrome DevTools was used to Test variety of devices such as Desktop, Laptop, iPhone7, iPhone 8 & iPhoneX for responsive design.
+
+Friends and family members helped point out any bugs or issues.
 # [&#8686;](#Top)
 ## **Technologies and Frameworks**
 ### **Markup/Scripting/Programming languages**
