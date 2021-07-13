@@ -19,6 +19,7 @@
 1. [Game Logic](#Game-Logic)
 1. [Design](#Design)
 1. [Features](#Features)
+    - [Key features](#Key-features)
 1. [Testing](#Testing)
 1. [Technologies and Frameworks](#Technologies-and-Frameworks)
    - [Markup/Scripting/Programming languages](#Markup/Scripting/Programming-languages)
@@ -28,6 +29,7 @@
    - [Forking the Repository](#Forking-the-Repository)
    - [Creating a Clone](#Creating-a-Clone)
 1. [Credits](#Credits)
+   - [Code](#Code)
    - [Helpfull sites](#Helpfull-sites)
    - [Acknowledgements](#Acknowledgements)
 
@@ -77,6 +79,7 @@ To keep the game challenging, complexity will increase over the course of the ga
 1. Provide player with instructions on how to play the game.
 1. Feedback form if encountered bugs or glitches.
 1. Provide player with feedback on how they're doing at any stage.
+# [&#8686;](#Top)
 ## **Wireframe**
 ![View](project_files/wireframe.jpg)
 # [&#8686;](#Top)
@@ -95,7 +98,7 @@ To keep the game challenging, complexity will increase over the course of the ga
         - Will increase by 1 if target is not clicked on time or target is missed altogether.
 1. Lives Remaining
     - The game starts with three lives.
-    - Players will gain life once every {??} score points. 
+    - Players will gain life once every 50 score points. 
     - Maximum three lives can be gained at once.
     - Player will lose life if target is not clicked on time or target is missed altogether. 
     - Losing all lives means "game over".
@@ -109,7 +112,7 @@ To keep the game challenging, complexity will increase over the course of the ga
     - Levels for PC's devices  = "Easy" Start with two targets, "Medium" start with three targets "Hard" start with four targets.
 - Lives Remaining
     - Based on capture and click events, all Unsuccessful clicks and missed on time events will disable one life element.
-    - Based on Score counter, every {??} score points will create one life. Enable one life element (if statement).
+    - Based on Score counter, every 50 score points will create one life. Enable one life element (if statement).
     or miss click the box on time 
 - Random Number generator
     - Extract Window height and width.
@@ -154,7 +157,7 @@ To keep the game challenging, complexity will increase over the course of the ga
 
 ![View](project_files/features/contact-form.PNG)
 ![View](project_files/features/form-after-submit.PNG)
-
+### **Key features**
 - The game 
     -  The Game Detects touch devices and sets difficulty accordingly
     -  Responsive works on most devices(deskpop, mobile)
@@ -169,7 +172,7 @@ To keep the game challenging, complexity will increase over the course of the ga
 - Speed display
     -  Enables players see current game speed in secounds.
 - Lives Remaining
-    - If player miss box target, you lose one life but once score {??} has been reached, palyer will gain one life.
+    - If player miss box target, you lose one life but once score 50 has been reached, palyer will gain one life.
 - Game-level-Up
     - Gain enough points in the game to enable a player to go up to a higher level.
     - Speed and target count is increasing over course of the game.
@@ -222,12 +225,20 @@ A Fork is a coppy of repository allows you to freely experiment with changes wit
 
 Detailed Steps for forkig a repository from GitHub can be found here: [here](https://docs.github.com/en/get-started/quickstart/fork-a-repo)
 ### **Creating a Clone**
+
 You can clone reposetory. When you clone repository, you copy repository to your Machine.
 <br>Locate the [GitHub Repository](https://github.com/Raivis80/)"Link to GitHub Repo".
 <br>Steps for cloning a repository from GitHub can be found here: [here](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository) "Link to GitHub docs"
 # [&#8686;](#Top)
 ## ***Credits***
+### **Code**
+
+- Some of emailjs API code is reused of Code Institute Resume project. Thanks to Matt Rudge.
+- Detect touchscreen devices [link here](https://hacks.mozilla.org/2013/04/detecting-touch-its-the-why-not-the-how/)
+- Prevent click event trigger on child elements helped me to solve this Stackoverflow user abaz [link here](https://stackoverflow.com/questions/1369035/how-do-i-prevent-a-parents-onclick-event-from-firing-when-a-child-anchor-is-cli)                     
+
 ### **Helpfull sites**
+#### **Thanks To:**
 -  [google.com](https://google.com/): Search for anything.
 -  [stackoverflow.com](https://stackoverflow.com/): Useful website for code tips.
 -  [www.w3schools](https://www.w3schools.com/): Examples of how to use HTML, CSS, JavaScript.
