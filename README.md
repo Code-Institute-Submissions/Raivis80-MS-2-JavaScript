@@ -25,7 +25,6 @@
    - [Creating a Clone](#Creating-a-Clone)
 1. [Credits](#Credits)
    - [Helpfull sites](#Helpfull-sites)
-   - [Images](#Images)
    - [Acknowledgements](#Acknowledgements)
 
 # [&#8686;](#Top)
@@ -60,13 +59,12 @@ To keep the game challenging, complexity will increase over the course of the ga
     - Select dificulty level to start the game.
     - Click or tap on target objects once they spawn.
 1. Select Level 
-    - Select Dificulty level "Easy", "Medium", "Hard".
-        - "Easy" Start with one target.
-        - "Medium" Start with two targets.
-        - "Hard" Start with three targets. 
+    - Touch enabled devices staart with higher speed.
+    - Levels for mobile devices  = "Easy" Start with one target, "Medium" start with two targets "Hard" start with three targets.
+    - Levels for PC's devices  = "Easy" Start with two targets, "Medium" start with three targets "Hard" start with four targets.
 1. Score Counters
     - Score counter:
-        - Will increase by 1, once player clicks the target.
+        - Will increase by 1, once player clicks on the target.
     - Missed score counter:
         - Will increase by 1 if target is not clicked on time or target is missed altogether.
 1. Lives Remaining
@@ -83,11 +81,12 @@ To keep the game challenging, complexity will increase over the course of the ga
 # [&#8686;](#Top)
 ### **Game design**
 - Select Level
-    - Levels = "Easy" Start with one target, "Medium" start with two targets "Hard" start with three targets.
-    - For level sellection buttons I'm targeting HTML 'p' enements and I have attached click event listener for each game level function.
+    - Added touchscreen detection, for mobile devices starting speed is faster than pointing enabled devices.
+    - Levels for mobile devices  = "Easy" Start with one target, "Medium" start with two targets "Hard" start with three targets.
+    - Levels for PC's devices  = "Easy" Start with two targets, "Medium" start with three targets "Hard" start with four targets.
 - Lives Remaining
-    - Based on capture and click events, all Unsuccessful clicks and missed on time events will disable one life element (if statement)
-    - Based on Score counter, every 10 score points will create one life. Enable one life element (if statement).
+    - Based on capture and click events, all Unsuccessful clicks and missed on time events will disable one life element.
+    - Based on Score counter, every {??} score points will create one life. Enable one life element (if statement).
     or miss click the box on time 
 - Random Number generator
     - Extract Window height and width.
@@ -97,17 +96,16 @@ To keep the game challenging, complexity will increase over the course of the ga
     - Target HTML div elements in the DOM for game box targets.
     - Two random generated integers used for position x and y coardinates to target css position properties for HTML div elements.
 - Click event listeners and capture events.
-    - Create event listeners for game targets that will record successfull clicks.
+    - Create event listeners for game targets that will record successfull clicks and disable target once clicked.
     - Create event listener for game window to record unsuccessful clicks.
-    - Capture events on all failed on time click attempts.
+    - Capture events on all failed click attempts. I managed to acheave this by counting how many objects at the end of setInterval() cycle has display: none; 
 - Game setup
-    - Basedd on Level selection. if "EASY", else if "MEDIUM", else if "HARD".
-    - Level variable will be passed into setInterval() function within the gameSetup() function and will launch the game.
+    - Based on Level selection. if "EASY", else if "MEDIUM", else if "HARD".
+    - Level variable will be passed into setInterval() function and will launch the game.
 - Game Proggression levels
     - Speed will increase over course of the game. 
-    - Target count will increase  over course of the game
-    - Create setInterval() function pass it into game level sellection once store reached.
-
+    - Target count will increase over course of the game
+    - Create setInterval() function pass it into game level sellection once desired score is reached.
 # [&#8686;](#Top)
 ## **Features**
 
@@ -123,48 +121,41 @@ To keep the game challenging, complexity will increase over the course of the ga
 - Speed display
     -  Enables players see current game speed in secounds.
 - Lives Remaining
-    - If you miss box target, you lose one life but once score 10 has been reached, you will gain one life.
+    - If you miss box target, you lose one life but once score {??} has been reached, palyer will gain one life.
 - Game-level-Up
     - Gain enough points in the game to enable a player to go up to a higher level.
     - Speed and target count is increasing over course of the game.
 - Contact/Bug report form
     - For users to be able to send feedback or contact if they incounter any gliches or bugs.
-- Game Help/instruction Popout
+- Game Help/instruction Pop-up
     - Enables Player to to looak at game instructions on how to play the game.
-
-
 
 ### **Home Page**
 
 ![View](project_files/features/desktop-home.PNG)
-![View](project_files/features/tablet-home.PNG)
-![View](project_files/features/mobile-home.PNG)
+
 
 ### **In Game**
 ![View](project_files/features/desktop-ingame.PNG)
-![View](project_files/features/tablet-ingame.PNG)
-![View](project_files/features/mobile-ingame.PNG)
+
 
 ### **Game Information Popout**
 
 ![View](project_files/features/desktop-info.PNG)
-![View](project_files/features/tablet-info.PNG)
-![View](project_files/features/mobile-info.PNG)
+
 
 ### **Game Over**
 ![View](project_files/features/desktop-game-over.PNG)
-![View](project_files/features/tablet-game-over.PNG)
-![View](project_files/features/mobile-game-over.PNG)
+
 
 ### **Contact | Bug report**
 
 ![View](project_files/features/contact-form.PNG)
-
+![View](project_files/features/form-after-Submit.PNG)
 # [&#8686;](#Top)
 ## **TESTING**
 The Game was tested on Chrome, Opera, Microsoft edge and Firefox desktop version browsers and on huawei p30 Pro chrome and android browser.
 Chrome DevTools was used to Test variety of devices such as Desktop, Laptop, iPhone7, iPhone 8 & iPhoneX for responsive design.
-
 # [&#8686;](#Top)
 ## **Technologies and Frameworks**
 ### **Markup/Scripting/Programming languages**
@@ -175,12 +166,10 @@ Chrome DevTools was used to Test variety of devices such as Desktop, Laptop, iPh
 ### **Frameworks/Libraries/Programs**
 - [Google Fonts:](https://fonts.google.com/) Making the web more beautiful.
 - [Font Awesome:](https://fontawesome.com/) to add icons to the website.
-- [jQuery:](https://jquery.com/) used for interactive functionality.
 - [Git](https://git-scm.com/) Git was used for version control.
 - [GitHub:](https://github.com/) used to store the projects code.
 - [gitpod.io](https://gitpod.io/) gitpod Was used for codding.
 - [VS Code](https://code.visualstudio.com/) gitpod Was used for codding.
-- [Balsamiq:](https://balsamiq.com/) was used to create the wireframes.
 
 # [&#8686;](#Top)
 ## ***Deployment***
@@ -211,13 +200,12 @@ You can clone reposetory. When you clone repository, you copy repository to your
 # [&#8686;](#Top)
 ## ***Credits***
 ### **Helpfull sites**
--  [google.com](https://google.com/): Search for anything if stuck.
+-  [google.com](https://google.com/): Search for anything.
 -  [stackoverflow.com](https://stackoverflow.com/): Useful website for code tips.
 -  [www.w3schools](https://www.w3schools.com/): Examples of how to use HTML, CSS, JavaScript.
 -  [developer.mozilla.org](https://developer.mozilla.org/): Examples of how to use HTML, CSS, JavaScript.
 -  [css-tricks.com](https://css-tricks.com/): Useful CSS styling tips.
-
-### **Images** 
+-  [developer.mozilla.org](https://developer.mozilla.org/):Used to source how to use JavaScript.
 ### **Acknowledgements**
 - A huge thanks to Owonikoko Oluwaseun, My Mentor for continuous support and inspire me to push myself beyond where I think I can go.
 - Tutor support at Code Institute for their support.

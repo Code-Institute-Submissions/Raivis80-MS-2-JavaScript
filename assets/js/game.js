@@ -12,30 +12,38 @@ const levelsElement = document.getElementById('select_level');
 const level1 = levelsElement.children[0];
 const level2 = levelsElement.children[1];
 const level3 = levelsElement.children[2];
-//___________________________________________
-//____________GAME CONTROLS__________________|
-//Control how many points per life-----------|
-//This number must divide evenly with 100----| 
-pointsForLife = 50;
-//___________________________________________
-//__________Adjust starting speed____________|
-// detect touchscreen devices https://hacks.mozilla.org/2013/04/detecting-touch-its-the-why-not-the-how/
+
+
 let speed;
-if ('ontouchstart' in window) {
-    speed = 2800;
-} else {
-    speed = 3000;
-}
-//___________________________________________
+let timing;
+let speedScore;
+let pointsForLife;
+let cubes = document.getElementsByClassName('none');
+//___________________________________________|
+//This number must divide evenly with 100----|
+//_______How many points for one life________|
+pointsForLife = 50;
 //____Every time progressPoints is reached___|
 //Speed will increase and will add one target|
 let progressPoints = 200;
-
+// detect touchscreen devices https://hacks.mozilla.org/2013/04/detecting-touch-its-the-why-not-the-how/
+if ('ontouchstart' in window) {
+    //starting speed for touch|
+    speed = 2800;
+    for (cube of cubes) {
+        cube.style.display = 'block';
+        cube++
+    }
+} else {
+    //starting speed pc|
+    speed = 3000;
+}
 
 // Game event listeners
-document.addEventListener('DOMContentLoaded', function () {
+window.onload = function () {
     document.getElementById('contact_button').addEventListener('click', contactPage);
     document.getElementById('info').addEventListener('click', infoPopout);
+
     // Start game level 1
     level1.addEventListener('click', function () {
         //Starting Target count
@@ -67,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         startTheGame();
     });
-});
+};
 
 //--------------------------HELP--INFO-POP-OUT------------------------------------|
 const helpElement = document.getElementById('help');
@@ -117,12 +125,12 @@ function contactPage() {
         startGameElement.style.display = 'none';
         gameOverElement.style.display = 'none';
     };
-
 }
 //-CONTACT FORM--API--emailjs.com
 // Some of emailjs API code is reused of Code Institute Resume project 
 // Added message element and clear form after sent
 function sendMail(contactForm) {
+    
     emailjs.send("gmail", "game", {
             "from_name": contactForm.name.value,
             "from_email": contactForm.emailaddress.value,
@@ -133,7 +141,9 @@ function sendMail(contactForm) {
                 console.log("SUCCESS", response);
                 // Added alert mesaage after successfull delivery
                 document.getElementById('submit_alert').setAttribute("class", "submit_alert border");
-                document.getElementById('submit_alert').innerHTML = `<p>Your message has been sent successfully. Thank You!</p>`;
+                document.getElementById('submit_alert').innerHTML = `<p>${contactForm.name.value}. Your message has been sent successfully. <span style="color: #555">"${contactForm.gameBugReport.value}"</span> Thank You! </p>`;
+                //Change submit lolout for user to see if this was sent
+                document.getElementById('submit').style.backgroundColor = 'rgb(153, 153, 17)';
                 // Reset alert message after 6 seconds
                 setTimeout(alertOff, 6000);
                 document.getElementById('form').reset();
@@ -404,9 +414,7 @@ function timigFunction() {
 //----------------------GAME PROGRESS SPEED INCREASE------------------------------| 
 // As score increase Speed will increase as well 
 
-let timing = speed - 100;
-//multiples score
-let speedScore = progressPoints;
+
 
 //Speed progression multiplier
 // adds an object on progression
@@ -430,6 +438,10 @@ function gameProgress() {
 //------------------------------GAME SELLECT--------------------------------------|
 // Timmer variables 
 let timer1;
+//timing for target check
+timing = speed - 100;
+//multiples score|
+speedScore = progressPoints;
 
 //Level Hard-------------|
 function startTheGame() {
