@@ -106,7 +106,6 @@ function infoPopout() {
 
 }
 
-
 //-------------------------------CONTACT PAGE-------------------------------------|
 const contactWindow = document.getElementById('contact_window');
 contactWindow.style.display = 'none';
@@ -141,7 +140,8 @@ function sendMail(contactForm) {
                 console.log("SUCCESS", response);
                 // Added alert mesaage after successfull delivery
                 document.getElementById('submit_alert').setAttribute("class", "submit_alert border");
-                document.getElementById('submit_alert').innerHTML = `<p>${contactForm.name.value}. Your message has been sent successfully. <span style="color: #555">"${contactForm.gameBugReport.value}"</span> Thank You! </p>`;
+                document.getElementById('submit_alert').innerHTML = `<p>${contactForm.name.value}. 
+                Your message has been sent successfully. <span style="color: #555">"${contactForm.gameBugReport.value}"</span> Thank You! </p>`;
                 //Change submit lolout for user to see if this was sent
                 document.getElementById('submit').style.backgroundColor = 'rgb(153, 153, 17)';
                 // Reset alert message after 6 seconds
@@ -295,7 +295,7 @@ function gameWindow() {
     gameWindowElement.addEventListener('mousedown', detectWindowEvents);
 
     function detectWindowEvents(event) {
-        //Stackoverflow user abaz prevent click event trigger on child elements helped me to solve this                   
+        //Prevent click event trigger on child elements.                  
         //https://stackoverflow.com/questions/1369035/how-do-i-prevent-a-parents-onclick-event-from-firing-when-a-child-anchor-is-cli                      
         if (this === event.target) {
             clicks = 0;
@@ -382,7 +382,7 @@ function deductLife() {
     } else if (livesCount == 1) {
         lives[0].style.backgroundColor = 'oldlace';
         lives[1].style.backgroundColor = 'oldlace';
-    } else if (livesCount == 0) {
+    } else if (livesCount <= 0) {
         lives[0].style.backgroundColor = 'oldlace';
         lives[1].style.backgroundColor = 'oldlace';
         lives[2].style.backgroundColor = 'oldlace';
@@ -397,6 +397,7 @@ function deductLife() {
 let notClick = 0;
 
 function timigFunction() {
+    
     notClick = 0;
     for (let i = 0; i < targets.length; i++)
         if (targets[i].style.display === 'block') {
@@ -408,6 +409,7 @@ function timigFunction() {
         livesCount = livesCount - notClick;
         deductLife()
     }
+    console.log(livesCount)
     notClick = 0;
 }
 
