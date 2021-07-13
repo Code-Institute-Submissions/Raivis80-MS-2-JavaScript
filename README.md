@@ -14,7 +14,7 @@
     - [Developer's goal's](#Developer's-goal's)
     - [Functionality Requirements](#Functionality-Requirements)
 1. [Design](#Design)
-    - [Wireframe](#Wireframe) - [Developer's goal's](#Developer's-goal's)
+    - [Wireframe](#Wireframe)
 1. [Game Mechanics](#Game-Mechanics)
 1. [Game Logic](#Game-Logic)
 1. [Features](#Features)
