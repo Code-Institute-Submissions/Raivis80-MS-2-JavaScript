@@ -187,6 +187,12 @@ The Game was tested on Chrome, Opera, Microsoft edge and Firefox desktop version
 Chrome DevTools was used to Test variety of devices such as Desktop, Laptop, iPhone7, iPhone 8 & iPhoneX for responsive design.
 
 Friends and family members helped point out any bugs or issues.
+# [&#8686;](#Testing)
+## **W3C Validation**
+  The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
+
+- [W3C Markup Validator](project_files/validation/Html-Checker.PNG)
+- [W3C CSS Validator](project_files/validation/W3C-CSS.PNG)
 # [&#8686;](#Top)
 ## **Technologies and Frameworks**
 ### **Markup/Scripting/Programming languages**
