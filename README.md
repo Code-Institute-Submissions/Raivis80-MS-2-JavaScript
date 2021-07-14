@@ -9,10 +9,11 @@
 
 1. [Introduction](#Introduction)
 1. [UX](#UX)
-    - [Player goal's](#Player-goal)
-    - [Owner's goal's](#Owner-goal)
-    - [Developer's goal's](#Developer-goal)
+    - [Player goal's](#Player-goals)
+    - [Owner goal's](#Owner-goals)
+    - [Developer goal's](#Developer-goals)
     - [Functionality Requirements](#Functionality-Requirements)
+    - [User Stories](#User-Stories)
 1. [Design](#Design)
     - [Wireframe](#Wireframe)
 1. [Game Mechanics](#Game-Mechanics)
@@ -53,8 +54,7 @@ To keep the game challenging, complexity will increase over the course of the ga
 # [&#8686;](#Top)
 
 ## **UX**
-### **Player goal**
-
+### **Player goals:**
 1. Have fun playing game.
 1. Age appropriateness and child-friendly.
 1. User friendly controls.
@@ -63,20 +63,31 @@ To keep the game challenging, complexity will increase over the course of the ga
 1. If mobile verssion available.
 1. Is desktop version available.
 
-### **Owner goal**
+### **Owner goals:**
 1. Make a game that is fun to play.
 1. The game is suitable for players of all ages.
 1. The game Is child friendly.
 1. The game works on most devices.
 1. Game rules available in-game on how to use the game.
 1. Bug report is important, include contact form.
-2. 
-### **Developer goal**
-1. Developer Learn code in JanvScript.
+
+### **Developer goals:**
+1. Developer will Learn code in JanvScript.
 1. Connect at least one API.
 1. Developer will manipulate the DOM as much as posible.
 1. Developer will take up the challenge and learn new skills.
 1. Include a JavaScrip project to build a portfolio.
+
+### **User Stories**
+As a palyer i want to:
+1. To understand the game rules and to have game play instructions available.
+1. Heve fun to paly the game. 
+1. To play the game that is visualy apealing and has user friendry design.
+1. To be able to understand the controls for the game.
+1. The be able to select appropriate different levels, depending on player skill level. 
+1. To be able to contact the developer if incounter any bugs or issues.
+1. If the game is available on mobile devices and or deskpot pc's is important.
+
 
 ### **Functionality Requirements**
 1. Build a simple single-player reaction time game.
@@ -89,7 +100,6 @@ To keep the game challenging, complexity will increase over the course of the ga
 # [&#8686;](#Top)
 
 ## **Design**
-
 - Color Sheme
     - Body background color antiquewhite.
     - Game Window background color oldlace.
@@ -98,7 +108,9 @@ To keep the game challenging, complexity will increase over the course of the ga
     - Primary font-family: Press Start 2P with cursive as a fallback font
     - Secondary font-family: Roboto witn sans-serif as a fallback
 ### **Wireframe**
-![View](project_files/wireframe.jpg)
+
+You can view the wireframe [Here](project_files/wireframe.jpg)
+
 # [&#8686;](#Top)
 ## **Game Mechanics**
 1. Game Play
@@ -121,7 +133,8 @@ To keep the game challenging, complexity will increase over the course of the ga
     - Losing all lives means "game over".
 # [&#8686;](#Top)
 ## **Game Logic**  
-![View](project_files/wireframe2.jpg)
+
+Game logic wireframe can be seen [Here](project_files/wireframe2.jpg)
 
 - Select Level
     - Added touchscreen detection, for mobile devices starting speed is faster than pointing enabled devices.
