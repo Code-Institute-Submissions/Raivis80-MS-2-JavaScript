@@ -219,7 +219,7 @@ function targetSetup() {
 
 ```
 ***
-    - Create event listener for game window to record unsuccessful clicks. 
+- Create event listener for game window to record unsuccessful clicks. 
 ```JavaScript
 //Detects clicks in game area and counts as miss 
 function gameWindow() {
@@ -247,7 +247,7 @@ function gameWindow() {
 
 ```
 ***
-    - Capture events on all failed click attempts. I managed to acheave this by counting how many objects at the end of setInterval() cycle has display: none; 
+- Capture events on all failed click attempts. I managed to acheave this by counting how many objects at the end of setInterval() cycle has display: none; 
 ```JavaScript
 //Timing for target check if display none count is less than initial target count then it will sent to neotClick() function for calculation
 let notClick = 0;
