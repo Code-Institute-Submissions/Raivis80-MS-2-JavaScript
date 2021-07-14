@@ -400,7 +400,7 @@ Friends and family members helped point out any bugs or issues.
     if (this === event.target) {
     }
 ```
-
+***
 2. Friends and family members pointed out that the game on Mobile devices was too slow.
      
      `To solve this, I have added touch device detection and for mobile devices I have added extra target and faster initial speed.`
@@ -414,7 +414,7 @@ Friends and family members helped point out any bugs or issues.
 ```
 ***
 
-3. After friends pointed out that it would be more interesting if in-game progression extra targets would appear as you paly
+3. After friends pointed out that it would be more interesting if in-game progression extra targets would spawn as you paly
      `To make this work, I had to redesign the target creation I used for-loop to create extra targets and for target listeners`
 ```javascript
 // append color and position for individual targets 
@@ -478,9 +478,20 @@ function addTargetListeners() {
     }
 }
 ```
+***
+5.  The issue with the progress bar no resetting in some cases and missed points not counting'
 
+  `Added missed score counter++ to the loop to count missed points and added to deduct Life function resset to 0`
+```javascript
 
-
+// added to timing function missed score counter++ to the loop
+            scoreMissed.innerText++;
+            scoreMissed.innerText + livesCount;
+// added to deduct Life function
+              streak2 = 0;
+              streak1 = 0;
+            livesDivElement.style.width = '0';
+```
 # [&#8686;](#Top)
 ## **Technologies and Frameworks**
 ### **Languages**

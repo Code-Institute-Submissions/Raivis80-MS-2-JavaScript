@@ -129,7 +129,7 @@ function contactPage() {
 // Some of emailjs API code is reused of Code Institute Resume project 
 // Added message element and clear form after sent
 function sendMail(contactForm) {
-    
+
     emailjs.send("gmail", "game", {
             "from_name": contactForm.name.value,
             "from_email": contactForm.emailaddress.value,
@@ -212,14 +212,14 @@ function targetSetup() {
     }
 }
 
-// reemove target event listeners
-
+//Add target event listeners to the targets
 function addTargetListeners() {
     for (let i = 0; i < objectCount; i++) {
         targets[i].addEventListener('click', clickEvent = () => {});
     }
 }
 
+// remove target event listeners
 function removeTargetListeners() {
     for (let i = 0; i < objectCount; i++) {
         targets[i].removeEventListener('click', clickEvent);
@@ -379,13 +379,23 @@ function addLife() {
 function deductLife() {
     if (livesCount == 2) {
         lives[0].style.backgroundColor = 'oldlace';
+        livesDivElement.style.width = '0'
+              streak2 = 0;
+              streak1 = 0;
+
     } else if (livesCount == 1) {
         lives[0].style.backgroundColor = 'oldlace';
         lives[1].style.backgroundColor = 'oldlace';
+        livesDivElement.style.width = '0';
+              streak2 = 0;
+              streak1 = 0;
+
     } else if (livesCount <= 0) {
         lives[0].style.backgroundColor = 'oldlace';
         lives[1].style.backgroundColor = 'oldlace';
         lives[2].style.backgroundColor = 'oldlace';
+              streak2 = 0;
+              streak1 = 0;
         stopTheGame();
     }
 }
@@ -395,27 +405,26 @@ function deductLife() {
 
 // timing for target check
 let notClick = 0;
+
 function timigFunction() {
-    
     notClick = 0;
     for (let i = 0; i < targets.length; i++)
         if (targets[i].style.display === 'block') {
             notClick++;
+            scoreMissed.innerText++;
         }
     if (notClick >= 3 && objectCount >= 3) {
         stopTheGame();
     } else if (notClick == 2 || notClick == 1) {
         livesCount = livesCount - notClick;
-        deductLife()
+        scoreMissed.innerText + livesCount;
+        deductLife();
     }
-    console.log(livesCount)
     notClick = 0;
 }
 
 //----------------------GAME PROGRESS SPEED INCREASE------------------------------| 
 // As score increase Speed will increase as well 
-
-
 
 //Speed progression multiplier
 // adds an object on progression
@@ -444,7 +453,7 @@ timing = speed - 100;
 //multiples score|
 speedScore = progressPoints;
 
-//Level Hard-------------|
+//Game setup-------------|
 function startTheGame() {
     startGameElement.style.display = 'none';
     livesDivElement.style.width = '100%';
