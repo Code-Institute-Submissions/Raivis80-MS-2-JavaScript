@@ -9,9 +9,9 @@
 
 1. [Introduction](#Introduction)
 1. [UX](#UX)
-    - [Player goal's](#Player-goal's)
-    - [Owner's goal's](#Owner's-goal's)
-    - [Developer's goal's](#Developer's-goal's)
+    - [Player goal's](#Player-goal)
+    - [Owner's goal's](#Owner-goal)
+    - [Developer's goal's](#Developer-goal)
     - [Functionality Requirements](#Functionality-Requirements)
 1. [Design](#Design)
     - [Wireframe](#Wireframe)
@@ -27,8 +27,8 @@
     - [W3C Validation](#W3C-Validation)
     - [Future Testing](#FutureTesting)
 1. [Technologies and Frameworks](#Technologies-and-Frameworks)
-   - [Markup/Scripting/Programming languages](#Markup/Scripting/Programming-languages)
-   - [Frameworks/Libraries/Programs](#Frameworks/Libraries/Programs)  
+   - [Languages](#Languages)
+   - [Frameworks Libraries and Programs](#Frameworks-Libraries-and-Programs)  
 1. [Deployment](#Deployment)
    - [Deployment on GitHub Pages](#Deploying-on-GitHub-Pages)
    - [Forking the Repository](#Forking-the-Repository)
@@ -53,7 +53,8 @@ To keep the game challenging, complexity will increase over the course of the ga
 # [&#8686;](#Top)
 
 ## **UX**
-### **Player goal's**
+### **Player goal**
+
 1. Have fun playing game.
 1. Age appropriateness and child-friendly.
 1. User friendly controls.
@@ -61,14 +62,16 @@ To keep the game challenging, complexity will increase over the course of the ga
 1. Information on how to use game.
 1. If mobile verssion available.
 1. Is desktop version available.
-### **Owner's goal's**
+
+### **Owner goal**
 1. Make a game that is fun to play.
 1. The game is suitable for players of all ages.
 1. The game Is child friendly.
 1. The game works on most devices.
 1. Game rules available in-game on how to use the game.
 1. Bug report is important, include contact form.
-### **Developer's goal's**
+2. 
+### **Developer goal**
 1. Developer Learn code in JanvScript.
 1. Connect at least one API.
 1. Developer will manipulate the DOM as much as posible.
@@ -84,6 +87,7 @@ To keep the game challenging, complexity will increase over the course of the ga
 1. Feedback form if encountered bugs or glitches.
 1. Provide player with feedback on how they're doing at any stage.
 # [&#8686;](#Top)
+
 ## **Design**
 
 - Color Sheme
@@ -146,7 +150,9 @@ To keep the game challenging, complexity will increase over the course of the ga
     - Create setInterval() function pass it into game level sellection once desired score is reached.
 # [&#8686;](#Top)
 ## **Features**
+
 ### **The Game** 
+
 `Start screen screenshot` [Here](project_files/features/desktop-home.PNG)
 - The game 
     -  The Game Detects touch devices and sets difficulty accordingly
@@ -155,7 +161,9 @@ To keep the game challenging, complexity will increase over the course of the ga
 - Select Level
     - Player can select difficulty level.
     - Mobile devices starting speed is faster than pointing and target count
+    - 
 ### **In Game** 
+
 `In game screenshot` [here](project_files/features/desktop-ingame.PNG)
 - Score counter 
     - Enables players to keep track of points when playing a game.
@@ -166,16 +174,22 @@ To keep the game challenging, complexity will increase over the course of the ga
 - Game-level-Up
     - Gain enough points in the game to enable a player to go up to a higher level.
     - Speed and target count is increasing over course of the game.
+    - 
 ### **Game Information Popup** 
+
 `Info popup screenshot` [Here](project_files/features/desktop-info.PNG)
 - Game Help/instruction Pop-up
     - Enables Player to to looak at game instructions on how to play the game.
+    - 
 ### **Contact Bug report** 
+
 `Contact page screenshot` [Here](project_files/features/contact-form.PNG)  
 `Contact page screenshot submitted` [Here](project_files/features/form-after-submit.PNG)
 - Contact/Bug report form
     - Bug report/feedback form for user to be able to contact if the incounter any gliches or bugs.
+    - 
 ### **Game Over** 
+
 `And game over screenshot` [Here](project_files/features/desktop-game-over.PNG)
 - Links back to landing page and bug report page.
 
@@ -194,12 +208,12 @@ Chrome DevTools was used to Test variety of devices such as Desktop, Laptop, iPh
 Friends and family members helped point out any bugs or issues.
 # [&#8686;](#Top)
 ## **Technologies and Frameworks**
-### **Markup/Scripting/Programming languages**
+### **Languages**
 - [HTML5](https://en.wikipedia.org/wiki/HTML5) Hypertext Markup Language (HTML)
 - [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) Cascading Style Sheets (CSS)
 - [JavaScript](https://www.javascript.com/) Interactive functionality.
 
-### **Frameworks/Libraries/Programs**
+### **Frameworks Libraries and Programs**
 - [Google Fonts:](https://fonts.google.com/) Making the web more beautiful.
 - [Font Awesome:](https://fontawesome.com/) to add icons to the website.
 - [Git](https://git-scm.com/) Git was used for version control.
