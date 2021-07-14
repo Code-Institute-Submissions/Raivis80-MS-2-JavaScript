@@ -135,32 +135,205 @@ You can view the wireframe [Here](project_files/wireframe.jpg)
 ## **Game Logic**  
 
 Game logic wireframe can be seen [Here](project_files/wireframe2.jpg)
-
+*** 
 - Select Level
     - Added touchscreen detection, for mobile devices starting speed is faster than pointing enabled devices.
     - Levels for mobile devices  = "Easy" Start with one target, "Medium" start with two targets "Hard" start with three targets.
     - Levels for PC's devices  = "Easy" Start with two targets, "Medium" start with three targets "Hard" start with four targets.
+        - Level target count and speed can be set in game.js file 
+
+Detect touch devices & add one ectra target for touch enebled devices & and set speed 
+```JavaScript 
+if ('ontouchstart' in window) { //<-Detect Touch devices
+         speed = 2800; // <- Set game starting speed and everything else will change dynamicly
+        for (cube of cubes) {//<-If Touchscreen device detected sellect level buttons show extra cube for consistency 
+        cube.style.display = 'block';
+        cube++ 
+        }
+    } else {
+    //starting speed pc|
+    speed = 3000; //<-Starting speed with pointing devices
+}
+
+Starting Target count 
+        if ('ontouchstart' in window) {
+            objectCount = 4; //<-If Touchscreen device detected start with 4 targets  everything else will change dynamicly
+        } else {
+            objectCount = 3; //Else start with 3
+        }
+        startTheGame();
+```
+***
 - Lives Remaining
     - Based on capture and click events, all Unsuccessful clicks and missed on time events will disable one life element.
-    - Based on Score counter, every 50 score points will create one life. Enable one life element (if statement).
-    or miss click the box on time 
+    - Based on Score counter, every 50 score points will create one life. Enable one life element (if statement)
+```JavaScript
+//Set this to adjust How many points will add one life, This number must divide evenly with 100
+pointsForLife = 50;
+```
+***
 - Random Number generator
     - Extract Window height and width.
     - Create random number integer of a current window width and height.
+```JavaScript
+// get random position depending on screen size 
+function posotioning() {
+    w = gameWindowElement.offsetWidth;
+    h = gameWindowElement.offsetHeight;
+    x = Math.floor(Math.random() * (w - 50)) + 'px';
+    y = Math.floor(Math.random() * (h - 50)) + 'px';
+}
+```
+***
 - In game target objects
     - Target HTML div elements in the DOM for game box targets.
     - Two random generated integers used for position x and y coardinates to target css position properties for HTML div elements.
+```JavaScript
+// append color and position for individual targets 
+function objects() {
+    for (let i = 0; i < objectCount; i++) {
+        randColor = colours[(Math.random() * colours.length) | 0]
+        posotioning();
+        targets[i].style.display = 'block';
+        targets[i].style.left = x;
+        targets[i].style.top = y;
+        targets[i].style.backgroundColor = randColor;
+    }
+}
+```
+***
 - Click event listeners and capture events.
-    - Create event listeners for game targets that will record successfull clicks and disable target once clicked.
-    - Create event listener for game window to record unsuccessful clicks.
+    - Create event listeners for game targets that will record successfull clicks and disable target once clicked. If not will taake away one life
+```JavaScript
+//target event listeners + styling once clickeed display none is set
+function targetSetup() {
+    for (let i = 0; i < objectCount; i++) {
+        livesDivElement.style.transition = ".6s";
+        targets[i].addEventListener('click', clickEvent = () => {
+            targets[i].style.display = 'none';
+            scoreCount = score.innerText;
+            livesLogic();
+        })
+    }
+}
+
+```
+***
+    - Create event listener for game window to record unsuccessful clicks. 
+```JavaScript
+//Detects clicks in game area and counts as miss 
+function gameWindow() {
+    // Game window mousedown listener
+    gameWindowElement.addEventListener('mousedown', detectWindowEvents);
+    function detectWindowEvents(event) {
+        //Prevent click event trigger on child elements.                                    
+        if (this === event.target) {
+            clicks = 0;
+            streak2 = 0;
+            streak1 = 0;
+            livesCount--;
+            scoreMissed.innerText++;
+            countDifference();
+            deductLife()
+            livesDivElement.style.width = '0';
+            this.style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
+        };
+    };
+
+    gameWindowElement.addEventListener('mouseup', function () {
+        this.style.backgroundColor = 'oldlace';
+    });
+}
+
+```
+***
     - Capture events on all failed click attempts. I managed to acheave this by counting how many objects at the end of setInterval() cycle has display: none; 
+```JavaScript
+//Timing for target check if display none count is less than initial target count then it will sent to neotClick() function for calculation
+let notClick = 0;
+function timigFunction() {
+    
+    notClick = 0;
+    for (let i = 0; i < targets.length; i++)
+        if (targets[i].style.display === 'block') {
+            notClick++;
+        }
+    if (notClick >= 3 && objectCount >= 3) {
+        stopTheGame();
+    } else if (notClick == 2 || notClick == 1) {
+        livesCount = livesCount - notClick;
+        deductLife()
+    }
+    console.log(livesCount)
+    notClick = 0;
+}
+
+// Deduct life/lives if missed target/s
+function deductLife() {
+    if (livesCount == 2) {
+        lives[0].style.backgroundColor = 'oldlace';
+    } else if (livesCount == 1) {
+        lives[0].style.backgroundColor = 'oldlace';
+        lives[1].style.backgroundColor = 'oldlace';
+    } else if (livesCount <= 0) {
+        lives[0].style.backgroundColor = 'oldlace';
+        lives[1].style.backgroundColor = 'oldlace';
+        lives[2].style.backgroundColor = 'oldlace';
+        stopTheGame();
+    }
+}
+```
+***
 - Game setup
     - Based on Level selection. if "EASY", else if "MEDIUM", else if "HARD".
     - Level variable will be passed into setInterval() function and will launch the game.
+```JavaScript
+// The game setup adds listeners and so on
+function startTheGame() { 
+    startGameElement.style.display = 'none';
+    livesDivElement.style.width = '100%';
+    levelsElement.style.display = 'none';
+    gameWindow();
+    targetSetup();
+    levelH(speed);
+}
+
+function levelH(speed) {
+    timer1 = setInterval(timingF, speed);//<-This setinterval mathod Timming for game loop is set dynamicly 
+    function timingF() { //<-The game setinterval loop function
+        objects(); //<-Targets
+        setTimeout(timigFunction, timing, ); //<-Timout method to check remaining targets, timing is just at the end of the setinterval time
+    }
+}
+```
+
 - Game Proggression levels
     - Speed will increase over course of the game. 
     - Target count will increase over course of the game.
     - Create setInterval() function pass it into game level sellection once desired score is reached.
+```JavaScript
+//Set this to increase proggerssyon speed add targets as you like here
+// points needed for proggressoion
+let progressPoints = 200;
+//Speed progression multiplier
+// adds an object on progression
+function gameProgress() {
+    if (progressPoints == score.innerText && objectCount <= 12) {
+        progressPoints = progressPoints + speedScore;
+        speed = speed - 200;
+        timing = speed - 100;
+        objectCount++; //< adds one target once every points is set for proggression
+        let listen = objectCount - 1;
+        setTimeout(() => {
+            targets[listen].addEventListener('click', addClickEvent = () => {
+                targets[listen].style.display = 'none';
+                scoreCount = score.innerText;
+                livesLogic();
+            });
+        }, 20);
+    }
+}
+```
 # [&#8686;](#Top)
 ## **Features**
 ![Here](project_files/features/feature.jpg)
