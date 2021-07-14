@@ -395,7 +395,6 @@ function deductLife() {
 
 // timing for target check
 let notClick = 0;
-
 function timigFunction() {
     
     notClick = 0;
