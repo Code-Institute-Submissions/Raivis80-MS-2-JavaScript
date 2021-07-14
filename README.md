@@ -27,7 +27,7 @@
 1. [Testing](#Testing)
     - [W3C Validation](#W3C-Validation)
     - [Future Testing](#FutureTesting)
-    - [User Stories](#User-Stories)
+    - [User Stories](#User-Stories-Testing)
     - [Solved issues or bugs](#Solved-issues-or-bugs)
 1. [Technologies and Frameworks](#Technologies-and-Frameworks)
    - [Languages](#Languages)
@@ -384,10 +384,10 @@ I have tested the game on a variety of browsers such as  Chrome, Opera, Microsof
 I have used Chrome DevTools to Test a variety of devices such as Desktop, Laptop, iPhone7, iPhone 8 & iPhone X for responsive design.
 
 Friends and family members helped point out any bugs or issues.
-### **User Stories**
+### **User Stories Testing**
 1. Information presented to understand the game rules is clear and easy to understand.
 1. The game controls are clear and easy to use..
-1. The game design is visually appealing and has user friendly.
+1. The game design is visually appealing and is user friendly.
 1. To be able to select different levels depending on player skill level is great.
 1. That the Game is available on mobile devices and or  pc's  is essential.
 1. Bug report form is easy to understand and easy to use.
@@ -400,7 +400,7 @@ Friends and family members helped point out any bugs or issues.
     if (this === event.target) {
     }
 ```
-***
+
 2. Friends and family members pointed out that the game on Mobile devices was too slow.
      
      `To solve this, I have added touch device detection and for mobile devices I have added extra target and faster initial speed.`
@@ -413,7 +413,62 @@ Friends and family members helped point out any bugs or issues.
     }
 ```
 ***
-3. In landscape mode on mobile devices, some of elements were pushed out of the size of the screen.
+
+3. After friends pointed out that it would be more interesting if in-game progression extra targets would appear as you paly
+     `To make this work, I had to redesign the target creation I used for-loop to create extra targets and for target listeners`
+```javascript
+// append color and position for individual targets 
+function objects() {
+    for (let i = 0; i < objectCount; i++) {
+        randColor = colours[(Math.random() * colours.length) | 0]
+        posotioning();
+        targets[i].style.display = 'block';
+        targets[i].style.left = x;
+        targets[i].style.top = y;
+        targets[i].style.backgroundColor = randColor;
+    }
+}
+
+//target event listeners + styling
+function targetSetup() {
+    for (let i = 0; i < objectCount; i++) {
+        livesDivElement.style.transition = ".6s";
+        targets[i].addEventListener('click', clickEvent = () => {
+            targets[i].style.display = 'none';
+            scoreCount = score.innerText;
+            livesLogic();
+        })
+    }
+}
+
+//Add target event listeners to the targets
+function addTargetListeners() {
+    for (let i = 0; i < objectCount; i++) {
+        targets[i].addEventListener('click', clickEvent = () => {});
+    }
+}
+//Speed progression multiplier
+// adds an target if target points reached on progression
+ function gameProgress() {
+    if (progressPoints == score.innerText && objectCount <= 12) {
+        progressPoints = progressPoints + speedScore;
+        speed = speed - 200;
+        timing = speed - 100;
+        objectCount++;
+        let listen = objectCount - 1;
+        setTimeout(() => {
+            targets[listen].addEventListener('click', addClickEvent = () => {
+                targets[listen].style.display = 'none';
+                scoreCount = score.innerText;
+                livesLogic();
+            });
+        }, 20);
+    }
+}
+```
+***
+
+4. In landscape mode on mobile devices, some of elements were pushed out of the size of the screen.
 
     `I have solved this by disabling some of the elements using Media query is a CSS technique.`
 ```css
