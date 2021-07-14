@@ -28,7 +28,7 @@
     - [Future Testing](#FutureTesting)
 1. [Technologies and Frameworks](#Technologies-and-Frameworks)
    - [Languages](#Languages)
-   - [Frameworks, Libraries and Programs](#Frameworks Libraries and Programs)  
+   - [Frameworks Libraries and Programs](#Frameworks Libraries and Programs)  
 1. [Deployment](#Deployment)
    - [Deployment on GitHub Pages](#Deploying-on-GitHub-Pages)
    - [Forking the Repository](#Forking-the-Repository)
