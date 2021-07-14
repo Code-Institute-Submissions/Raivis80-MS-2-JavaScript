@@ -20,8 +20,8 @@
 1. [Features](#Features)
     - [The Game](#The-Game)
     - [In Game](#In-Game)
-    - [Game Information Popout](#Game-Information-Popout)
-    - [Contact | Bug report](#Contact-|-Bug-report)
+    - [Game Information Poup](#Game-Information-Popup)
+    - [Contact Bug report](#Contact-Bug-report)
     - [Game Over](#Game-Over)
 1. [Testing](#Testing)
     - [W3C Validation](#W3C-Validation)
@@ -146,7 +146,8 @@ To keep the game challenging, complexity will increase over the course of the ga
     - Create setInterval() function pass it into game level sellection once desired score is reached.
 # [&#8686;](#Top)
 ## **Features**
-### **The Game** [Image here](project_files/features/desktop-home.PNG)
+### **The Game** 
+`Start screen screenshot` [Here](project_files/features/desktop-home.PNG)
 - The game 
     -  The Game Detects touch devices and sets difficulty accordingly
     -  Responsive works on most devices(deskpop, mobile)
@@ -154,7 +155,8 @@ To keep the game challenging, complexity will increase over the course of the ga
 - Select Level
     - Player can select difficulty level.
     - Mobile devices starting speed is faster than pointing and target count
-### **In Game** [Image here](project_files/features/desktop-ingame.PNG)
+### **In Game** 
+`In game screenshot` [here](project_files/features/desktop-ingame.PNG)
 - Score counter 
     - Enables players to keep track of points when playing a game.
 - Speed display
@@ -164,13 +166,17 @@ To keep the game challenging, complexity will increase over the course of the ga
 - Game-level-Up
     - Gain enough points in the game to enable a player to go up to a higher level.
     - Speed and target count is increasing over course of the game.
-### **Game Information Popout** [Image here](project_files/features/desktop-info.PNG)
+### **Game Information Popup** 
+`Info popup screenshot` [Here](project_files/features/desktop-info.PNG)
 - Game Help/instruction Pop-up
     - Enables Player to to looak at game instructions on how to play the game.
-### **Contact | Bug report** [Image here](project_files/features/contact-form.PNG) | [and submitted here](project_files/features/form-after-submit.PNG)
+### **Contact Bug report** 
+`Contact page screenshot` [Here](project_files/features/contact-form.PNG)  
+`Contact page screenshot submitted` [Here](project_files/features/form-after-submit.PNG)
 - Contact/Bug report form
     - Bug report/feedback form for user to be able to contact if the incounter any gliches or bugs.
-### **Game Over** [Image here](project_files/features/desktop-game-over.PNG)
+### **Game Over** 
+`And game over screenshot` [Here](project_files/features/desktop-game-over.PNG)
 - Links back to landing page and bug report page.
 
 # [&#8686;](#Top)
