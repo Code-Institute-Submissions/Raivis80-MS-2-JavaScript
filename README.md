@@ -163,7 +163,7 @@ Game logic wireframe can be seen [Here](project_files/wireframe2.jpg)
     - Create setInterval() function pass it into game level sellection once desired score is reached.
 # [&#8686;](#Top)
 ## **Features**
-
+![Here](project_files/features/feature.jpg)
 ### **The Game** 
 
 `Start screen screenshot` [Here](project_files/features/desktop-home.PNG)
