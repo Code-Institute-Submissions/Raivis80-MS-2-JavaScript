@@ -492,6 +492,15 @@ function addTargetListeners() {
               streak1 = 0;
             livesDivElement.style.width = '0';
 ```
+***
+5.  The issue with the Last life was not resetting if three targets was missed'
+
+  `Added added resset color for three lives to the stop the game funcrion.`
+```javascript
+    lives[0].style.backgroundColor = 'oldlace';
+    lives[1].style.backgroundColor = 'oldlace';
+    lives[2].style.backgroundColor = 'oldlace';
+```
 # [&#8686;](#Top)
 ## **Technologies and Frameworks**
 ### **Languages**

@@ -391,11 +391,6 @@ function deductLife() {
               streak1 = 0;
 
     } else if (livesCount <= 0) {
-        lives[0].style.backgroundColor = 'oldlace';
-        lives[1].style.backgroundColor = 'oldlace';
-        lives[2].style.backgroundColor = 'oldlace';
-              streak2 = 0;
-              streak1 = 0;
         stopTheGame();
     }
 }
@@ -484,6 +479,9 @@ function stopTheGame() {
     gameWindowElement.removeEventListener('mousedown', detectWindowEvents);
     targetsDisplayNone();
     livesDisplaySeashell();
+    lives[0].style.backgroundColor = 'oldlace';
+    lives[1].style.backgroundColor = 'oldlace';
+    lives[2].style.backgroundColor = 'oldlace';
     contactWindow.style.display = 'none';
     speed = speed * 1000;
     livesDivElement.style.width = '0';
