@@ -25,7 +25,7 @@ let cubes = document.getElementsByClassName('none');
 pointsForLife = 50;
 //____Every time progress number of points have been reached___|
 //Speed will increase and will add one target|
-let progressPoints = 200;
+let progressPoints = 20;
 // detect touchscreen devices https://hacks.mozilla.org/2013/04/detecting-touch-its-the-why-not-the-how/
 if ('ontouchstart' in window) {
     //starting speed for touch|
@@ -172,8 +172,6 @@ let y;
 let w
 let h
 
-//this line below from stackoverflow
-
 // get random position depending on screen size 
 function posotioning() {
     w = gameWindowElement.offsetWidth;
@@ -187,6 +185,7 @@ let targets = document.getElementsByClassName('target');
 let objectCount;
 // Trarget Colors
 let colours = ['red', 'royalblue', 'green'];
+//this line below from stackoverflow
 let randColor = colours[(Math.random() * colours.length) | 0]
 // append color and position for individual targets 
 function objects() {
@@ -261,7 +260,6 @@ function countHighScore(highScoreClick, higScoreMiss) {
 // click counter variables
 let clicks = 0;
 let difference = 0;
-
 // get the difference between missed and clicked targets
 // Count will resets if the target is missed or gained life
 function countDifference(windowClick) {
@@ -439,27 +437,28 @@ function timigFunction() {
 
 //Progress multiplier
 //adds a target if set points are reached
-function gameProgress() {
-    if (progressPoints == score.innerText && objectCount <= 12) {
-        progressPoints = progressPoints + speedScore;
-        speed = speed - 200; //Substract 200ms of current speed
-        timing = speed - 100;
-        objectCount++;
-        objectCount++; // adds an target
-        let listen = objectCount - 1;
-        setTimeout(() => {
-            targets[listen].addEventListener('click', addClickEvent = () => {
-                targets[listen].style.display = 'none';
-                scoreCount = score.innerText;
-                livesLogic();
-            });
-        }, 20);
-    }
-}
+
+ function gameProgress() {
+     if (progressPoints == score.innerText && objectCount <= 12) {
+         progressPoints = progressPoints + speedScore;
+         speed = speed - 200; // Substract 200ms of current speed
+         timing = speed - 100;
+         objectCount++; // adds the target
+         let listen = objectCount - 1;
+         setTimeout(() => { // adds event listeners time out 
+             targets[listen].addEventListener('click', addClickEvent = () => {
+                 targets[listen].style.display = 'none';
+                 scoreCount = score.innerText;
+                 livesLogic();
+             });
+         }, 20); // time out is set for 20 ms
+     }
+ }
 
 //------------------------------GAME SELLECT--------------------------------------|
 // Timmer variables 
 let timer1;
+
 //timing for target check
 timing = speed - 100;
 //multiples score|
@@ -474,14 +473,14 @@ function startTheGame() {
     targetSetup();
     levelH(speed);
 }
-
-function levelH(speed) {
+function levelH() {
     timer1 = setInterval(timingF, speed);
     function timingF() {
         objects();
         setTimeout(timigFunction, timing);
     }
 }
+
 
 //-------------------------------- STOP THE GAME----------------------------------|
 const gameOverElement = document.getElementById('game-over');
