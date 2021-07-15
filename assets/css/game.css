@@ -84,12 +84,12 @@ html {
 }
 
 .info:hover {
+    cursor: pointer;
     box-shadow: 0 0 10px rgb(0, 0, 0, .4);
     transform: scale(1.1);
 }
 
 /*--------- Select Level -------*/
-
 #select_level {
     margin-left: -580%;
     min-width: 300px;
@@ -108,7 +108,6 @@ html {
 }
 
 .selectP::after {
-
     content: ' Level';
     color: red;
     transform: scale(.8);
@@ -180,7 +179,6 @@ html {
 }
 
 /* -------target divs ----------*/
-
 .target {
     box-shadow: 0 0 10px rgb(0, 0, 0, .4);
     border-radius: 3px;
@@ -301,7 +299,6 @@ html {
     margin: 50px auto;
 }
 
-
 /* ------------Contact form------------- */
 .contact_window {
     box-sizing: border-box;
@@ -381,8 +378,6 @@ html {
     height: 100px;
     align-self: center;
 }
-
-
 
 /*=========INFO /HELP======*/
 .help_div {
@@ -464,11 +459,21 @@ li {
 }
 
 #close_i {
+    margin: 0;
     font-size: 1.5rem;
     width: 100%;
     text-align: right;
     color: green;
 }
+
+#close_i:hover i {
+    cursor: pointer;
+}
+
+.spacer1 {
+    height: 2rem;
+}
+
 
 /*-----mobile breakpoints-------*/
 @media only screen and (max-width: 500px) {
@@ -480,11 +485,7 @@ li {
         font-size: .8rem;
     }
 
-    .score3 {
-        display: none;
-    }
-
-    .hide {
+    .hide .score3 {
         display: none;
     }
 }
@@ -502,51 +503,41 @@ li {
     }
 
     .nav {
-        height:  50px;
+        height: 50px;
     }
-
-    ol,
-    li {
-        line-height: 1rem;
-        font-size: .8rem;
-
-    }
-    .game_help h3 {
-        font-size: .8rem;
-    }
-
 
     .game_help h4 {
         font-size: .5rem;
     }
 
-    .help p {
+    ol,
+    li,
+    .help p,
+    .game_help h3 {
         font-size: .8rem;
-        line-height: .8rem;
+        line-height: .9rem;
     }
 
     .help h2 {
         font-size: 1.2rem;
     }
 
-    .contact_button {
-        display: none;
-    }
-
+    .contact_button,
     .start_heading {
         display: none;
-
     }
+
     .selectP {
         margin: 0;
     }
-    
+
     .gameWindow {
         height: 80vh;
     }
 
     #new_game_btn {
         display: block;
+        
     }
 
 }
