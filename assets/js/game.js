@@ -48,9 +48,9 @@ window.onload = function () {
     level1.addEventListener('click', function () {
         //Starting Target count
         if ('ontouchstart' in window) {
-            objectCount = 1;
-        } else {
             objectCount = 2;
+        } else {
+            objectCount = 1;
         }
         startTheGame();
     });
