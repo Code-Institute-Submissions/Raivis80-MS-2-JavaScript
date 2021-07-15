@@ -24,6 +24,7 @@
     - [Game Information Poup](#Game-Information-Popup)
     - [Contact Bug report](#Contact-Bug-report)
     - [Game Over](#Game-Over)
+1. [Features To implement](#Features-To-implement)
 1. [Testing](#Testing)
     - [W3C Validation](#W3C-Validation)
     - [Future Testing](#FutureTesting)
@@ -122,7 +123,7 @@ You can view the wireframe [Here](project_files/wireframe.jpg)
         - Will increase by one if the target is not clicked on time or target is, missed altogether.
 1. Lives Remaining
     - The game starts with three lives.
-    - Players will gain life once every 50 score points. 
+    - One game life is gained every 50 score points. 
     - Maximum of three lives can be gained at once.
     - If the player fails to click on a target or fails to click target on time,  one game life will be deducted. 
     - Losing all lives means game over.
@@ -301,22 +302,22 @@ function levelH(speed) {
     }
 }
 ```
-- Game Progression levels
+- Game Progress levels
     - Speed will increase over, course of the game. 
     - Target count will increase over, course of the game.
     - Create setInterval() function passing, it into game level selection once desired score is, reached.
 ```JavaScript
-//Set this to increase progression speed add targets as you like here
-// points needed for progression
+//Set this to increase progress speed add targets as you like here
+// points needed for progress
 let progressPoints = 200;
-//Speed progression multiplier
-// adds an object on progression
+//Speed progress multiplier
+// adds an object on progress
 function gameProgress() {
     if (progressPoints == score.innerText && objectCount <= 12) {
         progressPoints = progressPoints + speedScore;
         speed = speed - 200;
         timing = speed - 100;
-        objectCount++; //< adds one target once every point is set for progression
+        objectCount++; //< adds one target once every point is set for progress
         let listen = objectCount - 1;
         setTimeout(() => {
             targets[listen].addEventListener('click', addClickEvent = () => {
@@ -370,6 +371,14 @@ function gameProgress() {
 
 `And game over screenshot` [Here](project_files/features/desktop-game-over.PNG)
 - Links back to the landing page and bug report page.
+
+# [&#8686;](#Top)
+## **Features To implement**
+After user testing, here are some of the suggested future features to implement for the game:
+1. Randomize the target on-screen trimming
+1. Add random rogue objects in the game, so that clicked the game will end
+1. Add level indicator on when it is changing.
+1. And After game stats on the game over screen
 
 # [&#8686;](#Top)
 ## **TESTING**
