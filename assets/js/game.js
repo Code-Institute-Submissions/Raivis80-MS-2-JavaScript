@@ -77,14 +77,14 @@ window.onload = function () {
     });
 };
 
-//--------------------------HELP--INFO-POP-OUT------------------------------------|
+//--------------------------HELP--INFO-POP-Up------------------------------------|
 const helpElement = document.getElementById('help');
 helpElement.style.display = 'none'
 
 function infoPopout() {
 
     const gameHelp = document.getElementById('game_help');
-
+    document.getElementById('info').style.display = 'none';
     helpElement.style.display = 'flex';
     gameHelp.style.display = 'block';
     setTimeout(function () {
@@ -94,6 +94,7 @@ function infoPopout() {
         gameHelp.style.bottom = '8%';
     }, 100);
     document.getElementById('close_i').addEventListener('click', removeI = () => {
+        document.getElementById('info').style.display = 'block';
         helpElement.style.marginTop = '0px';
         gameHelp.style.bottom = '-100%';
 
@@ -103,7 +104,6 @@ function infoPopout() {
             document.getElementById('close_i').removeEventListener('click', removeI)
         }, 500);
     });
-
 }
 
 //-------------------------------CONTACT PAGE-------------------------------------|
@@ -285,18 +285,28 @@ function livesLogic() {
     countDifference();
     gameProgress();
 }
+//miss target Flash efect
+function missedEffect() {
+    gameWindowElement.style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
+    setTimeout(resetEffect, 20);
+    function resetEffect(){
+            gameWindowElement.style.backgroundColor = 'oldlace';
+    }  
+}
+
 //----------------------------GAME WINDOW-----------------------------------------|
 const gameWindowElement = document.getElementById('game_window');
 let detectWindowEvents;
 // detect game window clicks
 function gameWindow() {
     // Game window mousedown listener
-    gameWindowElement.addEventListener('mousedown', detectWindowEvents);
+    gameWindowElement.addEventListener('click', detectWindowEvents);
 
     function detectWindowEvents(event) {
         //Prevent click event trigger on child elements.                  
         //https://stackoverflow.com/questions/1369035/how-do-i-prevent-a-parents-onclick-event-from-firing-when-a-child-anchor-is-cli                      
         if (this === event.target) {
+            missedEffect();
             clicks = 0;
             streak2 = 0;
             streak1 = 0;
@@ -305,13 +315,10 @@ function gameWindow() {
             countDifference();
             deductLife()
             livesDivElement.style.width = '0';
-            this.style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
+            gameWindowElement.style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
         };
     };
-    // Game window mouseup listener
-    gameWindowElement.addEventListener('mouseup', function () {
-        this.style.backgroundColor = 'oldlace';
-    });
+
 }
 
 //-------------------------------LIVES COUNTER------------------------------------|
@@ -348,7 +355,8 @@ let divider = 100 / pointsForLife;
 //add one life if 50 scorestreak reached, this number can be set to any
 function addLife() {
     if (livesCount === 0) {
-        stopTheGame();
+        missedEffect();
+        setTimeout(stopTheGame, 30);
     }
     // life counter progress bar
     if (livesCount == 2) {
@@ -376,6 +384,7 @@ function addLife() {
 // Deduct one life if the target is missed
 function deductLife() {
     if (livesCount == 2) {
+        missedEffect();
         lives[0].style.backgroundColor = 'oldlace';
         livesDivElement.style.width = '0'
         clicks = 0;
@@ -385,6 +394,7 @@ function deductLife() {
         streak1 = 0;
 
     } else if (livesCount == 1) {
+        missedEffect();
         lives[0].style.backgroundColor = 'oldlace';
         lives[1].style.backgroundColor = 'oldlace';
         livesDivElement.style.width = '0';
@@ -395,7 +405,8 @@ function deductLife() {
         streak1 = 0;
 
     } else if (livesCount <= 0) {
-        stopTheGame();
+        missedEffect();
+        setTimeout(stopTheGame, 30);
     }
 }
 
@@ -414,7 +425,8 @@ function timigFunction() {
             scoreMissed.innerText++;
         }
     if (notClick >= 3 && objectCount >= 3) {
-        stopTheGame();
+        missedEffect();
+        setTimeout(stopTheGame, 30);
     } else if (notClick == 2 || notClick == 1) {
         livesCount = livesCount - notClick;
         scoreMissed.innerText + livesCount;
@@ -464,9 +476,7 @@ function startTheGame() {
 }
 
 function levelH(speed) {
-
     timer1 = setInterval(timingF, speed);
-
     function timingF() {
         objects();
         setTimeout(timigFunction, timing);
