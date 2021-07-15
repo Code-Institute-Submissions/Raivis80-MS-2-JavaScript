@@ -415,54 +415,38 @@ Friends and family members helped point out any bugs or issues.
 ***
 
 3. After friends pointed out that it would be more interesting if in-game progression extra targets would spawn as you paly
-     `To make this work, I had to redesign the target creation I used for-loop to create extra targets and for target listeners`
+     
+     `My initial design was static targets so, To make this work, I had to redesign the target creation I used for-loop to create extra targets. And to add target listener, first listeners have to be removed then added for all squares just at the end of the set interval cycle`.
 ```javascript
-// append color and position for individual targets 
+// Add targets loop ndividual targets 
 function objects() {
     for (let i = 0; i < objectCount; i++) {
-        randColor = colours[(Math.random() * colours.length) | 0]
-        posotioning();
         targets[i].style.display = 'block';
-        targets[i].style.left = x;
-        targets[i].style.top = y;
-        targets[i].style.backgroundColor = randColor;
     }
 }
 
-//target event listeners + styling
-function targetSetup() {
-    for (let i = 0; i < objectCount; i++) {
-        livesDivElement.style.transition = ".6s";
-        targets[i].addEventListener('click', clickEvent = () => {
-            targets[i].style.display = 'none';
-            scoreCount = score.innerText;
-            livesLogic();
-        })
-    }
-}
-
-//Add target event listeners to the targets
+//Add target event listeners to the targets in-game progress
 function addTargetListeners() {
     for (let i = 0; i < objectCount; i++) {
         targets[i].addEventListener('click', clickEvent = () => {});
     }
 }
-//Speed progression multiplier
-// adds an target if target points reached on progression
+
+// adds a target if set points are reached
  function gameProgress() {
     if (progressPoints == score.innerText && objectCount <= 12) {
         progressPoints = progressPoints + speedScore;
-        speed = speed - 200;
+        speed = speed - 200;// Speed progression deduct 200ms. Can be set any value
         timing = speed - 100;
-        objectCount++;
+        objectCount++; // adds the target
         let listen = objectCount - 1;
-        setTimeout(() => {
+        setTimeout(() => { // adds event listeners time out 
             targets[listen].addEventListener('click', addClickEvent = () => {
                 targets[listen].style.display = 'none';
                 scoreCount = score.innerText;
                 livesLogic();
             });
-        }, 20);
+        }, 20);// time out is set for 20 ms
     }
 }
 ```
