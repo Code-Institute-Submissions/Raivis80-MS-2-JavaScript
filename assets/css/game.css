@@ -485,7 +485,8 @@ li {
         font-size: .8rem;
     }
 
-    .hide .score3 {
+    .hide,
+    .score3 {
         display: none;
     }
 }
