@@ -216,8 +216,8 @@ function badListener() {
     console.log(bad.length, badCount)
     bad[badCount - 1].addEventListener('click', clickEvent = () => {
         stopTheGame()
-    });       
-}//remove bad listener
+    });
+} //remove bad listener
 function removeBadListener() {
     badCount--;
     bad[badCount].style.display = 'none';
@@ -295,7 +295,7 @@ function countDifference(windowClick) {
     };
 
 }
-
+let removeBad = 100;
 //Count target clicks
 function livesLogic() {
     speedElement.children[0].innerText = `${speed  / 1000}s`;
@@ -307,6 +307,13 @@ function livesLogic() {
     countHighScore();
     countDifference();
     gameProgress();
+    if (removeBad == scoreStreak.innerText ||
+        removeBad * 2 == scoreStreak.innerText ||
+        removeBad * 3 == scoreStreak.innerText ||
+        removeBad * 4 == scoreStreak.innerText ||
+        removeBad * 5 == scoreStreak.innerText) {
+        removeBadListener();
+    }
 }
 //miss target Flash efect
 function missedEffect() {
@@ -399,13 +406,9 @@ function addLife() {
         clicks = 0;
         lives[0].style.backgroundColor = 'green';
     } else if (difference == pointsForLife && livesCount == 1) {
-        livesCount = 2;       
+        livesCount = 2;
         clicks = 0;
         lives[1].style.backgroundColor = 'red';
-    }
-    let removeBad = 100;
-    if (difference == removeBad) {
-        removeBadListener();
     }
 }
 
