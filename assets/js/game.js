@@ -292,6 +292,7 @@ let detectWindowEvents;
 function gameWindow() {
     // Game window mousedown listener
     gameWindowElement.addEventListener('mousedown', detectWindowEvents);
+
     function detectWindowEvents(event) {
         //Prevent click event trigger on child elements.                  
         //https://stackoverflow.com/questions/1369035/how-do-i-prevent-a-parents-onclick-event-from-firing-when-a-child-anchor-is-cli                      
@@ -377,15 +378,21 @@ function deductLife() {
     if (livesCount == 2) {
         lives[0].style.backgroundColor = 'oldlace';
         livesDivElement.style.width = '0'
-              streak2 = 0;
-              streak1 = 0;
+        clicks = 0;
+        difference = 0;
+        scoreStreak.innerText = 0;
+        streak2 = 0;
+        streak1 = 0;
 
     } else if (livesCount == 1) {
         lives[0].style.backgroundColor = 'oldlace';
         lives[1].style.backgroundColor = 'oldlace';
         livesDivElement.style.width = '0';
-              streak2 = 0;
-              streak1 = 0;
+        clicks = 0;
+        difference = 0;
+        scoreStreak.innerText = 0;
+        streak2 = 0;
+        streak1 = 0;
 
     } else if (livesCount <= 0) {
         stopTheGame();
@@ -398,6 +405,7 @@ function deductLife() {
 //If any targets left/s with display set to block
 //the deductLife(); function gets triggered
 let notClick = 0;
+
 function timigFunction() {
     notClick = 0;
     for (let i = 0; i < targets.length; i++)
@@ -424,7 +432,7 @@ function gameProgress() {
         progressPoints = progressPoints + speedScore;
         speed = speed - 200; //Substract 200ms of current speed
         timing = speed - 100;
-        objectCount++;       
+        objectCount++;
         objectCount++; // adds an target
         let listen = objectCount - 1;
         setTimeout(() => {
@@ -461,7 +469,7 @@ function levelH(speed) {
 
     function timingF() {
         objects();
-        setTimeout(timigFunction, timing, );
+        setTimeout(timigFunction, timing);
     }
 }
 
