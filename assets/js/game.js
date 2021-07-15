@@ -25,7 +25,7 @@ let cubes = document.getElementsByClassName('none');
 pointsForLife = 50;
 //____Every time progress number of points have been reached___|
 //Speed will increase and will add one target|
-let progressPoints = 20;
+let progressPoints = 200;
 // detect touchscreen devices https://hacks.mozilla.org/2013/04/detecting-touch-its-the-why-not-the-how/
 if ('ontouchstart' in window) {
     //starting speed for touch|
@@ -180,6 +180,7 @@ function posotioning() {
     y = Math.floor(Math.random() * (h - 50)) + 'px';
 }
 
+let bad = document.getElementsByClassName('bad');
 let targets = document.getElementsByClassName('target');
 //target object count
 let objectCount;
@@ -197,6 +198,30 @@ function objects() {
         targets[i].style.top = y;
         targets[i].style.backgroundColor = randColor;
     }
+}
+let badCount = 0;
+//bad targets
+function badObjects() {
+    for (let i = 0; i < badCount; i++) {
+        posotioning();
+        bad[i].style.display = 'block';
+        bad[i].style.left = x;
+        bad[i].style.top = y;
+        bad[i].style.backgroundColor = 'black';
+    }
+}
+// bad listeners
+function badListener() {
+    badCount++;
+    console.log(bad.length, badCount)
+    bad[badCount - 1].addEventListener('click', clickEvent = () => {
+        stopTheGame()
+    });       
+}//remove bad listener
+function removeBadListener() {
+    badCount--;
+    bad[badCount].style.display = 'none';
+    bad[badCount].removeEventListener('click', clickEvent = () => {});
 }
 
 //target event listeners + styling
@@ -287,9 +312,10 @@ function livesLogic() {
 function missedEffect() {
     gameWindowElement.style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
     setTimeout(resetEffect, 20);
-    function resetEffect(){
-            gameWindowElement.style.backgroundColor = 'oldlace';
-    }  
+
+    function resetEffect() {
+        gameWindowElement.style.backgroundColor = 'oldlace';
+    }
 }
 
 //----------------------------GAME WINDOW-----------------------------------------|
@@ -309,6 +335,7 @@ function gameWindow() {
             streak2 = 0;
             streak1 = 0;
             livesCount--;
+            badListener()
             scoreMissed.innerText++;
             countDifference();
             deductLife()
@@ -372,12 +399,15 @@ function addLife() {
         clicks = 0;
         lives[0].style.backgroundColor = 'green';
     } else if (difference == pointsForLife && livesCount == 1) {
-        livesCount = 2;
+        livesCount = 2;       
         clicks = 0;
         lives[1].style.backgroundColor = 'red';
     }
+    let removeBad = 100;
+    if (difference == removeBad) {
+        removeBadListener();
+    }
 }
-
 
 // Deduct one life if the target is missed
 function deductLife() {
@@ -420,6 +450,7 @@ function timigFunction() {
     for (let i = 0; i < targets.length; i++)
         if (targets[i].style.display === 'block') {
             notClick++;
+            badListener();
             scoreMissed.innerText++;
         }
     if (notClick >= 3 && objectCount >= 3) {
@@ -438,22 +469,22 @@ function timigFunction() {
 //Progress multiplier
 //adds a target if set points are reached
 
- function gameProgress() {
-     if (progressPoints == score.innerText && objectCount <= 12) {
-         progressPoints = progressPoints + speedScore;
-         speed = speed - 200; // Substract 200ms of current speed
-         timing = speed - 100;
-         objectCount++; // adds the target
-         let listen = objectCount - 1;
-         setTimeout(() => { // adds event listeners time out 
-             targets[listen].addEventListener('click', addClickEvent = () => {
-                 targets[listen].style.display = 'none';
-                 scoreCount = score.innerText;
-                 livesLogic();
-             });
-         }, 20); // time out is set for 20 ms
-     }
- }
+function gameProgress() {
+    if (progressPoints == score.innerText && objectCount <= 12) {
+        progressPoints = progressPoints + speedScore;
+        speed = speed - 200; // Substract 200ms of current speed
+        timing = speed - 100;
+        objectCount++; // adds the target
+        let listen = objectCount - 1;
+        setTimeout(() => { // adds event listeners time out 
+            targets[listen].addEventListener('click', addClickEvent = () => {
+                targets[listen].style.display = 'none';
+                scoreCount = score.innerText;
+                livesLogic();
+            });
+        }, 20); // time out is set for 20 ms
+    }
+}
 
 //------------------------------GAME SELLECT--------------------------------------|
 // Timmer variables 
@@ -473,10 +504,14 @@ function startTheGame() {
     targetSetup();
     levelH(speed);
 }
+
 function levelH() {
     timer1 = setInterval(timingF, speed);
+
     function timingF() {
         objects();
+        badObjects(badCount)
+        console.log(badCount)
         setTimeout(timigFunction, timing);
     }
 }
@@ -491,6 +526,10 @@ function stopTheGame() {
     document.getElementById('contact_button2').addEventListener('click', contactPage);
     document.getElementById('new_game_btn').addEventListener('click', pageReload1);
     gameWindowElement.removeEventListener('mousedown', detectWindowEvents);
+    for (let i = 0; i < badCount; i++) {
+        bad[i].style.display = 'none';
+        bad[i].removeEventListener('click', clickEvent = () => {});
+    }
     targetsDisplayNone();
     livesDisplaySeashell();
     lives[0].style.backgroundColor = 'oldlace';
