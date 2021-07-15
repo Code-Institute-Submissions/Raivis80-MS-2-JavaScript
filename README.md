@@ -124,7 +124,7 @@ You can view the wireframe [Here](project_files/wireframe.jpg)
     - The game starts with three lives.
     - Players will gain life once every 50 score points. 
     - Maximum of three lives can be gained at once.
-    - Player will lose a life if the target is not clicked on time or the target is missed altogether. 
+    - If the player fails to click on a target or fails to click target on time,  one game life will be deducted. 
     - Losing all lives means game over.
 # [&#8686;](#Top)
 ## **Game Logic**  
@@ -137,7 +137,7 @@ Game logic wireframe can be seen [Here](project_files/wireframe2.jpg)
     - Levels for PC's devices  = "Easy" Start with two targets, "Medium" start with three targets "Hard" start with four targets.
         - Level target count and speed could be set in the game.js file 
 
-Detect touch devices & add one ectra target for touch enebled devices & and set speed 
+Detect touch devices & add one extra target for touch-enabled devices & and set speed 
 ```JavaScript 
 if ('ontouchstart' in window) { //<-Detect Touch devices
          speed = 2800; // <-Set game starting speed and everything else will change dynamically
@@ -431,12 +431,12 @@ function addTargetListeners() {
         targets[i].addEventListener('click', clickEvent = () => {});
     }
 }
-
+//Progress multiplier
 // adds a target if set points are reached
  function gameProgress() {
     if (progressPoints == score.innerText && objectCount <= 12) {
         progressPoints = progressPoints + speedScore;
-        speed = speed - 200;// Speed progression deduct 200ms. Can be set any value
+        speed = speed - 200;// Substract 200ms of current speed
         timing = speed - 100;
         objectCount++; // adds the target
         let listen = objectCount - 1;
@@ -544,7 +544,7 @@ You can clone reposetory. When you clone repository, you copy repository to your
 -  [css-tricks.com](https://css-tricks.com/): Useful CSS styling tips.
 -  [developer.mozilla.org](https://developer.mozilla.org/):Used to source how to use JavaScript.
 ### **Acknowledgements**
-- A huge thanks to Owonikoko Oluwaseun, My Mentor for continuous support and inspire me to push myself beyond where I think I can go.
+- A huge thanks to Owonikoko Oluwaseun, My Mentor for, continuous support and inspire me to push myself beyond where I think I can go.
 - Tutor support at Code Institute for their support.
 
 # [&#8686;](#Top)

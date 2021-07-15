@@ -23,7 +23,7 @@ let cubes = document.getElementsByClassName('none');
 //This number must divide evenly with 100----|
 //_______How many points for one life________|
 pointsForLife = 50;
-//____Every time progressPoints is reached___|
+//____Every time progress number of points have been reached___|
 //Speed will increase and will add one target|
 let progressPoints = 200;
 // detect touchscreen devices https://hacks.mozilla.org/2013/04/detecting-touch-its-the-why-not-the-how/
@@ -262,8 +262,8 @@ function countHighScore(highScoreClick, higScoreMiss) {
 let clicks = 0;
 let difference = 0;
 
-// get difference between missed and clicked targets
-// ressets if missed target or gained life
+// get the difference between missed and clicked targets
+// Count will resets if the target is missed or gained life
 function countDifference(windowClick) {
     if (clicks > windowClick) {
         difference = Math.abs(windowClick - difference);
@@ -273,7 +273,7 @@ function countDifference(windowClick) {
 
 }
 
-//Count clicks on targets
+//Count target clicks
 function livesLogic() {
     speedElement.children[0].innerText = `${speed  / 1000}s`;
     score.innerText++;
@@ -288,12 +288,10 @@ function livesLogic() {
 //----------------------------GAME WINDOW-----------------------------------------|
 const gameWindowElement = document.getElementById('game_window');
 let detectWindowEvents;
-// detect clicks on game window
+// detect game window clicks
 function gameWindow() {
-
     // Game window mousedown listener
     gameWindowElement.addEventListener('mousedown', detectWindowEvents);
-
     function detectWindowEvents(event) {
         //Prevent click event trigger on child elements.                  
         //https://stackoverflow.com/questions/1369035/how-do-i-prevent-a-parents-onclick-event-from-firing-when-a-child-anchor-is-cli                      
@@ -346,8 +344,7 @@ function livesDisplaySeashell() {
 // How many points for new life must divide with 100 evenly
 let divider = 100 / pointsForLife;
 
-//Add one life
-
+//add one life if 50 scorestreak reached, this number can be set to any
 function addLife() {
     if (livesCount === 0) {
         stopTheGame();
@@ -362,7 +359,7 @@ function addLife() {
     } else if (livesCount == 3) {
         livesDivElement.style.backgroundColor = 'green';
     }
-    //add one life if 25 scorestreak reached
+    //Add one life
     if (difference == pointsForLife && livesCount == 2) {
         livesCount = 3;
         clicks = 0;
@@ -375,7 +372,7 @@ function addLife() {
 }
 
 
-// Deduct one life if missed target
+// Deduct one life if the target is missed
 function deductLife() {
     if (livesCount == 2) {
         lives[0].style.backgroundColor = 'oldlace';
@@ -395,12 +392,12 @@ function deductLife() {
     }
 }
 
-
 //------------------------------MISSED TARGET LOGIC-------------------------------|
 
-// timing for target check
+//timing for target display block check.
+//If any targets left/s with display set to block
+//the deductLife(); function gets triggered
 let notClick = 0;
-
 function timigFunction() {
     notClick = 0;
     for (let i = 0; i < targets.length; i++)
@@ -419,16 +416,16 @@ function timigFunction() {
 }
 
 //----------------------GAME PROGRESS SPEED INCREASE------------------------------| 
-// As score increase Speed will increase as well 
 
-//Speed progression multiplier
-// adds an object on progression
+//Progress multiplier
+//adds a target if set points are reached
 function gameProgress() {
     if (progressPoints == score.innerText && objectCount <= 12) {
         progressPoints = progressPoints + speedScore;
-        speed = speed - 200;
+        speed = speed - 200; //Substract 200ms of current speed
         timing = speed - 100;
-        objectCount++;
+        objectCount++;       
+        objectCount++; // adds an target
         let listen = objectCount - 1;
         setTimeout(() => {
             targets[listen].addEventListener('click', addClickEvent = () => {
