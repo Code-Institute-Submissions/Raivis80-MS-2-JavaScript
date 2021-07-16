@@ -375,6 +375,9 @@ function badListener() {
     -  Enables players to see current game speed in seconds.
 - Lives Remaining
     - If a player misses the box target, you lose one life, but once a score of 50 has been, reached players will gain one life.
+- Black target
+    - If a player misses the target the black object will spawn instead, if clicked, ends the game altogether
+    - The black object will reset if 100 streaks are achieved
 - Game-level-Up
     - Gain enough points in the game to enable a player to go up to a higher level.
     - Speed and target count are increasing throughout the game.
