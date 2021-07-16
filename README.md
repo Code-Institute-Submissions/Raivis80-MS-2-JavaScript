@@ -12,24 +12,28 @@
     - [Player goal's](#Player-goals)
     - [Owner goal's](#Owner-goals)
     - [Developer goal's](#Developer-goals)
-    - [Functionality Requirements](#Functionality-Requirements)
     - [User Stories](#User-Stories)
-1. [Design](#Design)
-    - [Wireframe](#Wireframe)
-1. [Game Mechanics](#Game-Mechanics)
-1. [Game Logic](#Game-Logic)
+1. [Development planes](#Development-planes)
+    - [Strategy](#Strategy)
+    - [Scope](#Scope)
+    - [Structure](#Structure)
+    - [Surfaice](#Surfaice)
 1. [Features](#Features)
     - [The Game](#The-Game)
     - [In Game](#In-Game)
-    - [Game Information Poup](#Game-Information-Popup)
+    - [Game Information Popup](#Game-Information-Popup)
     - [Contact Bug report](#Contact-Bug-report)
     - [Game Over](#Game-Over)
-1. [Features To implement](#Features-To-implement)
-1. [Testing](#Testing)
-    - [W3C Validation](#W3C-Validation)
-    - [Future Testing](#FutureTesting)
-    - [User Stories](#User-Stories-Testing)
-    - [Solved issues or bugs](#Solved-issues-or-bugs)
+    - [Site layout features](#Site-layout-features)
+    - [Features To implement](#Features-To-implement)
+1. [Game Design Features](#Game-Design-Features)
+    - [Game Mechanics](#Game-Mechanics)
+    - [Game Logic](#Game-Logic)
+1. [Testing](project_files/TESTING.md)
+    - [W3C Validation](project_files/TESTING.md#W3C-Validation)
+    - [Future Testing](project_files/TESTING.md#FutureTesting)
+    - [User Stories](project_files/TESTING.md#User-Stories-Testing)
+    - [Solved issues or bugs](project_files/TESTING.md#Solved-issues-or-bugs)
 1. [Technologies and Frameworks](#Technologies-and-Frameworks)
    - [Languages](#Languages)
    - [Frameworks Libraries and Programs](#Frameworks-Libraries-and-Programs)  
@@ -80,35 +84,97 @@ The difficulty will increase throughout the game.
 ### **User Stories**
 As a player I want to:
 1. To understand the game rules and to have gameplay instructions available.
-1. Heve fun playing the game. 
+1. Have fun playing the game. 
 1. To play a game that is visually appealing and has a user-friendly design.
 1. To be able to understand the controls for the game.
 1. The be able to select appropriate different levels, depending on player skill level. 
 1. To be able to contact the developer if encounter any bugs or issues.
 1. If the game is available on mobile devices and or despot pc's is important.
-### **Functionality Requirements**
-1. Build a simple single-player reaction time game.
-1. Three-level selection. Easy, medium, and hard depending on the device.
-1. Increase in complexity throughout the game.
-1. The score counter if the player clicks or misses the target.
-1. Provide the player with instructions on how to play the game.
-1. Feedback form if encountered bugs or glitches.
-1. Provide the player with feedback on how they're doing at any stage.
 # [&#8686;](#Top)
-## **Design**
-- Color Scheme
-    - Body background color antiquewhite.
-    - Game Window background color oldlace.
-    - Font and element background color red, royelBlue and green.
-- Typography
-    - Primary font-family: Press Start 2P with cursive as a fallback font
-    - Secondary font-family: Roboto with sans-serif as a fallback
-### **Wireframe**
+## **Development planes**
+### **Strategy**
 
-You can view the wireframe [Here](project_files/wireframe.jpg)
+The game needs enable player to:
+1. Access game rules and gameplay instructions if needed. 
+1. User-friendly game that is fun to play.
+1. Understand clearly and easily the controls for the game 
+1. Select appropriate different levels, depending on player skill level. 
+1. Contact form if they encounter any bugs or issues.
+1. Paly the game on mobile and desktop devices
+### **Scope**
+* **Functionality Requirements**
+    1. Build a simple single-player reaction time game.
+    1. Three-level selection. Easy, medium, and hard depending on the device.
+    1. Increase in complexity throughout the game.
+    1. The score counter if the player clicks or misses the target.
+    1. Provide the player with instructions on how to play the game.
+    1. Feedback form if encountered bugs or glitches.
+    1. Provide the player with feedback on how they're doing at any stage.
+* **Structure**
+![view](project_files/structure.jpg)
+* **Surfaice**
+    1. Color Scheme
+        - Body background color antiquewhite.
+        - Game Window background color oldlace.
+        - Font and element background color red, royelBlue and green.
+    2. Typography
+        - Primary font-family: Press Start 2P with cursive as a fallback font
+        - Secondary font-family: Roboto with sans-serif as a fallback
+    3. Wireframe
+
+![Here](project_files/wireframe.jpg)
+# [&#8686;](#Top)
+## **Features**
+### **The Game** 
+`Start screen screenshot` [Here](project_files/features/desktop-home.PNG)
+- The game 
+    -  The Game Detects touch devices and sets difficulty accordingly
+    -  Responsive works on most devices(desktop, mobile)
+    -  It could be, resized, and it will recalculate the game area on the fly.
+- Select Level
+    - Player can select a difficulty level.
+    - Mobile devices starting speed is faster and one extra target to start with than for pointing enabled devices.
+### **In Game** 
+
+`In game screenshot` [here](project_files/features/desktop-ingame.PNG)
+- Score counter 
+    - Enables players to keep track of points when playing a game.
+- Speed display
+    -  Enables players to see current game speed in seconds.
+- Lives Remaining
+    - If a player misses the box target, you lose one life, but once a score of 50 has been, reached players will gain one life.
+- Black target
+    - If a player misses the target the black object will spawn instead, if clicked, ends the game altogether
+    - The black object will reset if 100 streaks are achieved
+- Game-level-Up
+    - Gain enough points in the game to enable a player to go up to a higher level.
+    - Speed and target count are increasing throughout the game.
+### **Game Information Popup** 
+
+`Info popup screenshot` [Here](project_files/features/desktop-info.PNG)
+- Game Help/instruction Pop-up
+    - Enables players to look at game instructions on how to play the game.
+### **Contact Bug report** 
+
+`Contact page screenshot` [Here](project_files/features/contact-form.PNG)  
+`Contact page screenshot submitted` [Here](project_files/features/form-after-submit.PNG)
+- Contact/Bug report form
+    - Bug report/feedback form for the user to contact if they encounter any glitches or bugs.
+### **Game Over** 
+
+`And game over screenshot` [Here](project_files/features/desktop-game-over.PNG)
+- Links back to the landing page and bug report page.
+### **Site layout features**
+![Here](project_files/features/feature.jpg)
+### **Features To implement**
+After user testing, here are some of the suggested future features to implement for the game:
+1. Randomize the target on-screen trimming
+1. Add level indicator on when it is changing.
+1. And After game stats on the game over screen
 
 # [&#8686;](#Top)
-## **Game Mechanics**
+## **Game Design Features**
+### **Game Mechanics**
 1. Game Play
     - Select a difficulty level to start the game.
     - Click or tap on target objects once they spawn.
@@ -129,10 +195,8 @@ You can view the wireframe [Here](project_files/wireframe.jpg)
     - Maximum of three lives can be gained at once.
     - If the player fails to click on a target or fails to click target on time, one game life will be deducted and the black object will spawn. 
     - Losing all lives means game over.
-# [&#8686;](#Top)
-## **Game Logic**  
-
-Game logic wireframe can be seen [Here](project_files/wireframe2.jpg)
+### **Game Logic**  
+![Here](project_files/wireframe2.jpg)
 *** 
 - Select Level
     - Added touchscreen detection, for mobile devices starting speed is faster than pointing enabled devices.
@@ -332,7 +396,7 @@ function gameProgress() {
 }
 ```
 ***
-- If a player misses the target, deduct one life and the black object will spawn instead, if clicked, ends the game altogether. Black object will resset if 100 point streak acheaved
+- If a player misses the target,  one life will be deducted and a black object will spawn instead, if clicked, ends the game altogether. Black object will resset if 100 point streak reached.
 ```javascript
 //bad targets
 function badObjects() {
@@ -352,204 +416,6 @@ function badListener() {
         stopTheGame()
     });
 } //remove bad listener
-```
-# [&#8686;](#Top)
-## **Features**
-![Here](project_files/features/feature.jpg)
-### **The Game** 
-
-`Start screen screenshot` [Here](project_files/features/desktop-home.PNG)
-- The game 
-    -  The Game Detects touch devices and sets difficulty accordingly
-    -  Responsive works on most devices(desktop, mobile)
-    -  It could be, resized, and it will recalculate the game area on the fly.
-- Select Level
-    - Player can select a difficulty level.
-    - Mobile devices starting speed is faster than pointing, and target count
-### **In Game** 
-
-`In game screenshot` [here](project_files/features/desktop-ingame.PNG)
-- Score counter 
-    - Enables players to keep track of points when playing a game.
-- Speed display
-    -  Enables players to see current game speed in seconds.
-- Lives Remaining
-    - If a player misses the box target, you lose one life, but once a score of 50 has been, reached players will gain one life.
-- Black target
-    - If a player misses the target the black object will spawn instead, if clicked, ends the game altogether
-    - The black object will reset if 100 streaks are achieved
-- Game-level-Up
-    - Gain enough points in the game to enable a player to go up to a higher level.
-    - Speed and target count are increasing throughout the game.
-### **Game Information Popup** 
-
-`Info popup screenshot` [Here](project_files/features/desktop-info.PNG)
-- Game Help/instruction Pop-up
-    - Enables players to look at game instructions on how to play the game.
-    - 
-### **Contact Bug report** 
-
-`Contact page screenshot` [Here](project_files/features/contact-form.PNG)  
-`Contact page screenshot submitted` [Here](project_files/features/form-after-submit.PNG)
-- Contact/Bug report form
-    - Bug report/feedback form for the user to contact if they encounter any glitches or bugs.
-    - 
-### **Game Over** 
-
-`And game over screenshot` [Here](project_files/features/desktop-game-over.PNG)
-- Links back to the landing page and bug report page.
-
-# [&#8686;](#Top)
-## **Features To implement**
-After user testing, here are some of the suggested future features to implement for the game:
-1. Randomize the target on-screen trimming
-1. Add level indicator on when it is changing.
-1. And After game stats on the game over screen
-
-# [&#8686;](#Top)
-## **TESTING**
-### **W3C Validation**
-  The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
-
-- [W3C Markup Validator](project_files/validation/Html-Checker.PNG)
-- [W3C CSS Validator](project_files/validation/W3C-CSS.PNG)
-### **Future Testing**
-I have tested the game on a variety of browsers such as  Chrome, Opera, Microsoft Edge, and Firefox desktop version browsers and Huawei p30 Pro chrome and android browser.
-
-I have used Chrome DevTools to Test a variety of devices such as Desktop, Laptop, iPhone7, iPhone 8 & iPhone X for responsive design.
-
-Friends and family members helped point out any bugs or issues.
-### **User Stories Testing**
-1. Information presented to understand the game rules is clear and easy to understand.
-1. The game controls are clear and easy to use..
-1. The game design is visually appealing and is user friendly.
-1. To be able to select different levels depending on player skill level is great.
-1. That the Game is available on mobile devices and or  pc's  is essential.
-1. Bug report form is easy to understand and easy to use.
-1. I have been advised to add more in-game variations, such as target timings.
-### **Solved issues or bugs**
-1. After adding a click event listener to the game window, all the children elements within the parent element were triggered.
-
-    `Solution i wound on her https://stackoverflow.com/questions/1369035/how-do-i-prevent-a-parents-onclick-event-from-firing-when-a-child-anchor-is-cli `
-```javascript
-    if (this === event.target) {
-    }
-```
-***
-2. Friends and family members pointed out that the game on Mobile devices was too slow.
-     
-     `To solve this, I have added touch device detection and for mobile devices I have added extra target and faster initial speed.`
-```javascript
-    if ('ontouchstart' in window) {
-        speed = 2800;
-        }
-    } else {
-        speed = 3000;
-    }
-```
-***
-
-3. After friends pointed out that it would be more interesting if in-game progression extra targets would spawn as you paly
-     
-     `My initial design was static targets so, To make this work, I had to redesign the target creation I used for-loop to create extra targets. And to add target listener, first listeners have to be removed then added for all squares just at the end of the set interval cycle`.
-```javascript
-// Add targets loop ndividual targets 
-function objects() {
-    for (let i = 0; i < objectCount; i++) {
-        targets[i].style.display = 'block';
-    }
-}
-
-//Add target event listeners to the targets in-game progress
-function addTargetListeners() {
-    for (let i = 0; i < objectCount; i++) {
-        targets[i].addEventListener('click', clickEvent = () => {});
-    }
-}
-//Progress multiplier
-// adds a target if set points are reached
- function gameProgress() {
-    if (progressPoints == score.innerText && objectCount <= 12) {
-        progressPoints = progressPoints + speedScore;
-        speed = speed - 200;// Substract 200ms of current speed
-        timing = speed - 100;
-        objectCount++; // adds the target
-        let listen = objectCount - 1;
-        setTimeout(() => { // adds event listeners time out 
-            targets[listen].addEventListener('click', addClickEvent = () => {
-                targets[listen].style.display = 'none';
-                scoreCount = score.innerText;
-                livesLogic();
-            });
-        }, 20);// time out is set for 20 ms
-    }
-}
-```
-***
-
-4. In landscape mode on mobile devices, some of elements were pushed out of the size of the screen.
-
-    `I have solved this by disabling some of the elements using Media query is a CSS technique.`
-```css
-@media only screen and (max-height: 530px) {
-    .elements {
-        display: none
-    }
-}
-```
-***
-5.  The issue with the progress bar no resetting in some cases and missed points not counting'
-
-  `Added missed score counter++ to the loop to count missed points and added to deduct Life function resset to 0`
-```javascript
-
-// added to timing function missed score counter++ to the loop
-            scoreMissed.innerText++;
-            scoreMissed.innerText + livesCount;
-// added to deduct Life function
-              streak2 = 0;
-              streak1 = 0;
-            livesDivElement.style.width = '0';
-```
-***
-5.  The issue with the Last life was not resetting if three targets was missed'
-
-  `Added added reset color for three lives to the stop the game function.`
-```javascript
-    lives[0].style.backgroundColor = 'oldlace';
-    lives[1].style.backgroundColor = 'oldlace';
-    lives[2].style.backgroundColor = 'oldlace';
-```
-
-***
-5.  Scorestreak counter was a delay in resetting indicator after missed target'
-
-  `Added added Scorestreak counter reset innet text to the deductLife function.`
-```javascript
-    scoreStreak.innerText = 0;
-```
-***
-6. Screen width  was extending infinetly for large monitors.
-
-  `To solve this I have dded max-width for the game window.`
-```css
-.gameWindow {
-    max-width: 1920px;
-}
-```
-***
-7. Users unable to detect if missed any target.
-
-  `I have added miss target Flash efect for user to better detect unsuccessful click attempts`
-  
-```javascript
-function missedEffect() {
-    gameWindowElement.style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
-    setTimeout(resetEffect, 20);
-    function resetEffect(){
-            gameWindowElement.style.backgroundColor = 'oldlace';
-    }  
-}
 ```
 # [&#8686;](#Top)
 ## **Technologies and Frameworks**

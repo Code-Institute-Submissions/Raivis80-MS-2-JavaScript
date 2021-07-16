@@ -11,7 +11,7 @@ html {
 
 .gameWindow {
     box-sizing: border-box;
-    background-color: oldlace;
+    background-color: #fdf5e6;
     position: absolute;
     width: 98vw;
     max-width: 1920px;
@@ -427,7 +427,7 @@ html {
     position: absolute;
     bottom: -100%;
     left: 50%;
-    transform: translate(-50%, -15%);
+    transform: translate(-50%, -20%);
     z-index: 3;
     background-color: rgba(250, 235, 215, .9);
     padding: 0 12px;
@@ -459,17 +459,6 @@ li {
     font-family: 'Press Start 2P', cursive;
 }
 
-#close_i {
-    margin: 0;
-    font-size: 1.5rem;
-    width: 100%;
-    text-align: right;
-    color: green;
-}
-
-#close_i:hover i {
-    cursor: pointer;
-}
 
 .spacer1 {
     height: 2rem;
@@ -492,11 +481,13 @@ li {
     }
 }
 
-@media only screen and (max-height: 727px) {
-
+/* Landscape for mobile */
+@media only screen and (max-height: 600px) {
+    .game_help {
+        transform: translate(-50%, 0%);
+    }
 }
 
-/* Landscape for mobile */
 @media only screen and (max-height: 530px) {
     .game_help {
         transform: translate(-50%, 5%);

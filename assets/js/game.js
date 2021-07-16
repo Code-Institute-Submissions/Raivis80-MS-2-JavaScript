@@ -77,90 +77,6 @@ window.onload = function () {
     });
 };
 
-//--------------------------HELP--INFO-POP-Up------------------------------------|
-const helpElement = document.getElementById('help');
-helpElement.style.display = 'none'
-
-function infoPopout() {
-
-    const gameHelp = document.getElementById('game_help');
-    document.getElementById('info').style.display = 'none';
-    helpElement.style.display = 'flex';
-    gameHelp.style.display = 'block';
-    setTimeout(function () {
-        helpElement.style.transition = 'margin-top 1s cubic-bezier(.36,1.27,1,.49)';
-        helpElement.style.marginTop = '290px';
-        gameHelp.style.transition = 'bottom 1s cubic-bezier(.36,1.27,1,.49)';
-        gameHelp.style.bottom = '8%';
-    }, 100);
-    document.getElementById('close_i').addEventListener('click', removeI = () => {
-        document.getElementById('info').style.display = 'block';
-        helpElement.style.marginTop = '0px';
-        gameHelp.style.bottom = '-100%';
-
-        setTimeout(function () {
-            helpElement.style.display = 'none';
-            gameHelp.style.display = 'none';
-            document.getElementById('close_i').removeEventListener('click', removeI)
-        }, 500);
-    });
-}
-
-//-------------------------------CONTACT PAGE-------------------------------------|
-const contactWindow = document.getElementById('contact_window');
-contactWindow.style.display = 'none';
-
-function contactPage() {
-    document.getElementById('form');
-    const formChild2 = document.getElementById('contact_window').children[1];
-    const formChild3 = document.getElementById('contact_window').children[2];
-    document.getElementById('button2').addEventListener('click', pageReload1);
-    contactWindow.style.display = 'flex';
-    setTimeout(setTimeout1, 100);
-    //setTimeout for page load styling
-    function setTimeout1() {
-        formChild2.style.margin = '0%';
-        formChild3.style.margin = '0%';
-        startGameElement.style.display = 'none';
-        gameOverElement.style.display = 'none';
-    };
-}
-//-CONTACT FORM--API--emailjs.com
-// Some of emailjs API code is reused of Code Institute Resume project 
-// Added message element and clear form after sent
-function sendMail(contactForm) {
-
-    emailjs.send("gmail", "game", {
-            "from_name": contactForm.name.value,
-            "from_email": contactForm.emailaddress.value,
-            "Game_bug_report": contactForm.gameBugReport.value
-        })
-        .then(
-            function (response) {
-                console.log("SUCCESS", response);
-                // Added alert mesaage after successfull delivery
-                document.getElementById('submit_alert').setAttribute("class", "submit_alert border");
-                document.getElementById('submit_alert').innerHTML = `<p>${contactForm.name.value}. 
-                Your message has been sent successfully. <span style="color: #555">"${contactForm.gameBugReport.value}"</span> Thank You! </p>`;
-                //Change submit lolout for user to see if this was sent
-                document.getElementById('submit').style.backgroundColor = 'rgb(153, 153, 17)';
-                // Reset alert message after 6 seconds
-                setTimeout(alertOff, 6000);
-                document.getElementById('form').reset();
-                // Alert reset function
-                function alertOff() {
-                    document.getElementById('submit_alert').setAttribute("class", "");
-                    document.getElementById('submit_alert').innerHTML = '';
-                }
-            },
-            function (error) {
-                alert('Your Failed to sent. Please check your details. Thank you...')
-                console.log("FAILED", error);
-            }
-        );
-    return false;
-}
-
 // -----------------------------TARGETS-------------------------------------------|
 // getting width and height numbers based on the screen size.
 // Passing width and height numbers into a random number generator to
@@ -213,7 +129,6 @@ function badObjects() {
 // bad listeners
 function badListener() {
     badCount++;
-    console.log(bad.length, badCount)
     bad[badCount - 1].addEventListener('click', clickEvent = () => {
         stopTheGame()
     });
@@ -514,11 +429,9 @@ function levelH() {
     function timingF() {
         objects();
         badObjects(badCount)
-        console.log(badCount)
         setTimeout(timigFunction, timing);
     }
 }
-
 
 //-------------------------------- STOP THE GAME----------------------------------|
 const gameOverElement = document.getElementById('game-over');
