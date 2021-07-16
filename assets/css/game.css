@@ -427,7 +427,7 @@ html {
     position: absolute;
     bottom: -100%;
     left: 50%;
-    transform: translate(-50%, -20%);
+    transform: translate(-50%, -15%);
     z-index: 3;
     background-color: rgba(250, 235, 215, .9);
     padding: 0 12px;
@@ -437,7 +437,7 @@ ol,
 li {
     border-bottom: 1px solid rgb(218, 206, 182);
     font-weight: 600;
-    line-height: 1.5rem;
+    line-height: 1.2rem;
     padding-left: 15px;
 }
 
