@@ -147,7 +147,7 @@ The game needs enable player to:
     - If a player misses the target the black object will spawn instead, if clicked, ends the game altogether
     - The black object will reset if 100 streaks are achieved
 - Game-level-Up
-    - Gain enough points in the game to enable a player to go up to a higher level.
+    - Gain 200p points in the game to enable a player to go up to a higher level.
     - Speed and target count are increasing throughout the game.
 ### **Game Information Popup** 
 
@@ -205,7 +205,7 @@ After user testing, here are some of the suggested future features to implement 
     - Levels for PC's devices  = "Easy" Start with two targets, "Medium" start with three targets "Hard" start with four targets.
         - Level target count and speed could be set in the game.js file 
 
-Detect touch devices & add one extra target for touch-enabled devices & and set speed 
+Following is to detect touch devices & add one extra target for touch-enabled devices & and set speed 
 ```JavaScript 
 if ('ontouchstart' in window) { //<-Detect Touch devices
          speed = 2800; // <-Set game starting speed and everything else will change dynamically
@@ -282,29 +282,40 @@ function targetSetup() {
 
 ```
 ***
-- Create an event listener for the game window to record unsuccessful clicks. 
+- The Following is to detect unsuccessful clicks. I have added an event listener for the game window to record missed clicks, and I have added a flash effect for visual warning.
 ```JavaScript
-//Detects clicks in game area and counts as miss 
+//miss target Flash efect
+function missedEffect() {
+    gameWindowElement.style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
+    setTimeout(resetEffect, 20);
+
+    function resetEffect() {
+        gameWindowElement.style.backgroundColor = 'oldlace';
+    }
+}
+
+// detect game window clicks
 function gameWindow() {
     // Game window mousedown listener
-    gameWindowElement.addEventListener('mousedown', detectWindowEvents);
+    gameWindowElement.addEventListener('click', detectWindowEvents);
+
     function detectWindowEvents(event) {
         //Prevent click event trigger on child elements.                                    
         if (this === event.target) {
+            missedEffect();
             clicks = 0;
             streak2 = 0;
             streak1 = 0;
             livesCount--;
+            badListener()
             scoreMissed.innerText++;
             countDifference();
             deductLife()
             livesDivElement.style.width = '0';
-            this.style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
+            gameWindowElement.style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
         };
     };
-    gameWindowElement.addEventListener('mouseup', function () {
-        this.style.backgroundColor = 'oldlace';
-    });
+
 }
 
 ```
@@ -329,19 +340,36 @@ function timigFunction() {
     console.log(livesCount)
     notClick = 0;
 }
-
-// Deduct life/lives if missed target/s
+```
+***
+- The following is the logic to Deduct life/lives if missed target/s 
+```javascript
+// Deduct one life if the target is missed
 function deductLife() {
     if (livesCount == 2) {
+        missedEffect();
         lives[0].style.backgroundColor = 'oldlace';
+        livesDivElement.style.width = '0'
+        clicks = 0;
+        difference = 0;
+        scoreStreak.innerText = 0;
+        streak2 = 0;
+        streak1 = 0;
+
     } else if (livesCount == 1) {
+        missedEffect();
         lives[0].style.backgroundColor = 'oldlace';
         lives[1].style.backgroundColor = 'oldlace';
+        livesDivElement.style.width = '0';
+        clicks = 0;
+        difference = 0;
+        scoreStreak.innerText = 0;
+        streak2 = 0;
+        streak1 = 0;
+
     } else if (livesCount <= 0) {
-        lives[0].style.backgroundColor = 'oldlace';
-        lives[1].style.backgroundColor = 'oldlace';
-        lives[2].style.backgroundColor = 'oldlace';
-        stopTheGame();
+        missedEffect();
+        setTimeout(stopTheGame, 30);
     }
 }
 ```
