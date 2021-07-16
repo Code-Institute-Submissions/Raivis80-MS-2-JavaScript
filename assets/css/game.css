@@ -493,9 +493,7 @@ li {
 }
 
 @media only screen and (max-height: 727px) {
-    .game_help {
-        transform: translate(-50%, -0%);
-    }
+
 }
 
 /* Landscape for mobile */
