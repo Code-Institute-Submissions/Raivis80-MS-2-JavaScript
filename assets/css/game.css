@@ -459,11 +459,9 @@ li {
     font-family: 'Press Start 2P', cursive;
 }
 
-
 .spacer1 {
     height: 2rem;
 }
-
 
 /*-----mobile breakpoints-------*/
 @media only screen and (max-width: 500px) {
@@ -528,7 +526,7 @@ li {
 
     #new_game_btn {
         display: block;
-        
+
     }
 
 }

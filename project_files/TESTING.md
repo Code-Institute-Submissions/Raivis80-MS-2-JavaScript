@@ -3,8 +3,10 @@
 ### Table of contents
 1. [W3C Validation](#W3C-Validation)
 1. [User Stories Testing](#User-Stories-Testing)
+    - [User suggestions](#User-suggestions)
 1. [Future Testing](#Future-Testing)
 1. [Solved issues or bugs](#Solved-issues-or-bugs)
+1. [Back to Readme.md](../README.md)
 
 ### **W3C Validation**
   The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
@@ -22,6 +24,7 @@
 1. That the Game is available on mobile devices and or  pc's  is essential.
 1. Bug report form is easy to understand and easy to use.
 
+- **User suggestions**
 The following is added user suggested features after user testing
 
 The user suggested having the game running faster on mobile devices as it was too slow but fast enough for larger screens.

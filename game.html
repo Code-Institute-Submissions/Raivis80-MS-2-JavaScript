@@ -25,6 +25,7 @@
 </head>
 
 <body>
+    <!-- navigation -->
     <div class="nav" id="nav">
         <div id="score_counter">
             <p class="score score1 border">0</p>
@@ -47,8 +48,9 @@
             </div>
         </div>
     </div>
-
+    <!-- game window -->
     <div class="gameWindow" id="game_window">
+        <!-- bad objects -->
         <div class="bad"></div>
         <div class="bad"></div>
         <div class="bad"></div>
@@ -61,6 +63,7 @@
         <div class="bad"></div>
         <div class="bad"></div>
         <div class="bad"></div>
+        <!-- targets -->
         <div class="target"></div>
         <div class="target"></div>
         <div class="target"></div>
@@ -73,6 +76,7 @@
         <div class="target"></div>
         <div class="target"></div>
         <div class="target"></div>
+        <!-- help popup top-->
         <div id="help" class="help_div">
             <div class="border help score_help">
                 <i class="pointer fas fa-hand-point-up"></i>
@@ -91,7 +95,7 @@
                 <p style="color: green;">Game Lives</p>
             </div>
         </div>
-
+        <!-- Front page -->
         <div id="start_game" class="start_game">
 
             <div class="spacer1">
@@ -104,7 +108,7 @@
             <div class="selectP_div slide_left">
                 <p class="selectP">Select</p>
             </div>
-
+            <!-- sellect levels -->
             <div id="select_level" class="slide_right">
                 <div class="level buttons">
                     <div class="l1"></div>
@@ -122,7 +126,7 @@
                     <div class="l1 none"></div>
                 </div>
             </div>
-
+            <!-- contact burron -->
             <div class="slide_left">
                 <h3 id="contact_button" class="contact_button buttons">
                     <i style="color: green" class="fas fa-envelope"></i> Contact | Report a bug <i style="color: red"
@@ -130,11 +134,12 @@
             </div>
 
         </div>
-
+        <!-- contact page -->
         <div id="contact_window" class="contact_window">
             <div id="submit_alert" class='spacer'></div>
             <div class="form border slide_up">
                 <h1 class="contact_title">Report a bug</h1>
+                <!-- contact form -->
                 <div class="center-form">
                     <form id="form" onsubmit="return sendMail(this);">
                         <input type="text" name="name" class="form-control" id="fullname" placeholder="Name:"
@@ -147,26 +152,30 @@
                     </form>
                 </div>
             </div>
+            <!-- new game button in contacts -->
             <div class="contact_play_new ">
                 <h3 id="button2" class="contact_button buttons slideUp">Play New Game</h3>
             </div>
 
         </div>
+        <!-- game over page -->
         <div id="game-over" class="game-over">
             <div class="spacer"></div>
             <div class="game_over_block slide_up">
                 <h1 class="game_over_title">Game Over</h1>
                 <div class="game_over_btn1">
+                    <!-- new game button in game over page -->
                     <h3 class="buttons contact_button" id="new_game_btn">Start New Game</h3>
                 </div>
             </div>
+            <!-- contact button in game over page -->
             <div class="game_over_btn2">
                 <h3 class="contact_button2  contact_button buttons" id="contact_button2">
                     <i style="color: green" class="fas fa-envelope"></i> Contact | Report a bug <i style="color: red"
                         class="fas fa-bug"></i></h3>
             </div>
         </div>
-
+        <!-- bottom help popup -->
         <div id="game_help" class="border game_help">
             <h3>Game rules</h3>
             <ol>
@@ -184,7 +193,6 @@
             </ol>
             <h4>Have fun playing the game.</h4>
         </div>
-
     </div>
     <script src="assets/js/emailjs.js"></script>
     <script src="assets/js/help.js"></script>
