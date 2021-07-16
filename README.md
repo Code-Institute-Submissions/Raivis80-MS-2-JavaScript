@@ -112,6 +112,8 @@ You can view the wireframe [Here](project_files/wireframe.jpg)
 1. Game Play
     - Select a difficulty level to start the game.
     - Click or tap on target objects once they spawn.
+    - As you progress in the game, target count will increase along with speed
+    - If a player misses the target, the black object will spawn instead, if clicked, ends the game altogether
 1. Select Level 
     - Touch-enabled devices start with higher speed.
     - Levels for mobile devices  = "Easy" Start with one target, "Medium" start with two targets "Hard" start with three targets.
@@ -125,7 +127,7 @@ You can view the wireframe [Here](project_files/wireframe.jpg)
     - The game starts with three lives.
     - One game life is gained every 50 score points. 
     - Maximum of three lives can be gained at once.
-    - If the player fails to click on a target or fails to click target on time,  one game life will be deducted. 
+    - If the player fails to click on a target or fails to click target on time, one game life will be deducted and the black object will spawn. 
     - Losing all lives means game over.
 # [&#8686;](#Top)
 ## **Game Logic**  
@@ -235,7 +237,6 @@ function gameWindow() {
             this.style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
         };
     };
-
     gameWindowElement.addEventListener('mouseup', function () {
         this.style.backgroundColor = 'oldlace';
     });
@@ -302,6 +303,7 @@ function levelH(speed) {
     }
 }
 ```
+***
 - Game Progress levels
     - Speed will increase over, course of the game. 
     - Target count will increase over, course of the game.
@@ -328,6 +330,28 @@ function gameProgress() {
         }, 20);
     }
 }
+```
+***
+- If a player misses the target, deduct one life and the black object will spawn instead, if clicked, ends the game altogether. Black object will resset if 100 point streak acheaved
+```javascript
+//bad targets
+function badObjects() {
+    for (let i = 0; i < badCount; i++) {
+        posotioning();
+        bad[i].style.display = 'block';
+        bad[i].style.left = x;
+        bad[i].style.top = y;
+        bad[i].style.backgroundColor = 'black';
+    }
+}
+// bad listeners
+function badListener() {
+    badCount++;
+    console.log(bad.length, badCount)
+    bad[badCount - 1].addEventListener('click', clickEvent = () => {
+        stopTheGame()
+    });
+} //remove bad listener
 ```
 # [&#8686;](#Top)
 ## **Features**
@@ -376,7 +400,6 @@ function gameProgress() {
 ## **Features To implement**
 After user testing, here are some of the suggested future features to implement for the game:
 1. Randomize the target on-screen trimming
-1. Add random rogue objects in the game, so that clicked the game will end
 1. Add level indicator on when it is changing.
 1. And After game stats on the game over screen
 
@@ -488,11 +511,42 @@ function addTargetListeners() {
 ***
 5.  The issue with the Last life was not resetting if three targets was missed'
 
-  `Added added resset color for three lives to the stop the game funcrion.`
+  `Added added reset color for three lives to the stop the game function.`
 ```javascript
     lives[0].style.backgroundColor = 'oldlace';
     lives[1].style.backgroundColor = 'oldlace';
     lives[2].style.backgroundColor = 'oldlace';
+```
+
+***
+5.  Scorestreak counter was a delay in resetting indicator after missed target'
+
+  `Added added Scorestreak counter reset innet text to the deductLife function.`
+```javascript
+    scoreStreak.innerText = 0;
+```
+***
+6. Screen width  was extending infinetly for large monitors.
+
+  `To solve this I have dded max-width for the game window.`
+```css
+.gameWindow {
+    max-width: 1920px;
+}
+```
+***
+7. Users unable to detect if missed any target.
+
+  `I have added miss target Flash efect for user to better detect unsuccessful click attempts`
+  
+```javascript
+function missedEffect() {
+    gameWindowElement.style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
+    setTimeout(resetEffect, 20);
+    function resetEffect(){
+            gameWindowElement.style.backgroundColor = 'oldlace';
+    }  
+}
 ```
 # [&#8686;](#Top)
 ## **Technologies and Frameworks**
@@ -548,12 +602,11 @@ You can clone reposetory. When you clone repository, you copy repository to your
 #### **Thanks To:**
 -  [google.com](https://google.com/): Search for anything.
 -  [stackoverflow.com](https://stackoverflow.com/): Useful website for code tips.
--  [www.w3schools](https://www.w3schools.com/): Examples of how to use HTML, CSS, JavaScript.
+-  [www.w3schools.com](https://www.w3schools.com/): Examples of how to use HTML, CSS, JavaScript.
 -  [developer.mozilla.org](https://developer.mozilla.org/): Examples of how to use HTML, CSS, JavaScript.
 -  [css-tricks.com](https://css-tricks.com/): Useful CSS styling tips.
 -  [developer.mozilla.org](https://developer.mozilla.org/):Used to source how to use JavaScript.
 ### **Acknowledgements**
 - A huge thanks to Owonikoko Oluwaseun, My Mentor for, continuous support and inspire me to push myself beyond where I think I can go.
 - Tutor support at Code Institute for their support.
-
 # [&#8686;](#Top)
