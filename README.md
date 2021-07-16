@@ -160,6 +160,7 @@ The game needs enable player to:
 `Contact page screenshot submitted` [Here](project_files/features/form-after-submit.PNG)
 - Contact/Bug report form
     - Bug report/feedback form for the user to contact if they encounter any glitches or bugs.
+    - Enabled emailJS auto-reply to automatically send a reply to the user who submitted the email request
 ### **Game Over** 
 
 `And game over screenshot` [Here](project_files/features/desktop-game-over.PNG)

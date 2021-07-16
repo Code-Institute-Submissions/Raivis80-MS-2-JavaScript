@@ -37,7 +37,10 @@ The user suggested having obstacles in the game that would make the game more ch
 - `And to make the game more exciting, I have added a black object to play that If a player misses the target,  one life will be deducted and a black object will spawn instead, if clicked, ends the game altogether. Black object will resset if 100 point streak reached.`
 
 The user suggested reducing display size as for extra-large screens, the game area is too large
-`To solve this, I have added CSS property max-width for the game window`
+- `To solve this, I have added CSS property max-width for the game window`
+
+The user suggested adding an automatic reply to a bug report.
+`I have Enabled emailJS auto-reply to automatically send a reply to the user who submitted the email request.`
 
 # [&#8686;](#Testing)
 [Back to Readme.md](../README.md)
