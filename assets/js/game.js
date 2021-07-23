@@ -23,6 +23,8 @@ let cubes = document.getElementsByClassName('none');
 //This number must divide evenly with 100----|
 //_______How many points for one life________|
 pointsForLife = 50;
+//Remove Black target at 100 scorestreak points
+let removeBad = 100;
 //____Every time progress number of points have been reached___|
 //Speed will increase and will add one target|
 let progressPoints = 200;
@@ -115,6 +117,7 @@ function objects() {
         targets[i].style.backgroundColor = randColor;
     }
 }
+
 let badCount = 0;
 //bad targets
 function badObjects() {
@@ -147,7 +150,7 @@ function targetSetup() {
             targets[i].style.display = 'none';
             scoreCount = score.innerText;
             livesLogic();
-        })
+        });             
     }
 }
 
@@ -210,7 +213,7 @@ function countDifference(windowClick) {
     };
 
 }
-let removeBad = 100;
+
 //Count target clicks
 function livesLogic() {
     speedElement.children[0].innerText = `${speed  / 1000}s`;
@@ -222,12 +225,15 @@ function livesLogic() {
     countHighScore();
     countDifference();
     gameProgress();
-    if (removeBad == scoreStreak.innerText ||
-        removeBad * 2 == scoreStreak.innerText ||
-        removeBad * 3 == scoreStreak.innerText ||
-        removeBad * 4 == scoreStreak.innerText ||
-        removeBad * 5 == scoreStreak.innerText) {
-        removeBadListener();
+    //Remove black object every 100 scorestreak points
+    if (badCount > 0) {
+        if (removeBad == scoreStreak.innerText ||
+            removeBad * 2 == scoreStreak.innerText ||
+            removeBad * 3 == scoreStreak.innerText ||
+            removeBad * 4 == scoreStreak.innerText ||
+            removeBad * 5 == scoreStreak.innerText) {
+            removeBadListener();
+        }
     }
 }
 //miss target Flash efect
@@ -259,8 +265,8 @@ function gameWindow() {
             livesCount--;
             badListener()
             scoreMissed.innerText++;
+            deductLife();
             countDifference();
-            deductLife()
             livesDivElement.style.width = '0';
             gameWindowElement.style.backgroundColor = 'rgba(255, 0, 0, 0.2)';
         };

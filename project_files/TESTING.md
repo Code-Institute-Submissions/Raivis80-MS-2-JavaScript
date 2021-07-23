@@ -177,5 +177,18 @@ function missedEffect() {
     }  
 }
 ```
+***
+8. JavasCript `TypeError: Cannot read property 'style' of undefined`. 
+One of the game mechanics is that, If a player misses one target, the black object will spawn. This object is supposed to remove once every 100 high score points. 
+
+I missed that if a player reaches 100 high score points without losing a game life, the game will try to remove the object that was not present in the game and therefore the  generated two TypeError of undefined on lines 132 and 138 
+
+`I have added a simple if statement to check if any objects were present in the game before processing the rest of the code.`
+
+``
+    if (badCount > 0) {
+        }
+    }
+```
 # [&#8686;](#Testing)
 [Back to Readme.md](../README.md)
